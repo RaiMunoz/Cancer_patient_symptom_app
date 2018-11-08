@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'placeholder_widget.dart';
-
 import 'add_diary_entry_widget.dart';
 
 class Home extends StatefulWidget {
@@ -66,8 +65,6 @@ class _HomeState extends State<Home> {
   }
 }
 
-
-
 class AddInformation extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -90,7 +87,7 @@ class AddInformation extends StatelessWidget {
                       ),
                       color: Colors.lightBlue[400],
                       onPressed: (){Navigator.push(
-                        context, MaterialPageRoute(builder: (context) => new PlaceholderWidget(Colors.purple)),
+                        context, MaterialPageRoute(builder: (context) => AddSymptomsWidget()),
                       );
                       },
                     )
@@ -102,7 +99,9 @@ class AddInformation extends StatelessWidget {
                           style: DefaultTextStyle.of(context).style.apply(fontSizeFactor: 2.5)
                       ),
                       color: Colors.lightBlue[400],
-                      onPressed: (){},
+                      onPressed: (){Navigator.push(
+                        context, MaterialPageRoute(builder: (context) => AddMedicationsWidget()),
+                      );}
                     )
                 ),
                 Container(
@@ -132,7 +131,9 @@ class AddInformation extends StatelessWidget {
                           style: DefaultTextStyle.of(context).style.apply(fontSizeFactor: 2.5)
                       ),
                       color: Colors.lightBlue[400],
-                      onPressed: (){},
+                      onPressed: (){Navigator.push(
+                        context, MaterialPageRoute(builder: (context) => AddSleepWidget()),
+                      );}
                     )
                 ),
               ],

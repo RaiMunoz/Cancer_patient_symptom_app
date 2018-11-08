@@ -20,23 +20,28 @@ class TextEntry extends StatelessWidget {
 class AddSymptomsWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: const EdgeInsets.all(60.0),
-      child: Center(
-        child: Column(
-          children: [
-            Text(
-              'Symptom Log',
-              style: DefaultTextStyle.of(context).style.apply(fontSizeFactor: 2.0),
+    return Scaffold(
+        body: Container(
+          margin: const EdgeInsets.all(60.0),
+          child: Center(
+            child: Column(
+              children: [
+                Text(
+                    'Symptom Log',
+                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 30.0)
+                ),
+                Padding(
+                  padding: EdgeInsetsDirectional.only(top: 40.0),
+                  child: Text('What symptoms are you experiencing today?'),
+                ),
+                TextEntry('Symptom', 60.0),
+                TextEntry('Symptom', 40.0),
+                TextEntry('Symptom', 40.0),
+                TextEntry('Symptom', 40.0),
+              ],
             ),
-            Text('What symptoms have you experienced today?'),
-            TextEntry('Symptom', 60.0),
-            TextEntry('Symptom', 40.0),
-            TextEntry('Symptom', 40.0),
-            TextEntry('Symptom', 40.0),
-          ],
-        ),
-      ),
+          ),
+        )
     );
   }
 }
@@ -44,23 +49,28 @@ class AddSymptomsWidget extends StatelessWidget {
 class AddMedicationsWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: const EdgeInsets.all(60.0),
-      child: Center(
-        child: Column(
-          children: [
-            Text(
-              'Medication Log',
-              style: DefaultTextStyle.of(context).style.apply(fontSizeFactor: 2.0),
-            ),
-            Text('What medications have you taken today?'),
-            TextEntry('Medication', 60.0),
-            TextEntry('Medication', 40.0),
-            TextEntry('Medication', 40.0),
-            TextEntry('Medication', 40.0),
-          ],
+    return Scaffold(
+      body: Container(
+        margin: const EdgeInsets.all(60.0),
+        child: Center(
+          child: Column(
+            children: [
+              Text(
+                  'Medication Log',
+                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 30.0)
+              ),
+              Padding(
+                padding: EdgeInsetsDirectional.only(top: 40.0),
+                child: Text('What medications have you taken today?'),
+              ),
+              TextEntry('Medication', 60.0),
+              TextEntry('Medication', 40.0),
+              TextEntry('Medication', 40.0),
+              TextEntry('Medication', 40.0),
+            ],
+          ),
         ),
-      ),
+      )
     );
   }
 }
@@ -68,22 +78,25 @@ class AddMedicationsWidget extends StatelessWidget {
 class AddSleepWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: const EdgeInsets.all(60.0),
-      child: Center(
-        child: Column(
-          children: [
-            Text(
-              'Sleep Log',
-              style: DefaultTextStyle.of(context).style.apply(fontSizeFactor: 2.0),
+    return Scaffold(
+        body: Container(
+          margin: EdgeInsets.symmetric(horizontal: 100.0, vertical: 150.0),
+          child: Center(
+            child: Column(
+              children: [
+                Text(
+                  'Sleep Log',
+                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 30.0)
+                ),
+                Padding(
+                  padding: EdgeInsetsDirectional.only(top: 40.0),
+                  child: Text('How much did you sleep last night?'),
+                ),
+                TextEntry('hours', 60.0),
+              ],
             ),
-            Text(
-              'How much did you sleep last night?'
-            ),
-            TextEntry('hours', 60.0),
-          ],
-        ),
-      ),
+          ),
+        )
     );
   }
 }
