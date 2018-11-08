@@ -24,8 +24,8 @@ class AddSymptomsWidget extends StatelessWidget {
         body: Container(
           margin: const EdgeInsets.all(60.0),
           child: Center(
-            child: Column(
-              children: [
+            child: ListView(
+              children: <Widget>[
                 Text(
                     'Symptom Log',
                     style: TextStyle(fontWeight: FontWeight.bold, fontSize: 30.0)
@@ -53,8 +53,8 @@ class AddMedicationsWidget extends StatelessWidget {
       body: Container(
         margin: const EdgeInsets.all(60.0),
         child: Center(
-          child: Column(
-            children: [
+          child: ListView(
+            children: <Widget>[
               Text(
                   'Medication Log',
                   style: TextStyle(fontWeight: FontWeight.bold, fontSize: 30.0)
@@ -67,7 +67,7 @@ class AddMedicationsWidget extends StatelessWidget {
               TextEntry('Medication', 40.0),
               TextEntry('Medication', 40.0),
               TextEntry('Medication', 40.0),
-            ],
+            ]
           ),
         ),
       )
