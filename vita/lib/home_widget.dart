@@ -68,13 +68,21 @@ class _HomePageState extends State<HomePage> {
 class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Container (
-      color: Colors.grey[300],
-      child: Column (
+    return Scaffold (
+      backgroundColor: Colors.grey[300],
+
+      body: Column (
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Padding(
-            padding: EdgeInsets.only(top: 55.0),
+            padding: EdgeInsets.only(top: 15.0, left: 325.0),
+            child: FloatingActionButton(
+              child: Icon(Icons.person),
+              onPressed: () {}, // will go to profile widget
+            ),
+          ),
+          Padding(
+            padding: EdgeInsets.only(top: 8.0),
             child: Text(
               'Vita',
               style: TextStyle(
@@ -85,7 +93,7 @@ class Home extends StatelessWidget {
             ),
           ),
           Padding(
-            padding: EdgeInsets.only(top: 55.0),
+            padding: EdgeInsets.only(top: 40.0),
             child: Text(
                 'Hi Beth.\nCheck out some highlights.',
                 textAlign: TextAlign.center,
