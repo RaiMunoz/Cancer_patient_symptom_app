@@ -50,7 +50,7 @@ class DiaryButton extends StatelessWidget {
           shape: RoundedRectangleBorder(borderRadius: new BorderRadius.circular(15.0)),
           color: Colors.teal[600],
           elevation: 6.0,
-          onPressed: (){},
+          onPressed: action,
         )
     );
   }
