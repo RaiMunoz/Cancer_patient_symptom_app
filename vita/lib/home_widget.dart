@@ -9,6 +9,28 @@ class HomePage extends StatefulWidget {
   }
 }
 
+class HighlightReminder extends StatelessWidget {
+  final Widget icon;
+  final String text;
+
+  HighlightReminder(this.icon, this.text);
+
+  @override
+  Widget build(context) {
+    return Padding(
+      child: RaisedButton.icon(
+        icon: icon,
+        label: Text(text),
+        shape: RoundedRectangleBorder(borderRadius: new BorderRadius.circular(30.0)),
+        disabledColor: Colors.blueGrey[400],
+        disabledTextColor: Colors.white,
+        onPressed: null,
+      ),
+      padding: EdgeInsets.symmetric(horizontal: 5),
+    );
+  }
+}
+
 class _HomePageState extends State<HomePage> {
   int _currentIndex = 0;
   final List<Widget> _children = [
@@ -100,7 +122,7 @@ class Home extends StatelessWidget {
                 style: TextStyle(fontSize: 18.0),
             ),
           ),
-          Padding( // start highlights
+          Padding(
             padding: EdgeInsets.only(top: 20.0),
             child: Container(
               padding: EdgeInsets.symmetric(horizontal: 10.0),
@@ -108,43 +130,13 @@ class Home extends StatelessWidget {
               child: ListView(
                 scrollDirection: Axis.horizontal,
                 children: <Widget>[
-                  Padding(
-                    child: RaisedButton.icon(
-                      icon: Icon(Icons.directions_run),
-                      label: Text('Walked 5 miles'),
-                      shape: RoundedRectangleBorder(borderRadius: new BorderRadius.circular(30.0)),
-                      disabledColor: Colors.blueGrey[400],
-                      disabledTextColor: Colors.white,
-                      onPressed: null,
-                    ),
-                    padding: EdgeInsets.symmetric(horizontal: 5),
-                  ),
-                  Padding(
-                    child: RaisedButton.icon(
-                      icon: Icon(Icons.restaurant),
-                      label: Text('Cooked a meal'),
-                      shape: RoundedRectangleBorder(borderRadius: new BorderRadius.circular(30.0)),
-                      disabledColor: Colors.blueGrey[400],
-                      disabledTextColor: Colors.white,
-                      onPressed: null,
-                    ),
-                    padding: EdgeInsets.symmetric(horizontal: 5),
-                  ),
-                  Padding(
-                    child: RaisedButton.icon(
-                      icon: Icon(Icons.local_florist),
-                      label: Text('Went to the park'),
-                      shape: RoundedRectangleBorder(borderRadius: new BorderRadius.circular(30.0)),
-                      disabledColor: Colors.blueGrey[400],
-                      disabledTextColor: Colors.white,
-                      onPressed: null,
-                    ),
-                    padding: EdgeInsets.symmetric(horizontal: 5),
-                  ),
+                  HighlightReminder(Icon(Icons.directions_run), 'Walked 5 miles'),
+                  HighlightReminder(Icon(Icons.restaurant), 'Cooked a meal'),
+                  HighlightReminder(Icon(Icons.local_florist), 'Went to the park'),
                 ],
               ),
             ),
-          ), // end highlights
+          ),
           Padding(
             padding: EdgeInsets.only(top: 35.0),
             child: Text(
@@ -152,7 +144,7 @@ class Home extends StatelessWidget {
               style: TextStyle(fontSize: 18.0),
             ),
           ),
-          Padding( // start reminders
+          Padding(
             padding: EdgeInsets.only(top: 20.0),
             child: Container(
               padding: EdgeInsets.symmetric(horizontal: 10.0),
@@ -160,32 +152,12 @@ class Home extends StatelessWidget {
               child: ListView(
                 scrollDirection: Axis.horizontal,
                 children: <Widget>[
-                  Padding(
-                    child: RaisedButton.icon(
-                      icon: Icon(Icons.priority_high),
-                      label: Text('Take Cytoxan'),
-                      shape: RoundedRectangleBorder(borderRadius: new BorderRadius.circular(30.0)),
-                      disabledColor: Colors.blueGrey[400],
-                      disabledTextColor: Colors.white,
-                      onPressed: null,
-                    ),
-                    padding: EdgeInsets.symmetric(horizontal: 5),
-                  ),
-                  Padding(
-                    child: RaisedButton.icon(
-                      icon: Icon(Icons.phone),
-                      label: Text('Call Dr. Hilton'),
-                      shape: RoundedRectangleBorder(borderRadius: new BorderRadius.circular(30.0)),
-                      disabledColor: Colors.blueGrey[400],
-                      disabledTextColor: Colors.white,
-                      onPressed: null,
-                    ),
-                    padding: EdgeInsets.symmetric(horizontal: 5),
-                  ),
+                  HighlightReminder(Icon(Icons.priority_high), 'Take Cytoxan'),
+                  HighlightReminder(Icon(Icons.phone), 'Call Dr. Hilton'),
                 ],
               ),
             ),
-          ), // end reminders
+          ),
         ],
       ),
     );
@@ -197,6 +169,7 @@ class AddInformation extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.all(5.0),
+      color: Colors.teal[200],
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
