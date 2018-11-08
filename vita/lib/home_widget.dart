@@ -31,6 +31,31 @@ class HighlightReminder extends StatelessWidget {
   }
 }
 
+class DiaryButton extends StatelessWidget {
+  final String title;
+  final VoidCallback action;
+
+  DiaryButton(this.title, this.action);
+
+  @override
+  Widget build(context) {
+    return Container(
+        padding: const EdgeInsets.only(bottom: 15.0),
+        height: 80.0,
+        child: RaisedButton(
+          child: Text(title,
+            //style: DefaultTextStyle.of(context).style.apply(fontSizeFactor: 2.5),
+            style: TextStyle(fontSize: 25.0, color: Colors.white),
+          ),
+          shape: RoundedRectangleBorder(borderRadius: new BorderRadius.circular(15.0)),
+          color: Colors.teal[600],
+          elevation: 6.0,
+          onPressed: (){},
+        )
+    );
+  }
+}
+
 class _HomePageState extends State<HomePage> {
   int _currentIndex = 0;
   final List<Widget> _children = [
@@ -168,7 +193,7 @@ class AddInformation extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.all(5.0),
+      padding: const EdgeInsets.symmetric(horizontal: 25.0),
       color: Colors.teal[200],
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.center,
@@ -179,63 +204,22 @@ class AddInformation extends StatelessWidget {
               mainAxisSize: MainAxisSize.max,
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Container(
-                    padding: const EdgeInsets.only(bottom: 5.0),
-                    child: RaisedButton(
-                      child: Text("Symptoms",
-                          style: DefaultTextStyle.of(context).style.apply(fontSizeFactor: 2.5)
-                      ),
-                      color: Colors.lightBlue[400],
-                      onPressed: (){Navigator.push(
-                        context, MaterialPageRoute(builder: (context) => AddSymptomsWidget()),
-                      );
-                      },
-                    )
-                ),
-                Container(
-                    padding: const EdgeInsets.only(bottom: 5.0),
-                    child: RaisedButton(
-                      child: Text("Medications",
-                          style: DefaultTextStyle.of(context).style.apply(fontSizeFactor: 2.5)
-                      ),
-                      color: Colors.lightBlue[400],
-                      onPressed: (){Navigator.push(
-                        context, MaterialPageRoute(builder: (context) => AddMedicationsWidget()),
-                      );}
-                    )
-                ),
-                Container(
-                    padding: const EdgeInsets.only(bottom: 5.0),
-                    child: RaisedButton(
-                      child: Text("Nutrition",
-                          style: DefaultTextStyle.of(context).style.apply(fontSizeFactor: 2.5)
-                      ),
-                      color: Colors.lightBlue[400],
-                      onPressed: (){},
-                    )
-                ),
-                Container(
-                    padding: const EdgeInsets.only(bottom: 5.0),
-                    child: RaisedButton(
-                      child: Text("Activity",
-                          style: DefaultTextStyle.of(context).style.apply(fontSizeFactor: 2.5)
-                      ),
-                      color: Colors.lightBlue[400],
-                      onPressed: (){},
-                    )
-                ),
-                Container(
-                    padding: const EdgeInsets.only(bottom: 5.0),
-                    child: RaisedButton(
-                      child: Text("Sleep",
-                          style: DefaultTextStyle.of(context).style.apply(fontSizeFactor: 2.5)
-                      ),
-                      color: Colors.lightBlue[400],
-                      onPressed: (){Navigator.push(
-                        context, MaterialPageRoute(builder: (context) => AddSleepWidget()),
-                      );}
-                    )
-                ),
+                DiaryButton('Symptoms', (){Navigator.push(
+                  context, MaterialPageRoute(builder: (context) => AddSymptomsWidget()),
+                );
+                },),
+
+                DiaryButton('Medications', (){Navigator.push(
+                  context, MaterialPageRoute(builder: (context) => AddMedicationsWidget()),
+                );}),
+
+                DiaryButton('Nutrition', () {}),
+
+                DiaryButton('Activity', () {}),
+
+                DiaryButton('Sleep', (){Navigator.push(
+                  context, MaterialPageRoute(builder: (context) => AddSleepWidget()),
+                );}),
               ],
             ),
           )
