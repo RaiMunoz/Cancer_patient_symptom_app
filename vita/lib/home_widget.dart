@@ -2,17 +2,17 @@ import 'package:flutter/material.dart';
 import 'placeholder_widget.dart';
 import 'add_diary_entry_widget.dart';
 
-class Home extends StatefulWidget {
+class HomePage extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
-    return _HomeState();
+    return _HomePageState();
   }
 }
 
-class _HomeState extends State<Home> {
+class _HomePageState extends State<HomePage> {
   int _currentIndex = 0;
   final List<Widget> _children = [
-    PlaceholderWidget(Colors.white),
+    Home(),
     PlaceholderWidget(Colors.deepOrange),
     AddInformation(),
     PlaceholderWidget(Colors.green),
@@ -62,6 +62,125 @@ class _HomeState extends State<Home> {
     setState(() {
       _currentIndex = index;
     });
+  }
+}
+
+class Home extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Container (
+      color: Colors.grey[300],
+      child: Column (
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Padding(
+            padding: EdgeInsets.only(top: 55.0),
+            child: Text(
+              'Vita',
+              style: TextStyle(
+                fontSize: 60.0,
+                color: Colors.lightBlue[400],
+                fontFamily: 'Lucida Calligraphy',
+              ),
+            ),
+          ),
+          Padding(
+            padding: EdgeInsets.only(top: 55.0),
+            child: Text(
+                'Hi Beth.\nCheck out some highlights.',
+                textAlign: TextAlign.center,
+                style: TextStyle(fontSize: 18.0),
+            ),
+          ),
+          Padding( // start highlights
+            padding: EdgeInsets.only(top: 20.0),
+            child: Container(
+              padding: EdgeInsets.symmetric(horizontal: 10.0),
+              height: 100.0,
+              child: ListView(
+                scrollDirection: Axis.horizontal,
+                children: <Widget>[
+                  Padding(
+                    child: RaisedButton.icon(
+                      icon: Icon(Icons.directions_run),
+                      label: Text('Walked 5 miles'),
+                      shape: RoundedRectangleBorder(borderRadius: new BorderRadius.circular(30.0)),
+                      disabledColor: Colors.blueGrey[400],
+                      disabledTextColor: Colors.white,
+                      onPressed: null,
+                    ),
+                    padding: EdgeInsets.symmetric(horizontal: 5),
+                  ),
+                  Padding(
+                    child: RaisedButton.icon(
+                      icon: Icon(Icons.restaurant),
+                      label: Text('Cooked a meal'),
+                      shape: RoundedRectangleBorder(borderRadius: new BorderRadius.circular(30.0)),
+                      disabledColor: Colors.blueGrey[400],
+                      disabledTextColor: Colors.white,
+                      onPressed: null,
+                    ),
+                    padding: EdgeInsets.symmetric(horizontal: 5),
+                  ),
+                  Padding(
+                    child: RaisedButton.icon(
+                      icon: Icon(Icons.local_florist),
+                      label: Text('Went to the park'),
+                      shape: RoundedRectangleBorder(borderRadius: new BorderRadius.circular(30.0)),
+                      disabledColor: Colors.blueGrey[400],
+                      disabledTextColor: Colors.white,
+                      onPressed: null,
+                    ),
+                    padding: EdgeInsets.symmetric(horizontal: 5),
+                  ),
+                ],
+              ),
+            ),
+          ), // end highlights
+          Padding(
+            padding: EdgeInsets.only(top: 35.0),
+            child: Text(
+              'Some Reminders!',
+              style: TextStyle(fontSize: 18.0),
+            ),
+          ),
+          Padding( // start reminders
+            padding: EdgeInsets.only(top: 20.0),
+            child: Container(
+              padding: EdgeInsets.symmetric(horizontal: 10.0),
+              height: 100.0,
+              child: ListView(
+                scrollDirection: Axis.horizontal,
+                children: <Widget>[
+                  Padding(
+                    child: RaisedButton.icon(
+                      icon: Icon(Icons.priority_high),
+                      label: Text('Take Cytoxan'),
+                      shape: RoundedRectangleBorder(borderRadius: new BorderRadius.circular(30.0)),
+                      disabledColor: Colors.blueGrey[400],
+                      disabledTextColor: Colors.white,
+                      onPressed: null,
+                    ),
+                    padding: EdgeInsets.symmetric(horizontal: 5),
+                  ),
+                  Padding(
+                    child: RaisedButton.icon(
+                      icon: Icon(Icons.phone),
+                      label: Text('Call Dr. Hilton'),
+                      shape: RoundedRectangleBorder(borderRadius: new BorderRadius.circular(30.0)),
+                      disabledColor: Colors.blueGrey[400],
+                      disabledTextColor: Colors.white,
+                      onPressed: null,
+                    ),
+                    padding: EdgeInsets.symmetric(horizontal: 5),
+                  ),
+                ],
+              ),
+            ),
+          ), // end reminders
+        ],
+      ),
+    );
   }
 }
 
