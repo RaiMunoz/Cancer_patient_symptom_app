@@ -10,6 +10,7 @@ import 'placeholder_widget.dart';
 import 'pages/profile/account.dart';
 import 'pages/diary/diary_main.dart';
 import 'pages/messaging/main_message.dart';
+import 'pages/analytics/test_viz.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -41,7 +42,8 @@ class _HomeState extends State<Home> {
     //PlaceholderWidget(Colors.deepOrange),
     new diary_main(),
     PlaceholderWidget(Colors.green),
-    PlaceholderWidget(Colors.purple),
+    new AnimatedPieChartExample(),
+    //PlaceholderWidget(Colors.purple),
     new ChatScreen(),
   ];
   @override
