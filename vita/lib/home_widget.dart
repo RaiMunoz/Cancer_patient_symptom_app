@@ -1,4 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
+import 'package:path_provider/path_provider.dart';
+
+import 'dart:io';
+import 'dart:async';
+
+import 'placeholder_widget.dart';
+
+import 'pages/profile/account.dart';
+import 'pages/diary/diary_main.dart';
+import 'pages/messaging/main_message.dart';
+import 'pages/analytics/test_viz.dart';
+
 import 'placeholder_widget.dart';
 import 'add_diary_entry_widget.dart';
 
