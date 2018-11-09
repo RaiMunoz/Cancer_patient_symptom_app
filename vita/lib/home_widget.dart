@@ -26,7 +26,7 @@ class HighlightReminder extends StatelessWidget {
         disabledTextColor: Colors.white,
         onPressed: null,
       ),
-      padding: EdgeInsets.symmetric(horizontal: 5),
+      padding: EdgeInsets.symmetric(horizontal: 5.0),
     );
   }
 }
