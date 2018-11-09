@@ -11,6 +11,7 @@ import 'pages/profile/account.dart';
 import 'pages/diary/diary_main.dart';
 import 'pages/messaging/main_message.dart';
 import 'pages/analytics/test_viz.dart';
+import 'pages/addInformation/add_information.dart';
 
 import 'placeholder_widget.dart';
 import 'add_diary_entry_widget.dart';
@@ -44,39 +45,6 @@ class HighlightReminder extends StatelessWidget {
   }
 }
 
-class DiaryButton extends StatelessWidget {
-  final String title;
-  final VoidCallback action;
-
-  DiaryButton(this.title, this.action);
-
-  @override
-  Widget build(context) {
-    return Container(
-        padding: const EdgeInsets.only(bottom: 15.0),
-        height: 80.0,
-        child: RaisedButton(
-          child: Text(title,
-            //style: DefaultTextStyle.of(context).style.apply(fontSizeFactor: 2.5),
-            style: TextStyle(fontSize: 25.0, color: Colors.white),
-          ),
-          shape: RoundedRectangleBorder(borderRadius: new BorderRadius.circular(15.0)),
-          color: Colors.teal[600],
-          elevation: 6.0,
-          onPressed: action,
-        )
-    );
-  }
-}
-
-/*new account(),
-//PlaceholderWidget(Colors.white),
-//PlaceholderWidget(Colors.deepOrange),
-new diary_main(),
-PlaceholderWidget(Colors.green),
-new AnimatedPieChartExample(),
-//PlaceholderWidget(Colors.purple),
-new ChatScreen(),*/
 
 class _HomePageState extends State<HomePage> {
   int _currentIndex = 0;
@@ -96,9 +64,9 @@ class _HomePageState extends State<HomePage> {
           actions: <Widget>[
             IconButton(
               icon: Icon(Icons.person),
-              onPressed: () {Navigator.push(context, MaterialPageRoute(builder: (context) => account()));},
-          )
-        ]
+              onPressed: () {Navigator.push(context, MaterialPageRoute(builder: (context) => new account()));},
+          ),
+        ],
       ),
 
       body: _children[_currentIndex],
@@ -206,46 +174,6 @@ class Home extends StatelessWidget {
               ),
             ),
           ),
-        ],
-      ),
-    );
-  }
-}
-
-class AddInformation extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 25.0),
-      color: Colors.teal[200],
-      child: Row(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              mainAxisSize: MainAxisSize.max,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                DiaryButton('Symptoms', (){Navigator.push(
-                  context, MaterialPageRoute(builder: (context) => AddSymptomsWidget()),
-                );
-                },),
-
-                DiaryButton('Medications', (){Navigator.push(
-                  context, MaterialPageRoute(builder: (context) => AddMedicationsWidget()),
-                );}),
-
-                DiaryButton('Nutrition', () {}),
-
-                DiaryButton('Activity', () {}),
-
-                DiaryButton('Sleep', (){Navigator.push(
-                  context, MaterialPageRoute(builder: (context) => AddSleepWidget()),
-                );}),
-              ],
-            ),
-          )
         ],
       ),
     );
