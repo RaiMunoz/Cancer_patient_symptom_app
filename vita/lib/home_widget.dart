@@ -69,7 +69,14 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Vita'),
+          centerTitle:true,
+          title: Text('Vita'),
+          actions: <Widget>[
+            IconButton(
+              icon: Icon(Icons.person),
+              onPressed: () {},
+          )
+        ]
       ),
       body: _children[_currentIndex],
       bottomNavigationBar: BottomNavigationBar(
@@ -121,13 +128,6 @@ class Home extends StatelessWidget {
       body: Column (
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Padding(
-            padding: EdgeInsets.only(top: 15.0, left: 325.0),
-            child: FloatingActionButton(
-              child: Icon(Icons.person),
-              onPressed: () {}, // will go to profile widget
-            ),
-          ),
           Padding(
             padding: EdgeInsets.only(top: 8.0),
             child: Text(
