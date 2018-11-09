@@ -69,14 +69,23 @@ class DiaryButton extends StatelessWidget {
   }
 }
 
+/*new account(),
+//PlaceholderWidget(Colors.white),
+//PlaceholderWidget(Colors.deepOrange),
+new diary_main(),
+PlaceholderWidget(Colors.green),
+new AnimatedPieChartExample(),
+//PlaceholderWidget(Colors.purple),
+new ChatScreen(),*/
+
 class _HomePageState extends State<HomePage> {
   int _currentIndex = 0;
   final List<Widget> _children = [
-    Home(),
-    PlaceholderWidget(Colors.deepOrange),
-    AddInformation(),
-    PlaceholderWidget(Colors.green),
-    PlaceholderWidget(Colors.purple),
+    new Home(),
+    new diary_main(),
+    new AddInformation(),
+    new AnimatedPieChartExample(),
+    new ChatScreen(),
   ];
   @override
   Widget build(BuildContext context) {
@@ -87,10 +96,11 @@ class _HomePageState extends State<HomePage> {
           actions: <Widget>[
             IconButton(
               icon: Icon(Icons.person),
-              onPressed: () {},
+              onPressed: () {Navigator.push(context, MaterialPageRoute(builder: (context) => account()));},
           )
         ]
       ),
+
       body: _children[_currentIndex],
       bottomNavigationBar: BottomNavigationBar(
         onTap: onTabTapped,
