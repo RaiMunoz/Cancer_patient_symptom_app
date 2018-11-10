@@ -14,7 +14,7 @@ import '../analytics/test_viz.dart';
 import '../addInformation/add_information.dart';
 
 import '../../placeholder_widget.dart';
-import '../../add_diary_entry_widget.dart';
+import '../diary/add_diary_entry_widget.dart';
 
 
 class Home extends StatelessWidget {

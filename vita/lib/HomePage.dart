@@ -13,7 +13,7 @@ import 'pages/addInformation/add_information.dart';
 import 'pages/home/home_widget.dart';
 
 import 'placeholder_widget.dart';
-import 'add_diary_entry_widget.dart';
+import 'pages/diary/add_diary_entry_widget.dart';
 
 class HomePage extends StatefulWidget {
   @override

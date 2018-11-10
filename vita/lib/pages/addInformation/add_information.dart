@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import './../../add_diary_entry_widget.dart';
+import '../diary/add_diary_entry_widget.dart';
 import './diary_button.dart';
 
 
