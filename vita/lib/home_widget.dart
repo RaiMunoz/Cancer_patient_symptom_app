@@ -9,7 +9,8 @@ import 'placeholder_widget.dart';
 
 import 'pages/profile/account.dart';
 import 'pages/diary/diary_main.dart';
-import 'pages/messaging/main_message.dart';
+//import 'pages/messaging/chat_main.dart';
+import 'pages/messaging/inbox_screen.dart';
 import 'pages/analytics/test_viz.dart';
 import 'pages/addInformation/add_information.dart';
 
@@ -53,7 +54,8 @@ class _HomePageState extends State<HomePage> {
     new diary_main(),
     new AddInformation(),
     new AnimatedPieChartExample(),
-    new ChatScreen(),
+    new InboxScreen(),
+    //new ChatScreen(),
   ];
   @override
   Widget build(BuildContext context) {
