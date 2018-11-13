@@ -34,7 +34,13 @@ class AddInformation extends StatelessWidget {
 
                 DiaryButton('Nutrition', () {}),
 
-                DiaryButton('Activity', () {}),
+
+                DiaryButton('Activity', () {
+                  Navigator.push(
+                    context, MaterialPageRoute(
+                      builder: (context) => AddActivitiesWidget()),
+                  );
+                }),
 
                 DiaryButton('Sleep', () {
                   Navigator.push(

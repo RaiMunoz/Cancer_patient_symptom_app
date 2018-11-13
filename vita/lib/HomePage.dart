@@ -7,7 +7,7 @@ import 'dart:async';
 
 import 'pages/profile/account.dart';
 import 'pages/diary/diary_main.dart';
-import 'pages/messaging/main_message.dart';
+import 'pages/messaging/inbox_screen.dart';
 import 'pages/analytics/test_viz.dart';
 import 'pages/addInformation/add_information.dart';
 import 'pages/home/home_widget.dart';
@@ -29,7 +29,7 @@ class _HomePageState extends State<HomePage> {
     new diary_main(),
     new AddInformation(),
     new AnimatedPieChartExample(),
-    new ChatScreen(),
+    new InboxScreen(),
   ];
   @override
   Widget build(BuildContext context) {
