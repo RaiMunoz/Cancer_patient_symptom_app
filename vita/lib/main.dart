@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'home_widget.dart';
-import 'splash.dart';
+import 'HomePage.dart';
+import 'package:vita/pages/login/login_auth.dart';
+import 'route_page.dart';
 
 void main() => runApp(App());
 
@@ -14,10 +15,7 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title:"Vita",
-      home:new SplashScreen(),
-      routes: <String, WidgetBuilder>{
-        '/landing': (BuildContext context) => new Home()
-      },
+      home:new RoutePage(auth: new Auth()),//HomePage(),
     );
   }
 }

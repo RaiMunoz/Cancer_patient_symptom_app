@@ -5,47 +5,50 @@ import 'package:path_provider/path_provider.dart';
 import 'dart:io';
 import 'dart:async';
 
-import 'placeholder_widget.dart';
-
 import 'pages/profile/account.dart';
 import 'pages/diary/diary_main.dart';
-import 'pages/messaging/main_message.dart';
+import 'pages/messaging/inbox_screen.dart';
 import 'pages/analytics/test_viz.dart';
+import 'pages/addInformation/add_information.dart';
+import 'pages/home/home_widget.dart';
+import 'placeholder_widget.dart';
+import 'pages/diary/add_diary_entry_widget.dart';
+import 'package:vita/pages/login/login_auth.dart';
 
-class Home extends StatefulWidget {
+class HomePage extends StatefulWidget {
+  HomePage({Key key, this.auth, this.onSignedOut}): super(key:key);
+
+  final loginAuthImplement auth;
+  final VoidCallback onSignedOut;
+
   @override
   State<StatefulWidget> createState() {
-    return _HomeState();
+    return _HomePageState();
   }
 }
 
-class _HomeState extends State<Home> {
+class _HomePageState extends State<HomePage> {
   int _currentIndex = 0;
-  File _image;
+  final List<Widget> _children = [
+    new Home(),
+    new diary_main(),
+    new AddInformation(),
+    new AnimatedPieChartExample(),
+    new InboxScreen(),
+  ];
 
-  Future getImage() async{
-    File image= await ImagePicker.pickImage(source:ImageSource.camera);
-    Directory tmp_path= await getApplicationDocumentsDirectory();
-    final String path = tmp_path.path;
-    final File newImage = await image.copy('$path/image1.png');
-
-    setState((){
-      _image= newImage;
-    });
-
+  void _signOut() async{
+    try
+        {
+          await widget.auth.signOut();
+          widget.onSignedOut();
+        }
+     catch(e)
+     {
+       print(e);
+     }
   }
 
-
-  final List<Widget> _children = [
-    new account(),
-    //PlaceholderWidget(Colors.white),
-    //PlaceholderWidget(Colors.deepOrange),
-    new diary_main(),
-    PlaceholderWidget(Colors.green),
-    new AnimatedPieChartExample(),
-    //PlaceholderWidget(Colors.purple),
-    new ChatScreen(),
-  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -53,17 +56,24 @@ class _HomeState extends State<Home> {
         centerTitle:true,
         title: Text('Vita'),
           leading: IconButton(
-            icon: Icon(Icons.camera_alt),
+            icon: Icon(Icons.navigate_before),
             onPressed: () {
-              getImage();
+              _signOut();
               //_appDocumentsDirectory= getApplicationDocumentsDirectory();
               //path= _appDocumentsDirectory.path;
               //new_image = _image.copy('$path/image1.png')
 
               // do something
             },
-          )
+          ),
+        actions: <Widget>[
+          IconButton(
+            icon: Icon(Icons.person),
+            onPressed: () {Navigator.push(context, MaterialPageRoute(builder: (context) => new account()));},
+          ),
+        ],
       ),
+
       body: _children[_currentIndex],
       bottomNavigationBar: BottomNavigationBar(
         onTap: onTabTapped,
