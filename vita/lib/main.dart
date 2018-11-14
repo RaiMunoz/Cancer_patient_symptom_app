@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../assets/theme/theme.dart';
+import 'package:vita/assets/theme/theme.dart';
 import 'HomePage.dart';
 
 void main() {
@@ -11,8 +11,8 @@ void main() {
 
 final ThemeData themeData = ThemeData(
   canvasColor: ThemeColors.grey1,
-  accentColor: ThemeColors.darkGreen,
-  primaryColor: ThemeColors.lightGreen,
+  accentColor: ThemeColors.lightGreen,
+  primaryColor: ThemeColors.darkGreen,
 );
 
 class App extends StatelessWidget {

@@ -4,6 +4,7 @@ import 'package:vita/pages/profile/profile_fonts.dart';
 import 'package:vita/pages/profile/profile_icons.dart';
 import 'package:vita/pages/profile/profile_info.dart';
 import 'dart:math';
+import 'package:vita/assets/theme/theme.dart';
 
 
 class ProfileHeader extends StatelessWidget {
@@ -14,24 +15,6 @@ class ProfileHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final topPadding = MediaQuery
-        .of(context)
-        .padding
-        .top;
-
-    final headerGradient = new RadialGradient(
-      center: Alignment.topLeft,
-      radius: 0.4,
-      colors: <Color>[
-        const Color(0xFF8860EB),
-        const Color(0xFF8881EB),
-      ],
-      stops: <double>[
-        0.4, 1.0,
-      ],
-      tileMode: TileMode.repeated,
-    );
-
     const headerHeight = 290.0;
 
     return new Container(
@@ -52,26 +35,23 @@ class ProfileHeader extends StatelessWidget {
           new Container(
             height: headerHeight,
             decoration: new BoxDecoration(
-              gradient: new LinearGradient(
+              color: ThemeColors.lightGreen,
+              /*gradient: new LinearGradient(
                   colors: <Color>[ //7928D1
                     const Color(0xFF7928D1), const Color(0xFF9A4DFF)],
                   stops: <double>[0.3, 0.5],
                   begin: Alignment.topRight, end: Alignment.bottomLeft
-              ),
+              ),*/
             ),
           ),
-          // radial gradient
-          new CustomPaint(
-            painter: new HeaderGradientPainter(),
-          ),
+          //),
           new Padding(
             padding: new EdgeInsets.only(
-                top: topPadding, left: 15.0, right: 15.0, bottom: 20.0),
+                left: 15.0, right: 15.0, bottom: 20.0),
             child: new Column(
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
-                _buildBellIcon(),
                 new Padding(
                   padding: const EdgeInsets.only(bottom: 15.0),
                   child: _buildTitle(),
@@ -80,7 +60,6 @@ class ProfileHeader extends StatelessWidget {
                   padding: const EdgeInsets.only(bottom: 20.0),
                   child: _buildAvatar(),
                 ),
-                _buildFollowerStats()
               ],
             ),
           ),
@@ -90,18 +69,6 @@ class ProfileHeader extends StatelessWidget {
   }
 
   /// Build the bell icon at the top right corner of the header
-  Widget _buildBellIcon() {
-    return new Row(
-      mainAxisAlignment: MainAxisAlignment.end,
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: <Widget>[
-        new IconButton(
-            icon: new Icon(
-              LineAwesomeIcons.bell, color: Colors.white, size: 30.0,),
-            onPressed: () {}),
-      ],
-    );
-  }
 
   Widget _buildTitle() {
     return new Text("Profile",
@@ -151,58 +118,4 @@ class ProfileHeader extends StatelessWidget {
       ],
     );
   }
-
-  Widget _buildFollowerStats() {
-    return new Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: <Widget>[
-        _buildFollowerStat("Total Steps", profile.TotalStepsString),
-        _buildVerticalDivider(),
-        _buildFollowerStat("Heart Rate", profile.HeartRateString),
-        _buildVerticalDivider(),
-        _buildFollowerStat("Hours Slept", profile.HoursSleptString),
-      ],
-    );
-  }
-
-  Widget _buildFollowerStat(String title, String value) {
-    final titleStyle = new TextStyle(
-        fontSize: 16.0,
-        fontFamily: ProfileFontNames.TimeBurner,
-        color: Colors.white);
-    final valueStyle = new TextStyle(
-        fontFamily: ProfileFontNames.TimeBurner,
-        fontSize: 18.0,
-        fontWeight: FontWeight.w700,
-        color: Colors.white);
-    return new Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: <Widget>[
-        new Text(title, style: titleStyle),
-        new Text(value, style: valueStyle),
-      ],
-    );
-  }
-
-  Widget _buildVerticalDivider() {
-    return new Container(
-      height: 30.0,
-      width: 1.0,
-      color: Colors.white30,
-      margin: const EdgeInsets.only(left: 10.0, right: 10.0),
-    );
-  }
-}
-
-class HeaderGradientPainter extends CustomPainter {
-  @override
-  void paint(Canvas canvas, Size size) {
-    // TODO: paint background radial gradient
-  }
-
-  @override
-  bool shouldRepaint(CustomPainter oldDelegate) => false;
-
 }

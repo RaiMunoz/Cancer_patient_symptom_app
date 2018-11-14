@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:path_provider/path_provider.dart';
-import '../assets/theme/theme.dart';
+import 'package:vita/assets/theme/theme.dart';
 import 'dart:io';
 import 'dart:async';
 
