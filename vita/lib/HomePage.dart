@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:path_provider/path_provider.dart';
-
+import 'package:vita/assets/theme/theme.dart';
 import 'dart:io';
 import 'dart:async';
 
@@ -32,7 +32,6 @@ class _HomePageState extends State<HomePage> {
   int _currentIndex = 0;
   final List<Widget> _children = [
     new Home(),
-    new diary_main(),
     new AddInformation(),
     new AnimatedPieChartExample(),
     new InboxScreen(),
@@ -55,6 +54,7 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       appBar: AppBar(
         centerTitle:true,
+        backgroundColor: ThemeColors.lightGreen,
         title: Text('Vita'),
         leading: IconButton(
           icon: Icon(Icons.navigate_before),
@@ -79,31 +79,27 @@ class _HomePageState extends State<HomePage> {
       bottomNavigationBar: BottomNavigationBar(
         onTap: onTabTapped,
         currentIndex: _currentIndex,
+
         items: [
           BottomNavigationBarItem(
             icon: new Icon(Icons.home),
             title: new Text('Home'),
-            backgroundColor: Colors.blue,
-          ),
-          BottomNavigationBarItem(
-            icon: new Icon(Icons.book),
-            title: new Text('Diary'),
-            backgroundColor: Colors.blue,
+            backgroundColor: ThemeColors.lightGreen,
           ),
           BottomNavigationBarItem(
             icon: new Icon(Icons.add_circle_outline),
             title: new Text('Add'),
-            backgroundColor: Colors.blue,
+            backgroundColor: ThemeColors.lightGreen,
           ),
           BottomNavigationBarItem(
             icon: new Icon(Icons.insert_chart),
             title: new Text('Analytics'),
-            backgroundColor: Colors.blue,
+            backgroundColor: ThemeColors.lightGreen,
           ),
           BottomNavigationBarItem(
             icon: new Icon(Icons.message),
             title: new Text('Message'),
-            backgroundColor: Colors.blue,
+            backgroundColor: ThemeColors.lightGreen,
           )
         ],
       ),
