@@ -26,7 +26,6 @@ class _HomePageState extends State<HomePage> {
   int _currentIndex = 0;
   final List<Widget> _children = [
     new Home(),
-    new diary_main(),
     new AddInformation(),
     new AnimatedPieChartExample(),
     new InboxScreen(),
@@ -53,11 +52,6 @@ class _HomePageState extends State<HomePage> {
           BottomNavigationBarItem(
             icon: new Icon(Icons.home),
             title: new Text('Home'),
-            backgroundColor: Colors.blue,
-          ),
-          BottomNavigationBarItem(
-            icon: new Icon(Icons.book),
-            title: new Text('Diary'),
             backgroundColor: Colors.blue,
           ),
           BottomNavigationBarItem(
