@@ -4,49 +4,31 @@ import 'package:vita/pages/profile/profile_info.dart';
 import 'package:vita/pages/profile/profile_colors.dart';
 import 'package:vita/pages/profile/profile_icons.dart';
 import 'package:vita/pages/profile/profile_header.dart';
-import 'package:vita/pages/profile/quick_actions.dart';
 import 'package:vita/pages/profile/menu.dart';
 
 // Inspired from https://github.com/tomialagbe/flutter_ui_challenges
 class _account extends State<account> {
   @override
   Widget build(BuildContext context) {
-    final iconColor = new Color(0xFF00BCD4);//0xFFCCCCCC);
-    final navigationItems = <BottomNavigationBarItem>[
-      new BottomNavigationBarItem(
-          icon: new Icon(LineAwesomeIcons.home, color: iconColor),
-          title: new Text("")),
-      new BottomNavigationBarItem(
-          icon: new Icon(LineAwesomeIcons.bookmark, color: iconColor,),
-          title: new Text("")),
-      new BottomNavigationBarItem(
-          icon: new Icon(LineAwesomeIcons.thumbsUp, color: iconColor,),
-          title: new Text("")),
-      new BottomNavigationBarItem(
-          icon: new Icon(
-            LineAwesomeIcons.user, color: ProfileColors.primaryColor,),
-          title: new Text(""))
-    ];
 
     final profile = getProfile();
 
     return new Scaffold(
+      appBar: AppBar(
+        leading: new IconButton(
+          icon: new Icon(Icons.arrow_back, color: Colors.white),
+          onPressed: () => Navigator.pop(context),
+        ),
+        //centerTitle:true,
+        title: Text('Settings'),
+      ),
       body: new ListView(
         padding: const EdgeInsets.all(0.0),
-        children: <Widget>[
-          new ProfileHeader(profile),
-         // new QuickActions(),
-          new menu(),
-        ],
+        //children: <Widget>[
+        //  new ProfileHeader(profile),
+        //  new menu(),
+        //],
       ),
-      //bottomNavigationBar: new BottomNavigationBar(
-       // currentIndex: 0,
-       // items: navigationItems,
-       // onTap: (index) {},
-       // fixedColor: ProfileColors.primaryColor,
-      //  iconSize: 25.0,
-      //  type: BottomNavigationBarType.fixed,
-      //),
     );
   }
 

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../assets/theme/theme.dart';
 import 'HomePage.dart';
 
 void main() {
@@ -9,11 +10,13 @@ void main() {
 }
 
 final ThemeData themeData = ThemeData(
-  canvasColor: Colors.lightBlueAccent,
-  accentColor: Colors.blueAccent,
+  canvasColor: ThemeColors.grey1,
+  accentColor: ThemeColors.darkGreen,
+  primaryColor: ThemeColors.lightGreen,
 );
 
 class App extends StatelessWidget {
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(

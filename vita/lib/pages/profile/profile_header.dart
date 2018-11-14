@@ -8,7 +8,7 @@ import 'dart:math';
 
 class ProfileHeader extends StatelessWidget {
 
-  final Profile profile;
+  Profile profile;
 
   ProfileHeader(this.profile);
 

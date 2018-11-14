@@ -35,6 +35,7 @@ class Profile {
   }
 }
 
+//TODO: Should be replaced with database stuff once it is connected
 Profile getProfile() {
   return new Profile()
     ..firstName = "Rai"
