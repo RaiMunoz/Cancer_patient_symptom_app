@@ -30,13 +30,19 @@ class _HomePageState extends State<HomePage> {
     new AnimatedPieChartExample(),
     new InboxScreen(),
   ];
+  final List<String> _children_name = [
+    "Home",
+    "Add",
+    "Analytics",
+    "Messaging",
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         centerTitle:true,
-        backgroundColor: ThemeColors.lightGreen,
-        title: Text('Vita'),
+        backgroundColor: ThemeColors.darkGreen,
+        title: Text(_children_name[_currentIndex]),
         actions: <Widget>[
           IconButton(
             icon: Icon(Icons.person),
@@ -54,22 +60,22 @@ class _HomePageState extends State<HomePage> {
           BottomNavigationBarItem(
             icon: new Icon(Icons.home),
             title: new Text('Home'),
-            backgroundColor: ThemeColors.lightGreen,
+            backgroundColor: ThemeColors.darkGreen,
           ),
           BottomNavigationBarItem(
             icon: new Icon(Icons.add_circle_outline),
             title: new Text('Add'),
-            backgroundColor: ThemeColors.lightGreen,
+            backgroundColor: ThemeColors.darkGreen,
           ),
           BottomNavigationBarItem(
             icon: new Icon(Icons.insert_chart),
             title: new Text('Analytics'),
-            backgroundColor: ThemeColors.lightGreen,
+            backgroundColor: ThemeColors.darkGreen,
           ),
           BottomNavigationBarItem(
             icon: new Icon(Icons.message),
             title: new Text('Message'),
-            backgroundColor: ThemeColors.lightGreen,
+            backgroundColor: ThemeColors.darkGreen,
           )
         ],
       ),

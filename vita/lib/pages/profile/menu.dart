@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:vita/assets/theme/theme.dart';
 
 class menu extends StatelessWidget {
 
@@ -10,11 +11,9 @@ class menu extends StatelessWidget {
       child: new ListView(
         padding: const EdgeInsets.only(left: 5.0),
         children: <Widget>[
-          _buildListItem("Camera", Icons.camera, () {}),
-          _buildListItem("Medications", Icons.favorite, () {}),
-          _buildListItem("Reminders", Icons.card_giftcard, () {}),
-          _buildListItem("Friends", Icons.people, () {}),
-          _buildListItem("Goals", FontAwesomeIcons.trophy, () {}),
+          _buildListItem("Personal Settings", Icons.settings, () {}),
+          _buildListItem("Notification Settings", Icons.notifications, () {}),
+          _buildListItem("Help", Icons.help, () {}),
         ],
       ),
     );
@@ -39,7 +38,7 @@ class menu extends StatelessWidget {
               height: 35.0,
               margin: const EdgeInsets.only(right: 10.0),
               decoration: new BoxDecoration(
-                color: Colors.purple,
+                color: ThemeColors.lightGreen,
                 borderRadius: new BorderRadius.circular(5.0),
               ),
               alignment: Alignment.center,

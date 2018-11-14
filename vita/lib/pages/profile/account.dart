@@ -27,7 +27,7 @@ class _account extends State<account> {
         padding: const EdgeInsets.all(0.0),
         children: <Widget>[
           new ProfileHeader(profile),
-        //  new menu(),
+          new menu(),
         ],
       ),
     );
