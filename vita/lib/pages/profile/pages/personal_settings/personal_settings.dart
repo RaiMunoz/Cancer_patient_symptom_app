@@ -3,14 +3,12 @@ import 'package:vita/pages/profile/profile_info.dart';
 import 'package:vita/pages/profile/profile_header.dart';
 import 'package:vita/pages/profile/menu.dart';
 import 'package:vita/assets/theme/theme.dart';
+import 'package:vita/placeholder_widget.dart';
 
 // Inspired from https://github.com/tomialagbe/flutter_ui_challenges
-class _account extends State<account> {
+class _personalSettings extends State<personalSettings> {
   @override
   Widget build(BuildContext context) {
-
-    Profile profile = getProfile();
-
     return new Scaffold(
       appBar: AppBar(
         leading: new IconButton(
@@ -18,20 +16,14 @@ class _account extends State<account> {
           onPressed: () => Navigator.pop(context),
         ),
         backgroundColor: ThemeColors.darkGreen,
-        title: Text('Settings'),
+        title: Text('Personal Settings'),
       ),
-      body: new ListView(
-        padding: const EdgeInsets.all(0.0),
-        children: <Widget>[
-          new ProfileHeader(profile),
-          new menu(),
-        ],
-      ),
+      body: new PlaceholderWidget(ThemeColors.pink),
     );
   }
 
 }
-class account extends StatefulWidget {
+class personalSettings extends StatefulWidget {
   @override
-  _account createState() => _account();
+  _personalSettings createState() => _personalSettings();
 }

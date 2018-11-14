@@ -11,8 +11,8 @@ import '../../pages/messaging/inbox_screen.dart';
 import '../../pages/analytics/test_viz.dart';
 import '../../pages/addInformation/add_information.dart';
 
-//import '../../pages/diary/add_diary_entry_widget.dart';
 import './highlight_reminder.dart';
+import 'package:vita/assets/theme/theme.dart';
 
 
 class Home extends StatelessWidget {
@@ -30,7 +30,7 @@ class Home extends StatelessWidget {
               'Vita',
               style: TextStyle(
                 fontSize: 60.0,
-                color: Colors.lightBlue[400],
+                color: ThemeColors.lightGreen,
                 fontFamily: 'Lucida Calligraphy',
               ),
             ),
