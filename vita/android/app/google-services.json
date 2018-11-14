@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "495840671960",
+    "firebase_url": "https://vita-49dd8.firebaseio.com",
+    "project_id": "vita-49dd8",
+    "storage_bucket": "vita-49dd8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:495840671960:android:82e16ca7d018230b",
+        "android_client_info": {
+          "package_name": "com.example.vita"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "495840671960-rip5jq2fhse1e2q57lj5e69m8fphvtgn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBy2urAcsesHtqlbbYwwru_INRAQGgY6QQ"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

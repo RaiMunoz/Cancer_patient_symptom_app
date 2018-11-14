@@ -14,8 +14,14 @@ import 'pages/home/home_widget.dart';
 
 import 'placeholder_widget.dart';
 import 'pages/diary/add_diary_entry_widget.dart';
+import 'package:vita/pages/login/login_auth.dart';
 
 class HomePage extends StatefulWidget {
+  HomePage({Key key, this.auth, this.onSignedOut}): super(key:key);
+
+  final loginAuthImplement auth;
+  final VoidCallback onSignedOut;
+
   @override
   State<StatefulWidget> createState() {
     return _HomePageState();
@@ -31,12 +37,36 @@ class _HomePageState extends State<HomePage> {
     new AnimatedPieChartExample(),
     new InboxScreen(),
   ];
+
+  void _signOut() async{
+    try
+    {
+      await widget.auth.signOut();
+      widget.onSignedOut();
+    }
+    catch(e)
+    {
+      print(e);
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         centerTitle:true,
         title: Text('Vita'),
+        leading: IconButton(
+          icon: Icon(Icons.navigate_before),
+          onPressed: () {
+            _signOut();
+            //_appDocumentsDirectory= getApplicationDocumentsDirectory();
+            //path= _appDocumentsDirectory.path;
+            //new_image = _image.copy('$path/image1.png')
+
+            // do something
+          },
+        ),
         actions: <Widget>[
           IconButton(
             icon: Icon(Icons.person),

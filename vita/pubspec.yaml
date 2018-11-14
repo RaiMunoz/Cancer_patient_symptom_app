@@ -21,6 +21,10 @@ dependencies:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^0.1.2
+  # Need to put in the database!
+  firebase_auth: ^0.5.19
+  #^0.6.2+1
+  firebase_database: 0.4.6
 
 dev_dependencies:
   flutter_test:
@@ -50,6 +54,8 @@ flutter:
     - assets/images/microphone.png
     - assets/images/wallet.png
     - assets/images/joystick.png
+    - assets/images/vita_1.png
+
 
   fonts:
     - family: Themify

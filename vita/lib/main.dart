@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'HomePage.dart';
+import 'package:vita/pages/login/login_auth.dart';
+import 'route_page.dart';
 
 void main() {
   runApp(MaterialApp(
@@ -18,7 +20,7 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title:"Vita",
-      home:HomePage(),
+      home:new RoutePage(auth: new Auth()),//HomePage(),
     );
   }
 }
