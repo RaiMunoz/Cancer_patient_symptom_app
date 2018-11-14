@@ -9,7 +9,7 @@ import 'pages/profile/account.dart';
 import 'pages/diary/diary_main.dart';
 import 'pages/messaging/inbox_screen.dart';
 import 'pages/analytics/test_viz.dart';
-import 'pages/addInformation/add_information.dart';
+import 'pages/diary/add_information.dart';
 import 'pages/home/home_widget.dart';
 
 import 'placeholder_widget.dart';

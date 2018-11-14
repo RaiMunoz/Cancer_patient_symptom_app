@@ -5,13 +5,6 @@ import 'package:path_provider/path_provider.dart';
 import 'dart:io';
 import 'dart:async';
 
-import '../../pages/profile/account.dart';
-import '../../pages/diary/diary_main.dart';
-import '../../pages/messaging/inbox_screen.dart';
-import '../../pages/analytics/test_viz.dart';
-import '../../pages/addInformation/add_information.dart';
-
-//import '../../pages/diary/add_diary_entry_widget.dart';
 import './highlight_reminder.dart';
 
 
