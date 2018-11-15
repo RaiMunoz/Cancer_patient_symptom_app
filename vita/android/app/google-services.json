@@ -1,27 +1,58 @@
 {
   "project_info": {
-    "project_number": "495840671960",
-    "firebase_url": "https://vita-49dd8.firebaseio.com",
-    "project_id": "vita-49dd8",
-    "storage_bucket": "vita-49dd8.appspot.com"
+    "project_number": "250857979684",
+    "firebase_url": "https://cancer-patient-monitoring.firebaseio.com",
+    "project_id": "cancer-patient-monitoring",
+    "storage_bucket": "cancer-patient-monitoring.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:495840671960:android:82e16ca7d018230b",
+        "mobilesdk_app_id": "1:250857979684:android:dafa19e55e4294fe",
+        "android_client_info": {
+          "package_name": "com.example.basicapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "250857979684-1lc3oj2f2jncvo0rpvanci7qm7foo6oh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBkmyk32sFUQB8wS8E6GKKWCae3Tah2bCA"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:250857979684:android:82e16ca7d018230b",
         "android_client_info": {
           "package_name": "com.example.vita"
         }
       },
       "oauth_client": [
         {
-          "client_id": "495840671960-rip5jq2fhse1e2q57lj5e69m8fphvtgn.apps.googleusercontent.com",
+          "client_id": "250857979684-1lc3oj2f2jncvo0rpvanci7qm7foo6oh.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyBy2urAcsesHtqlbbYwwru_INRAQGgY6QQ"
+          "current_key": "AIzaSyBkmyk32sFUQB8wS8E6GKKWCae3Tah2bCA"
         }
       ],
       "services": {
