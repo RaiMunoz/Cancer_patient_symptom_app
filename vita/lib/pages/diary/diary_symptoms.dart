@@ -29,6 +29,9 @@ class _diary_symptoms extends State<diary_symptoms> {
     entry.time = DateTime.now();
     var contactService = new ContactServiceSymptom();
     contactService.createSymptomEntry(entry);
+    print('Created entry: \nSymptom name: ' + entry.symptom_name +
+        '\nSeverity: ' + entry.severity.toString() +
+        '\nTime: ' + DateFormat.yMd().add_jm().format(entry.time));
   }
 
   @override
@@ -42,38 +45,42 @@ class _diary_symptoms extends State<diary_symptoms> {
         child: new ListView(
           padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 16.0),
           children: <Widget>[
-            new Column(children: <Widget>[
-            new TextFormField(
-              decoration: const InputDecoration(
-                icon: const Icon(Icons.content_paste),
-                hintText: 'What symptom are you experiencing?',
-              ),
-              onSaved: (val) => entry.symptom_name = val,
+            new Column(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: <Widget>[
+                new TextFormField(
+                  decoration: const InputDecoration(
+                    icon: const Icon(Icons.content_paste),
+                    hintText: 'What symptom are you experiencing?',
+                  ),
+                  onSaved: (val) => entry.symptom_name = val,
+                ),
+                new DropdownButton<int>(
+                  value: severity,
+                  items: severity_list.map((int value) {
+                    return new DropdownMenuItem<int>(
+                      value: value,
+                      child: new Text(value.toString()),
+                    );
+                  }).toList(),
+                  onChanged: (val) {
+                    setState(() {
+                      entry.severity = val;
+                      severity = val;
+                    });
+                  }
+                ),
+                new Container(
+                  padding: EdgeInsets.only(left: 40.0, top: 20.0),
+                  child: new RaisedButton(
+                    child: const Text('Submit'),
+                    onPressed: submitForm,
+                  )
+                ),
+              ],
             ),
-            new DropdownButton<int>(
-              value: severity,
-              items: severity_list.map((int value) {
-                return new DropdownMenuItem<int>(
-                  value: value,
-                  child: new Text(value.toString()),
-                );
-              }).toList(),
-              onChanged: (val) {
-                setState(() {
-                  entry.severity = val;
-                  severity = val;
-                });
-              }
-            ),
-          new Container(
-              padding: EdgeInsets.only(left: 40.0, top: 20.0),
-              child: new RaisedButton(
-                child: const Text('Submit'),
-                onPressed: submitForm,
-              )
-            ),
-          ]),
-        ]),
+          ]
+        ),
       ),
     );
   }
