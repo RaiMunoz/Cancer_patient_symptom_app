@@ -17,31 +17,51 @@ class diary_symptoms extends StatefulWidget {
 
 class _diary_symptoms extends State<diary_symptoms> {
   final GlobalKey<FormState> _formKey = new GlobalKey<FormState>();
-  List<int> _severities = <int>[1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-  int _severity = null;
+  List<int> severity_list = <int>[1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+  int severity = null;
 
   @override
     Widget build(BuildContext context) {
       return new Scaffold(
         appBar: AppBar(),
         body: new ListView(
-                  padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                  children: <Widget>[
-                    new TextFormField(
-                      decoration: const InputDecoration(
-                        icon: const Icon(Icons.content_paste),
-                        hintText: 'What symptom are you experiencing?',
-                        labelText: 'Symptom',
-                      ),
-                    ),
-                    new Container(
-                        padding: const EdgeInsets.only(left: 40.0, top: 20.0),
-                        child: new RaisedButton(
-                          child: const Text('Submit'),
-                          onPressed: () {},
-                        )),
-                  ],
-                ),
+          padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 16.0),
+          children: <Widget>[
+            new Column(children: <Widget>[
+            new TextFormField(
+              decoration: const InputDecoration(
+                icon: const Icon(Icons.content_paste),
+                hintText: 'What symptom are you experiencing?',
+              ),
+            ),
+            /*new DropdownButton<int>(
+              value: severity,
+              items: severity_list.map<DropdownMenuItem<int>>((int value) {
+                return DropdownMenuItem<int>(
+                  value: value,
+                  child: Text(value.toString()),
+                );
+              }).toList(),
+            ),*/
+            new DropdownButton<int>(
+              items: severity_list.map((int value) {
+                return new DropdownMenuItem<int>(
+                  value: value,
+                  child: new Text(value.toString()),
+                );
+              }).toList(),
+              onChanged: (_) {},
+            ),
+            new Container(
+              padding: EdgeInsets.only(left: 40.0, top: 20.0),
+              child: new RaisedButton(
+                child: const Text('Submit'),
+                onPressed: () {},
+              )
+            ),
+            ]),
+          ],
+        ),
       );
     }
   }
