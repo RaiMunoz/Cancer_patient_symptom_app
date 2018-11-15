@@ -75,6 +75,37 @@ class AddMedicationsWidget extends StatelessWidget {
   }
 }
 
+
+class AddActivitiesWidget extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+        body: Container(
+          margin: const EdgeInsets.all(60.0),
+          child: Center(
+            child: ListView(
+              children: <Widget>[
+                Text(
+                    'Activity Log',
+                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 30.0)
+                ),
+                Padding(
+                  padding: EdgeInsetsDirectional.only(top: 40.0),
+                  child: Text('What activities would you like to track today?'),
+                ),
+                TextEntry('Activity', 60.0),
+                TextEntry('Activity', 40.0),
+                TextEntry('Activity', 40.0),
+                TextEntry('Activity', 40.0),
+              ],
+            ),
+          ),
+        )
+    );
+  }
+}
+
+
 class AddSleepWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -100,3 +131,4 @@ class AddSleepWidget extends StatelessWidget {
     );
   }
 }
+

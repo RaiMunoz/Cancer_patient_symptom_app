@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
-import 'home_widget.dart';
+import 'package:vita/assets/theme/theme.dart';
+import 'HomePage.dart';
+import 'package:vita/pages/login/login_auth.dart';
+import 'route_page.dart';
 
 
 void main() {
@@ -10,16 +13,18 @@ void main() {
 }
 
 final ThemeData themeData = ThemeData(
-  canvasColor: Colors.lightBlueAccent,
-  accentColor: Colors.blueAccent,
+  canvasColor: ThemeColors.grey1,
+  accentColor: ThemeColors.lightGreen,
+  primaryColor: ThemeColors.darkGreen,
 );
 
 class App extends StatelessWidget {
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title:"Vita",
-      home:HomePage(),
+      home:new RoutePage(auth: new Auth()),//HomePage(),
     );
   }
 }

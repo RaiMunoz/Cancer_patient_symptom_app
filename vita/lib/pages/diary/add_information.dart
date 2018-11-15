@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import './../../add_diary_entry_widget.dart';
 import './diary_button.dart';
-import './../analytics/test_viz.dart';
+
 
 class AddInformation extends StatelessWidget {
   @override
@@ -34,12 +34,7 @@ class AddInformation extends StatelessWidget {
 
                 DiaryButton('Nutrition', () {}),
 
-                DiaryButton('Activity', () {
-                  Navigator.push(
-                    context, MaterialPageRoute(
-                      builder: (context) => AnimatedPieChartExample()),
-                  );
-                }),
+                DiaryButton('Activity', () {}),
 
                 DiaryButton('Sleep', () {
                   Navigator.push(
