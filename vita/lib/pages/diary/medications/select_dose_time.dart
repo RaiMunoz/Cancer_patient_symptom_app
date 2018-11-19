@@ -60,12 +60,10 @@ class select_dose_time extends StatelessWidget {
       children: <Widget>[
         Container(
           width: 100.0,
-          height: 100.0,
           child: time_button(entry),
         ),
         Container(
           width: 100.0,
-          height: 100.0,
           child: dose_button(entry),
         ),
       ],
