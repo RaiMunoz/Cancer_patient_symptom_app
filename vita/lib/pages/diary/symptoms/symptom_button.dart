@@ -40,29 +40,36 @@ class _symptom_button extends State<symptom_button> {
 
   @override
   Widget build(BuildContext) {
+    final button_color = ThemeColors.lightGreen;
+    final no_borders = Theme.of(context).copyWith(dividerColor: button_color);
+
     return Form(
       key: formKey,
       child: Container(
         width: MediaQuery.of(context).size.width * 0.8,
         margin: EdgeInsets.symmetric(vertical: 5.0),
+        padding: EdgeInsets.all(5.0),
         decoration: ShapeDecoration(
           shape: RoundedRectangleBorder(borderRadius: new BorderRadius.circular(15.0)),
-          color: ThemeColors.lightGreen,
+          color: button_color,
         ),
-        child: ExpansionTile(
-          title: Text(
-            widget.title,
-            style: TextStyle(color: Colors.white),
-          ),
-          children: <Widget>[
-            FittedBox(
-              child: select_severity(entry),
+        child: Theme(
+          data: no_borders,
+            child: ExpansionTile(
+            title: Text(
+              widget.title,
+              style: TextStyle(color: Colors.white),
             ),
-          ],
-          onExpansionChanged: (expanded) {
-            if(!expanded) submitForm();
-          },
-          trailing: Icon(Icons.add_circle),
+            children: <Widget>[
+              FittedBox(
+                child: select_severity(entry),
+              ),
+            ],
+            onExpansionChanged: (expanded) {
+              if(!expanded) submitForm();
+            },
+            trailing: Icon(Icons.add_circle),
+          ),
         ),
       ),
     );

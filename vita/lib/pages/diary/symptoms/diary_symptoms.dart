@@ -14,7 +14,10 @@ class _diary_symptoms extends State<diary_symptoms> {
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        title: Text('Track My Symptoms'),
+        centerTitle: true,
+      ),
       body: ListView.builder(
         itemBuilder:
           (context, int i) {

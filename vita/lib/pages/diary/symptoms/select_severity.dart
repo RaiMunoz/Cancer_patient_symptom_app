@@ -16,6 +16,7 @@ class symptom_rating_button extends StatelessWidget {
         style: TextStyle(color: Colors.white),
       ),
       color: ThemeColors.darkGreen,
+      shape: CircleBorder(),
       onPressed: () {entry.severity = rating;},
     );
   }
