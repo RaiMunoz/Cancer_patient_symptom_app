@@ -42,3 +42,41 @@ class _entry_button_generic extends State<entry_button_generic> {
     );
   }
 }
+
+class entry_text_field extends StatefulWidget {
+  final String title;
+  final FormFieldSetter<String> saved;
+  final TextInputType keyboard;
+
+  const entry_text_field({Key key, this.title, this.saved, this.keyboard = TextInputType.text}): super(key: key);
+
+  @override
+  _entry_text_field createState() => new _entry_text_field();
+}
+
+class _entry_text_field extends State<entry_text_field> {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: 100.0,
+      decoration: ShapeDecoration(
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15.0)),
+        color: ThemeColors.darkGreen,
+      ),
+      alignment: Alignment(0.0, 0.0),
+      child: new TextFormField(
+        decoration: InputDecoration(
+          hintText: widget.title,
+          hintStyle: TextStyle(
+            color: Colors.white,
+          ),
+          border: InputBorder.none,
+        ),
+        textAlign: TextAlign.center,
+        style: TextStyle(color: Colors.white),
+        keyboardType: widget.keyboard,
+        onSaved: widget.saved,
+      ),
+    );
+  }
+}
