@@ -44,8 +44,11 @@ class _symptom_button extends State<symptom_button> {
       key: formKey,
       child: Container(
         width: MediaQuery.of(context).size.width * 0.8,
-        child: Container(
+        margin: EdgeInsets.symmetric(vertical: 5.0),
+        decoration: ShapeDecoration(
+          shape: RoundedRectangleBorder(borderRadius: new BorderRadius.circular(15.0)),
           color: ThemeColors.lightGreen,
+        ),
         child: ExpansionTile(
           title: Text(
             widget.title,
@@ -62,7 +65,6 @@ class _symptom_button extends State<symptom_button> {
           backgroundColor: ThemeColors.lightGreen,
           trailing: Icon(Icons.add_circle),
         ),
-      ),
       ),
     );
   }

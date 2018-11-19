@@ -21,6 +21,10 @@ class _diary_symptoms extends State<diary_symptoms> {
             return symptom_button(title: symptoms[i]);
           },
         itemCount: symptoms.length,
+        padding: EdgeInsets.symmetric(
+          horizontal: MediaQuery.of(context).size.width * 0.05,
+          vertical: MediaQuery.of(context).size.height * 0.05,
+        ),
       ),
     );
   }
