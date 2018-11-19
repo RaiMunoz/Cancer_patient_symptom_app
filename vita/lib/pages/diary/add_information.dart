@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import '../diary/add_diary_entry_widget.dart';
 import './diary_button.dart';
 import 'symptoms/diary_symptoms.dart';
+import 'medications/diary_medications.dart';
 
 
 class AddInformation extends StatelessWidget {
@@ -29,7 +30,7 @@ class AddInformation extends StatelessWidget {
                 DiaryButton('Medications', () {
                   Navigator.push(
                     context, MaterialPageRoute(
-                      builder: (context) => AddMedicationsWidget()),
+                      builder: (context) => diary_medications()),
                   );
                 }),
 

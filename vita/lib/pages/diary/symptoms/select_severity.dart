@@ -29,13 +29,13 @@ class select_severity extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
-    children: <Widget>[
-    symptom_rating_button(1, entry),
-    symptom_rating_button(1, entry),
-    symptom_rating_button(1, entry),
-    symptom_rating_button(2, entry),
-    symptom_rating_button(2, entry),
-    ],
+      children: <Widget>[
+        symptom_rating_button(1, entry),
+        symptom_rating_button(1, entry),
+        symptom_rating_button(1, entry),
+        symptom_rating_button(2, entry),
+        symptom_rating_button(2, entry),
+      ],
     );
   }
 }
