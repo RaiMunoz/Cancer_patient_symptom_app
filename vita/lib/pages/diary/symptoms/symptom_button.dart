@@ -62,7 +62,6 @@ class _symptom_button extends State<symptom_button> {
           onExpansionChanged: (expanded) {
             if(!expanded) submitForm();
           },
-          backgroundColor: ThemeColors.lightGreen,
           trailing: Icon(Icons.add_circle),
         ),
       ),
