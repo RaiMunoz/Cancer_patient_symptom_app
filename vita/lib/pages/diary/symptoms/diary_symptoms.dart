@@ -16,26 +16,12 @@ class _diary_symptoms extends State<diary_symptoms> {
     return new Scaffold(
       appBar: AppBar(),
       body: ListView.builder(
-        itemBuilder: (context, int i)
-        {return symptom_button(title: symptoms[i]);},
+        itemBuilder:
+          (context, int i) {
+            return symptom_button(title: symptoms[i]);
+          },
         itemCount: symptoms.length,
       ),
-      /*body: ListView(
-        children: <Widget>[
-          new symptom_button(
-            title: 'hi',
-          ),
-          new symptom_button(
-            title: 'hi',
-          ),
-          new symptom_button(
-            title: 'hi',
-          ),
-          new symptom_button(
-            title: 'hi',
-          ),
-        ],
-      ),*/
     );
   }
 }
