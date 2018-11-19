@@ -74,10 +74,12 @@ class select_dose_time extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: <Widget>[
-        entry_text_field(
-          title: 'Time',
-          keyboard: TextInputType.datetime,
-          saved: (val) {entry.time_taken = convertToDatetime(val);},
+        FittedBox (
+          child: entry_text_field(
+            title: 'Time',
+            keyboard: TextInputType.datetime,
+            saved: (val) {entry.time_taken = convertToDatetime(val);},
+          ),
         ),
         entry_text_field(
           title: 'Dosage',

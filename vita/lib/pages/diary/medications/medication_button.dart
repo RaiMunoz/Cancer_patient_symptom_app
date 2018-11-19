@@ -30,7 +30,6 @@ class _medication_button extends State<medication_button> {
 
     form.save();
     entry.medication_name = widget.title;
-    //entry.time_taken = DateTime.now(); // delete this line
     if(entry.dosage != null && entry.time_taken != null) {
       var contactService = new ContactServiceMedication();
       contactService.createMedicationEntry(entry);

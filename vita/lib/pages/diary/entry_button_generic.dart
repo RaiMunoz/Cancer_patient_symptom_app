@@ -32,7 +32,11 @@ class _entry_button_generic extends State<entry_button_generic> {
         child: ExpansionTile(
           title: Text(
             widget.title,
-            style: TextStyle(color: Colors.white),
+            style: DefaultTextStyle.of(context).style.apply(
+              fontSizeFactor: 1.25,
+              color: Colors.white,
+              fontWeightDelta: 1,
+            ),
           ),
           children: widget.children,
           onExpansionChanged: widget.action,
@@ -57,8 +61,11 @@ class entry_text_field extends StatefulWidget {
 class _entry_text_field extends State<entry_text_field> {
   @override
   Widget build(BuildContext context) {
+    double width = MediaQuery.of(context).size.width;
+
     return Container(
-      width: 100.0,
+      width: width * 0.3,
+      margin: EdgeInsets.symmetric(horizontal: width * 0.1),
       decoration: ShapeDecoration(
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15.0)),
         color: ThemeColors.darkGreen,
