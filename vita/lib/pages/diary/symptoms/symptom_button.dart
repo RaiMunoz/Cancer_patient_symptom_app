@@ -29,7 +29,6 @@ class symptom_rating_button extends StatelessWidget {
         rating.toString(),
         style: TextStyle(color: Colors.white),
       ),
-      //shape: CircleBorder(side: BorderSide(),),
       color: ThemeColors.darkGreen,
       onPressed: () {entry.severity = rating;},
     );
@@ -47,11 +46,13 @@ class _symptom_button extends State<symptom_button> {
     form.save();
     entry.symptom_name = widget.title;
     entry.time = DateTime.now();
-    var contactService = new ContactServiceSymptom();
-    contactService.createSymptomEntry(entry);
-    print('Created entry: \nSymptom name: ' + entry.symptom_name +
-        '\nSeverity: ' + entry.severity.toString() +
-        '\nTime: ' + DateFormat.yMd().add_jm().format(entry.time));
+    if(entry.severity != null) { // no severity was selected
+      var contactService = new ContactServiceSymptom();
+      contactService.createSymptomEntry(entry);
+      print('Created entry: \nSymptom name: ' + entry.symptom_name +
+          '\nSeverity: ' + entry.severity.toString() +
+          '\nTime: ' + DateFormat.yMd().add_jm().format(entry.time));
+    }
   }
 
   @override
@@ -63,14 +64,20 @@ class _symptom_button extends State<symptom_button> {
         child: ExpansionTile(
           title: Text(widget.title),
           children: <Widget>[
-            symptom_rating_button(1, entry),
-            symptom_rating_button(1, entry),
-            symptom_rating_button(1, entry),
-            symptom_rating_button(2, entry),
-            symptom_rating_button(2, entry),
+            FittedBox(
+            child: Row(
+              children: <Widget>[
+                symptom_rating_button(1, entry),
+                symptom_rating_button(1, entry),
+                symptom_rating_button(1, entry),
+                symptom_rating_button(2, entry),
+                symptom_rating_button(2, entry),
+              ],
+            ),
+            ),
           ],
-          onExpansionChanged: (val) {
-            if(val == false) submitForm();
+          onExpansionChanged: (expanded) {
+            if(!expanded) submitForm();
           },
         ),
       ),

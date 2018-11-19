@@ -1,14 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'dart:async';
-import 'package:intl/intl.dart';
 
 import 'symptom_button.dart';
-import 'symptom_entry.dart';
-import 'contact_service_symptom.dart';
+import '../../../assets/constants/symptoms.dart';
 
-
-// Inspired from https://codingwithjoe.com/building-forms-with-flutter/
 class diary_symptoms extends StatefulWidget {
   diary_symptoms();
 
@@ -21,7 +15,12 @@ class _diary_symptoms extends State<diary_symptoms> {
   Widget build(BuildContext context) {
     return new Scaffold(
       appBar: AppBar(),
-      body: ListView(
+      body: ListView.builder(
+        itemBuilder: (context, int i)
+        {return symptom_button(title: symptoms[i]);},
+        itemCount: symptoms.length,
+      ),
+      /*body: ListView(
         children: <Widget>[
           new symptom_button(
             title: 'hi',
@@ -36,7 +35,7 @@ class _diary_symptoms extends State<diary_symptoms> {
             title: 'hi',
           ),
         ],
-      ),
+      ),*/
     );
   }
 }
