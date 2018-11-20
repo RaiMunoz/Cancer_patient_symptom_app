@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class ThemeColors {
   static final Color lightGreen = new Color(0xFF5EBC9D);
-  static final Color darkGreen = new Color(0xFF228E6A);
+  static final Color darkGreen = Color(0xFF228E6A);
   static final Color orange = new Color(0xFFF28D5A);
   static final Color yellow = new Color(0xFFFFC57F);
   static final Color pink = new Color(0xFFF87C88);

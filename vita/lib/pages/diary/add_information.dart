@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
-import './../../add_diary_entry_widget.dart';
+import '../diary/add_diary_entry_widget.dart';
 import './diary_button.dart';
+import 'symptoms/diary_symptoms.dart';
+import 'medications/diary_medications.dart';
+import 'activities/diary_activities.dart';
 
 
 class AddInformation extends StatelessWidget {
@@ -21,20 +24,26 @@ class AddInformation extends StatelessWidget {
                 DiaryButton('Symptoms', () {
                   Navigator.push(
                     context, MaterialPageRoute(
-                      builder: (context) => AddSymptomsWidget()),
+                      builder: (context) => diary_symptoms()),
                   );
                 },),
 
                 DiaryButton('Medications', () {
                   Navigator.push(
                     context, MaterialPageRoute(
-                      builder: (context) => AddMedicationsWidget()),
+                      builder: (context) => diary_medications()),
                   );
                 }),
 
                 DiaryButton('Nutrition', () {}),
 
-                DiaryButton('Activity', () {}),
+
+                DiaryButton('Activity', () {
+                  Navigator.push(
+                    context, MaterialPageRoute(
+                      builder: (context) => diary_activities()),
+                  );
+                }),
 
                 DiaryButton('Sleep', () {
                   Navigator.push(
