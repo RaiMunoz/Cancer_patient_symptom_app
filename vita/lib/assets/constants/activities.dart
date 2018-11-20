@@ -1,8 +1,8 @@
 final List<String> activities = <String>[
-  'Grocery shopping'
+  'Grocery shopping',
   'Reading',
   'Running',
   'Swimming',
-  'Talking to a loved one'
+  'Talking to a loved one',
   'Yoga',
-],
+];

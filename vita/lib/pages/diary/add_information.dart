@@ -3,6 +3,7 @@ import '../diary/add_diary_entry_widget.dart';
 import './diary_button.dart';
 import 'symptoms/diary_symptoms.dart';
 import 'medications/diary_medications.dart';
+import 'activities/diary_activities.dart';
 
 
 class AddInformation extends StatelessWidget {
@@ -40,7 +41,7 @@ class AddInformation extends StatelessWidget {
                 DiaryButton('Activity', () {
                   Navigator.push(
                     context, MaterialPageRoute(
-                      builder: (context) => AddActivitiesWidget()),
+                      builder: (context) => diary_activities()),
                   );
                 }),
 

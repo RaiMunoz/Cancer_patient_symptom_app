@@ -3,12 +3,12 @@ import 'package:flutter/services.dart';
 import 'package:intl/intl.dart';
 
 import '../../../assets/theme/theme.dart';
-import 'medication_entry.dart';
+import 'activity_entry.dart';
 import '../entry_button_generic.dart';
 
-class select_dose_time extends StatelessWidget {
-  final medication_entry entry;
-  select_dose_time(this.entry);
+class select_duration extends StatelessWidget {
+  final activity_entry entry;
+  select_duration(this.entry);
 
   DateTime convertToDatetime(String text) {
     try {
@@ -26,14 +26,14 @@ class select_dose_time extends StatelessWidget {
       children: <Widget>[
         FittedBox (
           child: entry_text_field(
-            title: 'Time',
+            title: 'When?',
             keyboard: TextInputType.datetime,
-            saved: (val) {entry.time_taken = convertToDatetime(val);},
+            saved: (val) {entry.start_time = convertToDatetime(val);},
           ),
         ),
         entry_text_field(
-          title: 'Dosage',
-          saved: (val) {entry.dosage = val;},
+          title: 'How long?',
+          saved: (val) {entry.duration = val;},
         ),
       ],
     );
