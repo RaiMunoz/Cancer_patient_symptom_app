@@ -19,18 +19,19 @@ class InboxScreen extends StatelessWidget {
               mainAxisSize: MainAxisSize.max,
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-
-                InboxButton('Care Team', () {
-                  Navigator.push(
-                    context, MaterialPageRoute(
-                      builder: (context) => ChatScreen()),
-                  );
-                },),
-
+                InboxButton(
+                  'Care Team',
+                      () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => ChatScreen()),
+                    );
+                  },
+                ),
                 InboxButton('Friends and Family', () {
                   Navigator.push(
-                    context, MaterialPageRoute(
-                      builder: (context) => ChatScreen()),
+                    context,
+                    MaterialPageRoute(builder: (context) => ChatScreen()),
                   );
                 }),
               ],

@@ -4,7 +4,7 @@ class symptom_button extends StatefulWidget {
   final String title;
   final int severity;
 
-  const symptom_button({Key key, this.title, this.severity}): super(key: key);
+  const symptom_button({Key key, this.title, this.severity}) : super(key: key);
 
   @override
   _symptom_button createState() => new _symptom_button();
@@ -12,6 +12,7 @@ class symptom_button extends StatefulWidget {
 
 class symptom_rating_button extends StatelessWidget {
   final int rating;
+
   symptom_rating_button(this.rating);
 
   @override
@@ -28,26 +29,23 @@ class symptom_rating_button extends StatelessWidget {
 }
 
 class _symptom_button extends State<symptom_button> {
-
   @override
   Widget build(BuildContext context) {
-    return Container (
+    return Container(
       width: MediaQuery.of(context).size.width * 0.8,
       height: MediaQuery.of(context).size.height * 0.2,
       child: FlatButton(
-        child: Container (
+        child: Container(
           width: MediaQuery.of(context).size.width,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget> [
+            children: <Widget>[
               Row(
                 children: <Widget>[
                   Expanded(
-                    child: Text(
-                      widget.title,
-                      style: TextStyle(color: Colors.white)
-                    ),
+                    child: Text(widget.title,
+                        style: TextStyle(color: Colors.white)),
                   ),
                   IconButton(
                     icon: Icon(
@@ -74,9 +72,10 @@ class _symptom_button extends State<symptom_button> {
             ],
           ),
         ),
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
+        shape:
+        RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
         color: Colors.lightGreen,
-        onPressed: (){},
+        onPressed: () {},
       ),
     );
   }

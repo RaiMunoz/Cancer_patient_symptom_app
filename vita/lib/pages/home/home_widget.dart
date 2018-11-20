@@ -7,14 +7,12 @@ import 'dart:async';
 
 import './highlight_reminder.dart';
 
-
 class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Scaffold (
+    return Scaffold(
       backgroundColor: Colors.grey[300],
-
-      body: Column (
+      body: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Padding(
@@ -31,9 +29,9 @@ class Home extends StatelessWidget {
           Padding(
             padding: EdgeInsets.only(top: 40.0),
             child: Text(
-                'Hi Beth.\nCheck out some highlights.',
-                textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 18.0),
+              'Hi Beth.\nCheck out some highlights.',
+              textAlign: TextAlign.center,
+              style: TextStyle(fontSize: 18.0),
             ),
           ),
           Padding(
@@ -44,9 +42,11 @@ class Home extends StatelessWidget {
               child: ListView(
                 scrollDirection: Axis.horizontal,
                 children: <Widget>[
-                  HighlightReminder(Icon(Icons.directions_run), 'Walked 5 miles'),
+                  HighlightReminder(
+                      Icon(Icons.directions_run), 'Walked 5 miles'),
                   HighlightReminder(Icon(Icons.restaurant), 'Cooked a meal'),
-                  HighlightReminder(Icon(Icons.local_florist), 'Went to the park'),
+                  HighlightReminder(
+                      Icon(Icons.local_florist), 'Went to the park'),
                 ],
               ),
             ),

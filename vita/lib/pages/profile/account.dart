@@ -11,7 +11,6 @@ import 'package:vita/assets/theme/theme.dart';
 class _account extends State<account> {
   @override
   Widget build(BuildContext context) {
-
     Profile profile = getProfile();
 
     return new Scaffold(
@@ -27,7 +26,7 @@ class _account extends State<account> {
         padding: const EdgeInsets.all(0.0),
         children: <Widget>[
           new ProfileHeader(profile),
-        //  new menu(),
+          //  new menu(),
         ],
       ),
     );

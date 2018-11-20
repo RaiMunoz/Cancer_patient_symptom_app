@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-
 class ThemeColors {
   static final Color lightGreen = new Color(0xFF5EBC9D);
   static final Color darkGreen = new Color(0xFF228E6A);

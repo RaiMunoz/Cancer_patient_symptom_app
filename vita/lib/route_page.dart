@@ -5,6 +5,7 @@ import 'HomePage.dart';
 
 class RoutePage extends StatefulWidget {
   RoutePage({this.auth});
+
   final loginAuthImplement auth;
 
   @override
@@ -18,14 +19,14 @@ enum AuthStatus {
 }
 
 class _RoutePageState extends State<RoutePage> {
-
   AuthStatus authStatus = AuthStatus.NOT_DETERMINED;
 
   initState() {
     super.initState();
     widget.auth.getCurrentUser().then((userId) {
       setState(() {
-        authStatus = userId == null ? AuthStatus.NOT_SIGNED_IN : AuthStatus.SIGNED_IN;
+        authStatus =
+        userId == null ? AuthStatus.NOT_SIGNED_IN : AuthStatus.SIGNED_IN;
       });
     });
   }

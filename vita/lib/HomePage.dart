@@ -17,7 +17,7 @@ import 'pages/diary/add_diary_entry_widget.dart';
 import 'package:vita/pages/login/login_auth.dart';
 
 class HomePage extends StatefulWidget {
-  HomePage({Key key, this.auth, this.onSignedOut}): super(key:key);
+  HomePage({Key key, this.auth, this.onSignedOut}) : super(key: key);
 
   final loginAuthImplement auth;
   final VoidCallback onSignedOut;
@@ -37,14 +37,11 @@ class _HomePageState extends State<HomePage> {
     new InboxScreen(),
   ];
 
-  void _signOut() async{
-    try
-    {
+  void _signOut() async {
+    try {
       await widget.auth.signOut();
       widget.onSignedOut();
-    }
-    catch(e)
-    {
+    } catch (e) {
       print(e);
     }
   }
@@ -53,7 +50,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        centerTitle:true,
+        centerTitle: true,
         backgroundColor: ThemeColors.lightGreen,
         title: Text('Vita'),
         leading: IconButton(
@@ -70,16 +67,17 @@ class _HomePageState extends State<HomePage> {
         actions: <Widget>[
           IconButton(
             icon: Icon(Icons.person),
-            onPressed: () {Navigator.push(context, MaterialPageRoute(builder: (context) => new account()));},
+            onPressed: () {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => new account()));
+            },
           ),
         ],
       ),
-
       body: _children[_currentIndex],
       bottomNavigationBar: BottomNavigationBar(
         onTap: onTabTapped,
         currentIndex: _currentIndex,
-
         items: [
           BottomNavigationBarItem(
             icon: new Icon(Icons.home),
@@ -105,6 +103,7 @@ class _HomePageState extends State<HomePage> {
       ),
     );
   }
+
   void onTabTapped(int index) {
     setState(() {
       _currentIndex = index;

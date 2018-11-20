@@ -87,7 +87,8 @@ class AddActivitiesWidget extends StatelessWidget {
               children: <Widget>[
                 Text(
                     'Activity Log',
-                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 30.0)
+                    style: TextStyle(
+                        fontWeight: FontWeight.bold, fontSize: 30.0)
                 ),
                 Padding(
                   padding: EdgeInsetsDirectional.only(top: 40.0),

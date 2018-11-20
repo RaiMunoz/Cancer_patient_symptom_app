@@ -24,7 +24,7 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title:"Vita",
-      home:new RoutePage(auth: new Auth()),//HomePage(),
+      home: new RoutePage(auth: new Auth()), //HomePage(),
     );
   }
 }

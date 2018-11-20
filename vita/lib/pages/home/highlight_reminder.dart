@@ -12,7 +12,8 @@ class HighlightReminder extends StatelessWidget {
       child: RaisedButton.icon(
         icon: icon,
         label: Text(text),
-        shape: RoundedRectangleBorder(borderRadius: new BorderRadius.circular(30.0)),
+        shape: RoundedRectangleBorder(
+            borderRadius: new BorderRadius.circular(30.0)),
         disabledColor: Colors.blueGrey[400],
         disabledTextColor: Colors.white,
         onPressed: null,
