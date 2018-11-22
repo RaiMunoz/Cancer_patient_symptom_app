@@ -4,6 +4,7 @@ import './diary_button.dart';
 import 'symptoms/diary_symptoms.dart';
 import 'medications/diary_medications.dart';
 import 'activities/diary_activities.dart';
+import 'sleep/diary_sleep.dart';
 
 
 class AddInformation extends StatelessWidget {
@@ -48,7 +49,7 @@ class AddInformation extends StatelessWidget {
                 DiaryButton('Sleep', () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => AddSleepWidget()),
+                    MaterialPageRoute(builder: (context) => diary_sleep()),
                   );
                 }),
               ],
