@@ -44,7 +44,6 @@ class _sleep_button extends State<sleep_button> {
     if(minute != null) sum += minute.toDouble() / 60.0;
 
     entry.hours = sum;
-    print(entry.hours.toString());
   }
 
   @override
@@ -93,6 +92,10 @@ class _sleep_button extends State<sleep_button> {
                     set_hours();
                   });
                 },
+              ),
+              RaisedButton(
+                child: Text('Done'),
+                onPressed: submitForm,
               ),
             ],
           ),
