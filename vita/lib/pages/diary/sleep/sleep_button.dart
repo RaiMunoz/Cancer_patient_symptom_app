@@ -20,6 +20,10 @@ class sleep_button extends StatefulWidget {
 class _sleep_button extends State<sleep_button> {
   final GlobalKey<FormState> formKey = new GlobalKey<FormState>();
   sleep_entry entry = new sleep_entry();
+  List<int> hour_options = List<int>.generate(24, (i) => i);
+  List<int> minute_options = List<int>.generate(60, (i) => i);
+  int hour = null;
+  int minute = null;
 
   void submitForm() {
     final FormState form = formKey.currentState;
@@ -32,6 +36,15 @@ class _sleep_button extends State<sleep_button> {
       print('Created entry: \nHours slept: ' + entry.hours.toString() +
           '\nNight: ' + DateFormat.yMd().format(entry.night));
     }
+  }
+
+  void set_hours() {
+    double sum = 0;
+    if(hour != null) sum += hour.toDouble();
+    if(minute != null) sum += minute.toDouble() / 60.0;
+
+    entry.hours = sum;
+    print(entry.hours.toString());
   }
 
   @override
@@ -49,28 +62,43 @@ class _sleep_button extends State<sleep_button> {
           ),
           width: MediaQuery.of(context).size.width * 0.8,
           height: MediaQuery.of(context).size.width * 0.8,
-          child: select_hours(),/*Text(
-              'How many hours did you sleep last night?',
-              style: DefaultTextStyle.of(context).style.apply(
-                fontSizeFactor: 1.25,
-                color: Colors.white,
-                fontWeightDelta: 1,
+          child: Row(
+            children: <Widget>[
+              DropdownButton<int>(
+                value: hour,
+                items: hour_options.map((int value) {
+                  return new DropdownMenuItem<int>(
+                    value: value,
+                    child: new Text(value.toString()),
+                  );
+                }).toList(),
+                onChanged: (val) {
+                  setState(() {
+                    hour = val;
+                    set_hours();
+                  });
+                },
               ),
-          ),*/
+              DropdownButton<int>(
+                value: minute,
+                items: minute_options.map((int value) {
+                  return new DropdownMenuItem<int>(
+                    value: value,
+                    child: new Text(value.toString()),
+                  );
+                }).toList(),
+                onChanged: (val) {
+                  setState(() {
+                    minute = val;
+                    set_hours();
+                  });
+                },
+              ),
+            ],
+          ),
         ),
         alignment: Alignment(0.0, 0.0),
       ),
-      /*child: entry_button_generic(
-        title: 'How much did you sleep last night?',
-        children: <Widget>[
-          FittedBox(
-            child: select_hours(/*entry*/),
-          ),
-        ],
-        action: (expanded) {
-          if(!expanded) submitForm();
-        },
-      ),*/
     );
   }
 }
