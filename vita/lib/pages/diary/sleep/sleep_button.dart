@@ -25,11 +25,7 @@ class _sleep_button extends State<sleep_button> {
   int hour = null;
   int minute = null;
 
-  void submitForm() {
-    //final FormState form = formKey.currentState;
-
-    //form.save();
-
+  void sendToService() {
     if(hour != null && minute != null) {
       entry.hours = hour.toDouble() + minute.toDouble() / 60.0;
     };
@@ -62,49 +58,46 @@ class _sleep_button extends State<sleep_button> {
 
   @override
   Widget build(BuildContext) {
-    return Form(
-      key: formKey,
+    return Container(
+      color: ThemeColors.grey2,
       child: Container(
-        color: ThemeColors.grey2,
-        child: Container(
-          margin: EdgeInsets.symmetric(vertical: 5.0),
-          padding: EdgeInsets.all(5.0),
-          alignment: Alignment(0.0, 0.0),
-          decoration: ShapeDecoration(
-            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15.0)),
-            color: ThemeColors.lightGreen,
-          ),
-          width: MediaQuery.of(context).size.width * 0.8,
-          height: MediaQuery.of(context).size.width * 0.8,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: <Widget>[
-              Expanded(
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children:[
-                    time_dropdown(
-                      time_val: hour,
-                      time_options: hour_options,
-                      action: set_hour,
-                    ),
-                    time_dropdown(
-                      time_val: minute,
-                      time_options: minute_options,
-                      action: set_minute,
-                    )
-                  ],
-                ),
-              ),
-              RaisedButton(
-                child: Text('Done'),
-                onPressed: submitForm,
-              ),
-            ],
-          ),
-        ),
+        margin: EdgeInsets.symmetric(vertical: 5.0),
+        padding: EdgeInsets.all(5.0),
         alignment: Alignment(0.0, 0.0),
+        decoration: ShapeDecoration(
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15.0)),
+          color: ThemeColors.lightGreen,
+        ),
+        width: MediaQuery.of(context).size.width * 0.8,
+        height: MediaQuery.of(context).size.width * 0.8,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: <Widget>[
+            Expanded(
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children:[
+                  time_dropdown(
+                    time_options: hour_options,
+                    action: set_hour,
+                  ),
+                  time_dropdown(
+                    time_options: minute_options,
+                    action: set_minute,
+                  )
+                ],
+              ),
+            ),
+            RaisedButton(
+              child: Text('Done'),
+              onPressed: sendToService,
+              color: ThemeColors.grey2,
+            ),
+          ],
+        ),
       ),
+      alignment: Alignment(0.0, 0.0),
     );
   }
 }
