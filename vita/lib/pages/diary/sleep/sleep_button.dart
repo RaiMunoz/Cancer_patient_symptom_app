@@ -26,11 +26,17 @@ class _sleep_button extends State<sleep_button> {
   int minute = null;
 
   void submitForm() {
-    final FormState form = formKey.currentState;
+    //final FormState form = formKey.currentState;
 
-    form.save();
+    //form.save();
+
+    if(hour != null && minute != null) {
+      entry.hours = hour.toDouble() + minute.toDouble() / 60.0;
+    };
+
     entry.night = DateTime.now().subtract(Duration(days:1));
-    if(entry.hours != null) { // no severity was selected
+
+    if(entry.hours != null) {
       var contactService = new ContactServiceSleep();
       contactService.createSleepEntry(entry);
       print('Created entry: \nHours slept: ' + entry.hours.toString() +
@@ -46,52 +52,49 @@ class _sleep_button extends State<sleep_button> {
     entry.hours = sum;
   }
 
+  void set_hour(int hr) {
+    hour = hr;
+  }
+
+  void set_minute(int min) {
+    minute = min;
+  }
+
   @override
   Widget build(BuildContext) {
     return Form(
       key: formKey,
       child: Container(
+        color: ThemeColors.grey2,
         child: Container(
           margin: EdgeInsets.symmetric(vertical: 5.0),
           padding: EdgeInsets.all(5.0),
           alignment: Alignment(0.0, 0.0),
           decoration: ShapeDecoration(
             shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15.0)),
-            color: ThemeColors.darkGreen,
+            color: ThemeColors.lightGreen,
           ),
           width: MediaQuery.of(context).size.width * 0.8,
           height: MediaQuery.of(context).size.width * 0.8,
-          child: Row(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
-              DropdownButton<int>(
-                value: hour,
-                items: hour_options.map((int value) {
-                  return new DropdownMenuItem<int>(
-                    value: value,
-                    child: new Text(value.toString()),
-                  );
-                }).toList(),
-                onChanged: (val) {
-                  setState(() {
-                    hour = val;
-                    set_hours();
-                  });
-                },
-              ),
-              DropdownButton<int>(
-                value: minute,
-                items: minute_options.map((int value) {
-                  return new DropdownMenuItem<int>(
-                    value: value,
-                    child: new Text(value.toString()),
-                  );
-                }).toList(),
-                onChanged: (val) {
-                  setState(() {
-                    minute = val;
-                    set_hours();
-                  });
-                },
+              Expanded(
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children:[
+                    time_dropdown(
+                      time_val: hour,
+                      time_options: hour_options,
+                      action: set_hour,
+                    ),
+                    time_dropdown(
+                      time_val: minute,
+                      time_options: minute_options,
+                      action: set_minute,
+                    )
+                  ],
+                ),
               ),
               RaisedButton(
                 child: Text('Done'),
