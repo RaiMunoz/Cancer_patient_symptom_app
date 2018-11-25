@@ -6,71 +6,69 @@ import 'dart:io';
 import 'dart:async';
 
 import './highlight_reminder.dart';
+import '../../assets/theme/theme.dart';
 
 
 class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    var height = MediaQuery.of(context).size.height;
+
     return Scaffold (
-      backgroundColor: Colors.grey[300],
+      backgroundColor: ThemeColors.grey2,
 
       body: Column (
         crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-          Padding(
-            padding: EdgeInsets.only(top: 8.0),
-            child: Text(
-              'Vita',
-              style: TextStyle(
-                fontSize: 60.0,
-                color: Colors.lightBlue[400],
-                fontFamily: 'Lucida Calligraphy',
-              ),
+          Text(
+            'Vita',
+            style: DefaultTextStyle.of(context).style.apply(
+              fontSizeFactor: 4.0,
+              color: ThemeColors.darkGreen,
             ),
           ),
-          Padding(
-            padding: EdgeInsets.only(top: 40.0),
-            child: Text(
-                'Hi Beth.\nCheck out some highlights.',
+          Column(
+            children: <Widget>[
+              Text(
+                'Hi Beth.\nCheck out some highlights.', //TODO replace with actual name
                 textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 18.0),
-            ),
-          ),
-          Padding(
-            padding: EdgeInsets.only(top: 20.0),
-            child: Container(
-              padding: EdgeInsets.symmetric(horizontal: 10.0),
-              height: 100.0,
-              child: ListView(
-                scrollDirection: Axis.horizontal,
-                children: <Widget>[
-                  HighlightReminder(Icon(Icons.directions_run), 'Walked 5 miles'),
-                  HighlightReminder(Icon(Icons.restaurant), 'Cooked a meal'),
-                  HighlightReminder(Icon(Icons.local_florist), 'Went to the park'),
-                ],
+                style: DefaultTextStyle.of(context).style.apply(fontSizeFactor: 1.3),
               ),
-            ),
-          ),
-          Padding(
-            padding: EdgeInsets.only(top: 35.0),
-            child: Text(
-              'Some Reminders!',
-              style: TextStyle(fontSize: 18.0),
-            ),
-          ),
-          Padding(
-            padding: EdgeInsets.only(top: 20.0),
-            child: Container(
-              padding: EdgeInsets.symmetric(horizontal: 10.0),
-              height: 100.0,
-              child: ListView(
-                scrollDirection: Axis.horizontal,
-                children: <Widget>[
-                  HighlightReminder(Icon(Icons.priority_high), 'Take Cytoxan'),
-                  HighlightReminder(Icon(Icons.phone), 'Call Dr. Hilton'),
-                ],
+              Container(
+                padding: EdgeInsets.symmetric(horizontal: 10.0),
+                margin: EdgeInsets.only(top: 10.0),
+                height: height * 0.15,
+                child: ListView(
+                  scrollDirection: Axis.horizontal,
+                  children: <Widget>[ // TODO replace with actual highlights
+                    HighlightReminder(Icons.directions_run, 'Walked 5 miles'),
+                    HighlightReminder(Icons.restaurant, 'Cooked a meal'),
+                    HighlightReminder(Icons.local_florist, 'Went to the park'),
+                  ],
+                ),
               ),
-            ),
+            ],
+          ),
+          Column(
+            children: <Widget>[
+              Text(
+                'Some Reminders!',
+                style: DefaultTextStyle.of(context).style.apply(fontSizeFactor: 1.3),
+              ),
+              Container(
+                padding: EdgeInsets.symmetric(horizontal: 10.0),
+                margin: EdgeInsets.only(top: 10.0),
+                height: height * 0.15,
+                child: ListView(
+                  scrollDirection: Axis.horizontal,
+                  children: <Widget>[ // TODO replace with actual reminders
+                    HighlightReminder(Icons.priority_high, 'Take Cytoxan'),
+                    HighlightReminder(Icons.phone, 'Call Dr. Hilton'),
+                  ],
+                ),
+              ),
+            ],
           ),
         ],
       ),

@@ -1,18 +1,20 @@
 import 'package:flutter/material.dart';
-import '../diary/add_diary_entry_widget.dart';
 import './diary_button.dart';
 import 'symptoms/diary_symptoms.dart';
 import 'medications/diary_medications.dart';
 import 'activities/diary_activities.dart';
 import 'sleep/diary_sleep.dart';
+import '../../assets/theme/theme.dart';
 
 
 class AddInformation extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    var width = MediaQuery.of(context).size.width;
+
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 25.0),
-      color: Colors.teal[200],
+      padding: EdgeInsets.symmetric(horizontal: width * 0.05),
+      color: ThemeColors.grey1,
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [

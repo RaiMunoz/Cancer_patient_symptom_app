@@ -34,7 +34,7 @@ class _entry_button_generic extends State<entry_button_generic> {
             widget.title,
             style: DefaultTextStyle.of(context).style.apply(
               fontSizeFactor: 1.25,
-              color: Colors.white,
+              color: ThemeColors.white,
               fontWeightDelta: 1,
             ),
           ),
@@ -75,12 +75,12 @@ class _entry_text_field extends State<entry_text_field> {
         decoration: InputDecoration(
           hintText: widget.title,
           hintStyle: TextStyle(
-            color: Colors.white,
+            color: ThemeColors.white,
           ),
           border: InputBorder.none,
         ),
         textAlign: TextAlign.center,
-        style: TextStyle(color: Colors.white),
+        style: TextStyle(color: ThemeColors.white),
         keyboardType: widget.keyboard,
         onSaved: widget.saved,
       ),

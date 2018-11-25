@@ -13,7 +13,7 @@ class symptom_rating_button extends StatelessWidget {
     return new RaisedButton(
       child: Text(
         rating.toString(),
-        style: TextStyle(color: Colors.white),
+        style: TextStyle(color: ThemeColors.white),
       ),
       color: ThemeColors.darkGreen,
       shape: CircleBorder(),
