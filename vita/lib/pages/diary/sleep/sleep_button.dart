@@ -7,7 +7,7 @@ import '../../../assets/theme/theme.dart';
 
 import 'sleep_entry.dart';
 import 'contact_service_sleep.dart';
-import 'select_hours.dart';
+import 'time_select.dart';
 import '../entry_button_generic.dart';
 
 class sleep_button extends StatefulWidget {
@@ -63,12 +63,12 @@ class _sleep_button extends State<sleep_button> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children:[
-                time_dropdown(
+                time_select(
                   time_options: hour_options,
                   action: (val) {hour = val;},
                   label: 'Hours',
                 ),
-                time_dropdown(
+                time_select(
                   time_options: minute_options,
                   action: (val) {minute = val;},
                   label: 'Minutes',

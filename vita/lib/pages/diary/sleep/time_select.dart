@@ -36,18 +36,18 @@ class time_number extends StatelessWidget {
   }
 }
 
-class time_dropdown extends StatefulWidget {
+class time_select extends StatefulWidget {
   final List<int> time_options;
   final ValueChanged<int> action;
   final String label;
 
-  const time_dropdown({Key key, this.time_options, this.action, this.label}): super(key: key);
+  const time_select({Key key, this.time_options, this.action, this.label}): super(key: key);
 
   @override
-  _time_dropdown createState() => new _time_dropdown();
+  _time_select createState() => new _time_select();
 }
 
-class _time_dropdown extends State<time_dropdown> {
+class _time_select extends State<time_select> {
   int time_val = null;
   int selected = null;
 
@@ -79,9 +79,12 @@ class _time_dropdown extends State<time_dropdown> {
             },
           ),
         ),
-        Text(
-          widget.label,
-          style: TextStyle(color: ThemeColors.white,),
+        Padding(
+          padding: EdgeInsets.symmetric(vertical: 5.0),
+          child: Text(
+            widget.label,
+            style: TextStyle(color: ThemeColors.white,),
+          ),
         ),
       ],
     );
