@@ -22,82 +22,67 @@ class _sleep_button extends State<sleep_button> {
   sleep_entry entry = new sleep_entry();
   List<int> hour_options = List<int>.generate(24, (i) => i);
   List<int> minute_options = List<int>.generate(60, (i) => i);
-  int hour = null;
-  int minute = null;
+  int hour = 0;
+  int minute = 0;
 
   void sendToService() {
-    if(hour != null && minute != null) {
-      entry.hours = hour.toDouble() + minute.toDouble() / 60.0;
-    };
-
+    entry.hours = hour.toDouble() + minute.toDouble() / 60.0;
     entry.night = DateTime.now().subtract(Duration(days:1));
 
-    if(entry.hours != null) {
-      var contactService = new ContactServiceSleep();
-      contactService.createSleepEntry(entry);
-      print('Created entry: \nHours slept: ' + entry.hours.toString() +
-          '\nNight: ' + DateFormat.yMd().format(entry.night));
-    }
-  }
-
-  void set_hours() {
-    double sum = 0;
-    if(hour != null) sum += hour.toDouble();
-    if(minute != null) sum += minute.toDouble() / 60.0;
-
-    entry.hours = sum;
-  }
-
-  void set_hour(int hr) {
-    hour = hr;
-  }
-
-  void set_minute(int min) {
-    minute = min;
+    var contactService = new ContactServiceSleep();
+    contactService.createSleepEntry(entry);
+    print('Created entry: \nHours slept: ' + entry.hours.toString() +
+        '\nNight: ' + DateFormat.yMd().format(entry.night));
   }
 
   @override
   Widget build(BuildContext) {
+    var square_side = MediaQuery.of(context).size.width * 0.8;
+
     return Container(
-      color: ThemeColors.grey2,
-      child: Container(
-        margin: EdgeInsets.symmetric(vertical: 5.0),
-        padding: EdgeInsets.all(5.0),
-        alignment: Alignment(0.0, 0.0),
-        decoration: ShapeDecoration(
-          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15.0)),
-          color: ThemeColors.lightGreen,
-        ),
-        width: MediaQuery.of(context).size.width * 0.8,
-        height: MediaQuery.of(context).size.width * 0.8,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: <Widget>[
-            Expanded(
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children:[
-                  time_dropdown(
-                    time_options: hour_options,
-                    action: set_hour,
-                  ),
-                  time_dropdown(
-                    time_options: minute_options,
-                    action: set_minute,
-                  )
-                ],
-              ),
-            ),
-            RaisedButton(
-              child: Text('Done'),
-              onPressed: sendToService,
-              color: ThemeColors.grey2,
-            ),
-          ],
-        ),
+      margin: EdgeInsets.symmetric(vertical: 5.0),
+      padding: EdgeInsets.all(5.0),
+      decoration: ShapeDecoration(
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15.0)),
+        color: ThemeColors.lightGreen,
       ),
-      alignment: Alignment(0.0, 0.0),
+      width: square_side,
+      height: square_side,
+      child: Column(
+        children: <Widget>[
+          Text(
+            'How many hours did you sleep last night?',
+            textAlign: TextAlign.center,
+            style: DefaultTextStyle.of(context).style.apply(
+              fontSizeFactor: 1.25,
+              fontWeightDelta: 2,
+              color: ThemeColors.white,
+            ),
+          ),
+          Expanded(
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children:[
+                time_dropdown(
+                  time_options: hour_options,
+                  action: (val) {hour = val;},
+                  label: 'Hours',
+                ),
+                time_dropdown(
+                  time_options: minute_options,
+                  action: (val) {minute = val;},
+                  label: 'Minutes',
+                )
+              ],
+            ),
+          ),
+          RaisedButton(
+            child: Text('Done'),
+            onPressed: sendToService,
+            color: ThemeColors.grey2,
+          ),
+        ],
+      ),
     );
   }
 }

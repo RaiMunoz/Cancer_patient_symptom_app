@@ -8,19 +8,10 @@ import '../../../assets/theme/theme.dart';
 import 'sleep_entry.dart';
 import '../entry_button_generic.dart';
 
-class time_dropdown extends StatefulWidget {
-  final List<int> time_options;
-  final ValueChanged<int> action;
+class time_number extends StatelessWidget {
+  final int value;
 
-  const time_dropdown({Key key, this.time_options, this.action}): super(key: key);
-
-  @override
-  _time_dropdown createState() => new _time_dropdown();
-}
-
-class _time_dropdown extends State<time_dropdown> {
-  int time_val = null;
-  int selected = null;
+  time_number(this.value);
 
   String twoDigitString(int i) {
     String s = i.toString();
@@ -31,28 +22,68 @@ class _time_dropdown extends State<time_dropdown> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(5.0),
-      width: MediaQuery.of(context).size.width * 0.3,
-      height: MediaQuery.of(context).size.height * 0.3,
-      decoration: ShapeDecoration(
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15.0)),
-        color: ThemeColors.darkGreen,
+      alignment: Alignment(0.0, 0.0),
+      child: Text(
+        twoDigitString(value),
+        style: DefaultTextStyle.of(context).style.apply(
+          fontSizeFactor: 2.0,
+          fontWeightDelta: 2,
+          color: ThemeColors.white,
+        ),
       ),
-      child: ListView.builder(
-        itemBuilder: (context, int i) {
-          return FlatButton(
-            child: Text(twoDigitString(i)),
-            color: (selected == i) ? Colors.white : ThemeColors.darkGreen,
-            onPressed: () {
-              widget.action(i);
+      color: ThemeColors.darkGreen,
+    );
+  }
+}
+
+class time_dropdown extends StatefulWidget {
+  final List<int> time_options;
+  final ValueChanged<int> action;
+  final String label;
+
+  const time_dropdown({Key key, this.time_options, this.action, this.label}): super(key: key);
+
+  @override
+  _time_dropdown createState() => new _time_dropdown();
+}
+
+class _time_dropdown extends State<time_dropdown> {
+  int time_val = null;
+  int selected = null;
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: <Widget>[
+        Container(
+          padding: EdgeInsets.all(5.0),
+          width: MediaQuery.of(context).size.width * 0.3,
+          height: MediaQuery.of(context).size.height * 0.2,
+          decoration: ShapeDecoration(
+            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15.0)),
+            color: ThemeColors.darkGreen,
+          ),
+          child: PageView.builder(
+            itemBuilder: (context, int i) {
+              return time_number(i);
+            },
+            itemCount: widget.time_options.length,
+            scrollDirection: Axis.vertical,
+            pageSnapping: false,
+            onPageChanged: (val) {
+              widget.action(val);
               setState(() {
-               selected = i;
+                selected = val;
               });
-            }
-          );
-        },
-        itemCount: widget.time_options.length,
-      ),
+            },
+          ),
+        ),
+        Text(
+          widget.label,
+          style: TextStyle(color: ThemeColors.white,),
+        ),
+      ],
     );
   }
 }

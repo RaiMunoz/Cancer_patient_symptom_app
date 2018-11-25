@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../../assets/theme/theme.dart';
 import 'sleep_button.dart';
 
 class diary_sleep extends StatefulWidget {
@@ -17,7 +18,11 @@ class _diary_sleep extends State<diary_sleep> {
         title: Text('Sleep'),
         centerTitle: true,
       ),
-      body: sleep_button(),
+      body: Container(
+        child: sleep_button(),
+        color: ThemeColors.grey2,
+        alignment: Alignment(0.0, 0.0),
+      ),
     );
   }
 }
