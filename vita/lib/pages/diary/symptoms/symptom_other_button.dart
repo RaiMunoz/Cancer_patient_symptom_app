@@ -62,7 +62,7 @@ class _symptom_other_button extends State<symptom_other_button> {
         ),
         children: <Widget>[
           FittedBox(
-            child: select_severity(entry),
+            child: select_severity(entry: entry),
           ),
         ],
         action: (expanded) {

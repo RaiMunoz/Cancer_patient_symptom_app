@@ -22,19 +22,34 @@ class symptom_rating_button extends StatelessWidget {
   }
 }
 
-class select_severity extends StatelessWidget {
+class select_severity extends StatefulWidget {
   final symptom_entry entry;
-  select_severity(this.entry);
+
+  const select_severity({Key key, this.entry}): super(key: key);
 
   @override
+  _select_severity createState() => new _select_severity();
+}
+
+class _select_severity extends State<select_severity> {
+  int severity = 1;
+  @override
   Widget build(BuildContext context) {
-    return Row(
+    return Column(
       children: <Widget>[
-        symptom_rating_button(1, entry),
-        symptom_rating_button(1, entry),
-        symptom_rating_button(1, entry),
-        symptom_rating_button(2, entry),
-        symptom_rating_button(2, entry),
+        Slider(
+          value: severity.toDouble(),
+          label: '$severity',
+          min: 1.0,
+          max: 10.0,
+          divisions: 10,
+          onChanged: (val) {
+            widget.entry.severity = val.round();
+            setState(() {
+              severity = val.round();
+            });
+          },
+        ),
       ],
     );
   }

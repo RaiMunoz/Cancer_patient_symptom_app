@@ -49,7 +49,7 @@ class _symptom_button extends State<symptom_button> {
         title: entry_title(widget.title),
         children: <Widget>[
           FittedBox(
-            child: select_severity(entry),
+            child: select_severity(entry: entry),
           ),
         ],
         action: (expanded) {
