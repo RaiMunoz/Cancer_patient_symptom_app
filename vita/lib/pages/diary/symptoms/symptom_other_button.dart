@@ -26,14 +26,17 @@ class _symptom_other_button extends State<symptom_other_button> {
     final FormState form = formKey.currentState;
 
     form.save();
-    //entry.symptom_name = 'other'; // TODO change this
     entry.time = DateTime.now();
-    if(entry.severity != null) { // no severity was selected
+    entry.custom = true;
+    if(entry.symptom_name != null && entry.severity != null) { // no severity was selected
       var contactService = new ContactServiceSymptom();
       contactService.createSymptomEntry(entry);
-      print('Created entry: \nSymptom name: ' + entry.symptom_name +
+      print(
+          'Created entry: \nSymptom name: ' + entry.symptom_name +
           '\nSeverity: ' + entry.severity.toString() +
-          '\nTime: ' + DateFormat.yMd().add_jm().format(entry.time));
+          '\nTime: ' + DateFormat.yMd().add_jm().format(entry.time) +
+          '\nCustom: ' + entry.custom.toString()
+      );
     }
   }
 
@@ -47,7 +50,7 @@ class _symptom_other_button extends State<symptom_other_button> {
             entry_title('Other:'),
             Expanded(
                 child: TextFormField(
-                  onSaved: (val) {entry.symptom_name = 'Other: ' + val;},
+                  onSaved: (val) {entry.symptom_name = val;},
                 ),
               ),
           ],

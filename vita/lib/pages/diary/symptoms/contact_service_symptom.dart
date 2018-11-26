@@ -29,6 +29,7 @@ class ContactServiceSymptom {
     var entry = new symptom_entry();
     entry.symptom_name = map['symptom_name'];
     entry.severity = map['severity'];
+    entry.custom = map['custom'];
     entry.time = new DateFormat.yMd().add_jm().parseStrict(map['time']);
     return entry;
   }
@@ -38,6 +39,7 @@ class ContactServiceSymptom {
     var data = new Map();
     data['symptom_name'] = entry.symptom_name;
     data['severity'] = entry.severity;
+    data['custom'] = entry.custom;
     data['time'] = new DateFormat.yMd().add_jm().format(entry.time);
     String jsonContact = json.encode(data);
     return jsonContact;

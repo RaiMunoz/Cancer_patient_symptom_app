@@ -35,7 +35,9 @@ class _symptom_button extends State<symptom_button> {
       contactService.createSymptomEntry(entry);
       print('Created entry: \nSymptom name: ' + entry.symptom_name +
           '\nSeverity: ' + entry.severity.toString() +
-          '\nTime: ' + DateFormat.yMd().add_jm().format(entry.time));
+          '\nTime: ' + DateFormat.yMd().add_jm().format(entry.time) +
+          '\nCustom: ' + entry.custom.toString()
+      );
     }
   }
 
