@@ -9,13 +9,19 @@ import 'pages/profile/account.dart';
 import 'pages/diary/diary_main.dart';
 import 'pages/messaging/inbox_screen.dart';
 import 'pages/analytics/test_viz.dart';
-import 'pages/addInformation/add_information.dart';
+import 'pages/diary/add_information.dart';
 import 'pages/home/home_widget.dart';
 
 import 'placeholder_widget.dart';
 import 'pages/diary/add_diary_entry_widget.dart';
+import 'package:vita/pages/login/login_auth.dart';
 
 class HomePage extends StatefulWidget {
+  HomePage({Key key, this.auth, this.onSignedOut}): super(key:key);
+
+  final loginAuthImplement auth;
+  final VoidCallback onSignedOut;
+
   @override
   State<StatefulWidget> createState() {
     return _HomePageState();
@@ -36,13 +42,37 @@ class _HomePageState extends State<HomePage> {
     "Analytics",
     "Messaging",
   ];
+
+  void _signOut() async{
+    try
+    {
+      await widget.auth.signOut();
+      widget.onSignedOut();
+    }
+    catch(e)
+    {
+      print(e);
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         centerTitle:true,
-        backgroundColor: ThemeColors.darkGreen,
-        title: Text(_children_name[_currentIndex]),
+        backgroundColor: ThemeColors.lightGreen,
+        title: Text('Vita'),
+        leading: IconButton(
+          icon: Icon(Icons.navigate_before),
+          onPressed: () {
+            _signOut();
+            //_appDocumentsDirectory= getApplicationDocumentsDirectory();
+            //path= _appDocumentsDirectory.path;
+            //new_image = _image.copy('$path/image1.png')
+
+            // do something
+          },
+        ),
         actions: <Widget>[
           IconButton(
             icon: Icon(Icons.person),

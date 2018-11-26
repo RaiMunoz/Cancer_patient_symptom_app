@@ -24,6 +24,11 @@ dependencies:
   # http: ^0.12.0
   video_player: "^0.5.1"
   datetime_picker_formfield: ^0.1.7
+  # Need to put in the database!
+  firebase_auth: ^0.5.19
+  #^0.6.2+1
+  firebase_database: 0.4.6
+  #http: ^0.12.0 # Please don't delete!
 
 dev_dependencies:
   flutter_test:
@@ -55,6 +60,8 @@ flutter:
     - assets/images/wallet.png
     - assets/images/joystick.png
     - assets/videos/intro.mp4
+    - assets/images/vita_1.png
+
 
   fonts:
     - family: Themify
