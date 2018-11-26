@@ -9,5 +9,5 @@ final List<String> symptoms = <String>[
   'Numbness or Tingling',
   'Nausea',
   'Diarrhea or Constipation',
-  'Other',
+  //'Other', // Use symptom other button instead
 ];

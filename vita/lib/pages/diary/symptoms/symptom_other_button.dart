@@ -42,15 +42,20 @@ class _symptom_other_button extends State<symptom_other_button> {
 
   @override
   Widget build(BuildContext) {
+    var width = MediaQuery.of(context).size.width;
+
     return Form(
       key: formKey,
       child: entry_button_generic(
         title: Row(
           children: <Widget>[
             entry_title('Other:'),
+            Padding(padding: EdgeInsets.only(left: width / 20)),
             Expanded(
                 child: TextFormField(
                   onSaved: (val) {entry.symptom_name = val;},
+                  textCapitalization: TextCapitalization.words,
+                  decoration: InputDecoration(hintText: 'Symptom Name',),
                 ),
               ),
           ],
