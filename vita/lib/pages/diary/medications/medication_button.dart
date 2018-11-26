@@ -44,7 +44,7 @@ class _medication_button extends State<medication_button> {
     return Form(
       key: formKey,
       child: entry_button_generic(
-        title: widget.title,
+        title: entry_title(widget.title),
         children: <Widget>[
           FittedBox(
             child: select_dose_time(entry),

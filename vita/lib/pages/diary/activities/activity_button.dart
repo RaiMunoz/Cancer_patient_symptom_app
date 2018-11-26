@@ -43,7 +43,7 @@ class _activity_button extends State<activity_button> {
     return Form(
       key: formKey,
       child: entry_button_generic(
-        title: widget.title,
+        title: entry_title(widget.title),
         children: <Widget>[
           FittedBox(
             child: select_duration(entry),

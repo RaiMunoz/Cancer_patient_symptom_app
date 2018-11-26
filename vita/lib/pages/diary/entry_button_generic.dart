@@ -2,8 +2,26 @@ import 'package:flutter/material.dart';
 
 import '../../assets/theme/theme.dart';
 
-class entry_button_generic extends StatefulWidget {
+class entry_title extends StatelessWidget {
   final String title;
+
+  entry_title(this.title);
+
+  @override
+  Widget build(BuildContext context) {
+    return Text(
+      title,
+      style: DefaultTextStyle.of(context).style.apply(
+        fontSizeFactor: 1.25,
+        color: ThemeColors.white,
+        fontWeightDelta: 1,
+      ),
+    );
+  }
+}
+
+class entry_button_generic extends StatefulWidget {
+  final Widget title;
   final List<Widget> children;
   final ValueChanged<bool> action;
 
@@ -16,8 +34,8 @@ class entry_button_generic extends StatefulWidget {
 class _entry_button_generic extends State<entry_button_generic> {
   @override
   Widget build(BuildContext) {
-    final button_color = ThemeColors.lightGreen;
-    final no_borders = Theme.of(context).copyWith(dividerColor: button_color);
+    var button_color = ThemeColors.lightGreen;
+    var no_borders = Theme.of(context).copyWith(dividerColor: button_color);
 
     return Container(
       width: MediaQuery.of(context).size.width * 0.8,
@@ -30,14 +48,10 @@ class _entry_button_generic extends State<entry_button_generic> {
       child: Theme(
         data: no_borders,
         child: ExpansionTile(
-          title: Text(
+          title: widget.title, /*Text(
             widget.title,
-            style: DefaultTextStyle.of(context).style.apply(
-              fontSizeFactor: 1.25,
-              color: ThemeColors.white,
-              fontWeightDelta: 1,
-            ),
-          ),
+            style: entry_button_title_style(context),
+          ),*/
           children: widget.children,
           onExpansionChanged: widget.action,
           trailing: Icon(Icons.add_circle),
