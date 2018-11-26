@@ -14,7 +14,7 @@ import '../../pages/analytics/test_viz.dart';
 import './highlight_reminder.dart';
 import 'package:vita/assets/theme/theme.dart';
 import './highlight_reminder.dart';
-import '../../assets/theme/theme.dart';
+//import '../../assets/theme/theme.dart';
 
 
 class Home extends StatelessWidget {
