@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:vita/assets/theme/theme.dart';
-import './pages/personal_settings/personal_settings.dart';
+import './pages/personal_settings/personal_settings_widget.dart';
 import './pages/notification_settings/notification_settings_widget.dart';
 import './pages/help/help_widget.dart';
 
