@@ -14,7 +14,7 @@ class select_severity extends StatefulWidget {
 }
 
 class _select_severity extends State<select_severity> {
-  List<int> severity_list = List<int>.generate(5, (val) => val + 1);
+  int max_severity = 5;
   int severity = 1;
 
   @override
@@ -28,8 +28,8 @@ class _select_severity extends State<select_severity> {
               value: severity.toDouble(),
               label: '$severity',
               min: 1.0,
-              max: 5.0,
-              divisions: 4,
+              max: max_severity.toDouble(),
+              divisions: max_severity - 1,
               onChanged: (val) {
                 widget.entry.severity = val.round();
                 setState(() {
@@ -38,9 +38,22 @@ class _select_severity extends State<select_severity> {
               },
             ),
           ),
+          Padding(
+            padding: EdgeInsets.symmetric(vertical: 5),
+          ),
           Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: List<Widget>.generate(severity_list.length, (i) => Text((i+1).toString()))
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: List<Widget>.generate(
+              max_severity,
+              (int val){
+                return Text(
+                  (val+1).toString(),
+                  style: DefaultTextStyle.of(context).style.apply(
+                    color: ThemeColors.white,
+                  )
+                );
+              },
+            ),
           ),
         ],
       ),
