@@ -1,26 +1,8 @@
 import 'package:flutter/material.dart';
 
 import '../../../assets/theme/theme.dart';
+import '../../../assets/theme/theme_slider.dart';
 import 'symptom_entry.dart';
-
-class symptom_rating_button extends StatelessWidget {
-  final int rating;
-  final symptom_entry entry;
-  symptom_rating_button(this.rating, this.entry);
-
-  @override
-  Widget build(BuildContext context) {
-    return new RaisedButton(
-      child: Text(
-        rating.toString(),
-        style: TextStyle(color: ThemeColors.white),
-      ),
-      color: ThemeColors.darkGreen,
-      shape: CircleBorder(),
-      onPressed: () {entry.severity = rating;},
-    );
-  }
-}
 
 class select_severity extends StatefulWidget {
   final symptom_entry entry;
@@ -32,25 +14,36 @@ class select_severity extends StatefulWidget {
 }
 
 class _select_severity extends State<select_severity> {
+  List<int> severity_list = List<int>.generate(5, (val) => val + 1);
   int severity = 1;
+
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: <Widget>[
-        Slider(
-          value: severity.toDouble(),
-          label: '$severity',
-          min: 1.0,
-          max: 10.0,
-          divisions: 10,
-          onChanged: (val) {
-            widget.entry.severity = val.round();
-            setState(() {
-              severity = val.round();
-            });
-          },
-        ),
-      ],
+    return Container(
+      width: 300.0,
+      child: Column(
+        children: <Widget>[
+          ThemeSlider(
+            Slider(
+              value: severity.toDouble(),
+              label: '$severity',
+              min: 1.0,
+              max: 5.0,
+              divisions: 4,
+              onChanged: (val) {
+                widget.entry.severity = val.round();
+                setState(() {
+                  severity = val.round();
+                });
+              },
+            ),
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: List<Widget>.generate(severity_list.length, (i) => Text((i+1).toString()))
+          ),
+        ],
+      ),
     );
   }
 }
