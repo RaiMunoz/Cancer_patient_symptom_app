@@ -19,8 +19,7 @@ class _diary_medications extends State<diary_medications> {
         centerTitle: true,
       ),
       body: ListView.builder(
-        itemBuilder:
-            (context, int i) {
+        itemBuilder: (context, int i) {
           return medication_button(title: medications[i]);
         },
         itemCount: medications.length,

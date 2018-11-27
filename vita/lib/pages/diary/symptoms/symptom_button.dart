@@ -13,7 +13,7 @@ import '../entry_button_generic.dart';
 class symptom_button extends StatefulWidget {
   final String title;
 
-  const symptom_button({Key key, this.title}): super(key: key);
+  const symptom_button({Key key, this.title}) : super(key: key);
 
   @override
   _symptom_button createState() => new _symptom_button();
@@ -30,7 +30,7 @@ class _symptom_button extends State<symptom_button> {
     form.save();
     entry.symptom_name = widget.title;
     entry.time = DateTime.now();
-    if(entry.severity != null) { // no severity was selected
+    if (entry.severity != null) { // no severity was selected
       var contactService = new ContactServiceSymptom();
       contactService.createSymptomEntry(entry);
       print('Created entry: \nSymptom name: ' + entry.symptom_name +
@@ -51,7 +51,7 @@ class _symptom_button extends State<symptom_button> {
           ),
         ],
         action: (expanded) {
-          if(!expanded) submitForm();
+          if (!expanded) submitForm();
         },
       ),
     );

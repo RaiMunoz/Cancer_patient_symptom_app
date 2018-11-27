@@ -20,13 +20,19 @@ class _diary_symptoms extends State<diary_symptoms> {
       ),
       body: ListView.builder(
         itemBuilder:
-          (context, int i) {
-            return symptom_button(title: symptoms[i]);
-          },
+            (context, int i) {
+          return symptom_button(title: symptoms[i]);
+        },
         itemCount: symptoms.length,
         padding: EdgeInsets.symmetric(
-          horizontal: MediaQuery.of(context).size.width * 0.05,
-          vertical: MediaQuery.of(context).size.height * 0.05,
+          horizontal: MediaQuery
+              .of(context)
+              .size
+              .width * 0.05,
+          vertical: MediaQuery
+              .of(context)
+              .size
+              .height * 0.05,
         ),
       ),
     );

@@ -19,8 +19,7 @@ class _diary_activities extends State<diary_activities> {
         centerTitle: true,
       ),
       body: ListView.builder(
-        itemBuilder:
-            (context, int i) {
+        itemBuilder: (context, int i) {
           return activity_button(title: activities[i]);
         },
         itemCount: activities.length,

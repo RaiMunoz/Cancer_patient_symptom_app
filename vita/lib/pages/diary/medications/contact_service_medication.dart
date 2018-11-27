@@ -28,8 +28,9 @@ class ContactServiceMedication {
     Map<String, dynamic> map = json.decode(jsonContact);
     var entry = new medication_entry();
     entry.medication_name = map['medication_name'];
-    entry.dosage= map['dosage'];
-    entry.time_taken = new DateFormat.yMd().add_jm().parseStrict(map['time_taken']);
+    entry.dosage = map['dosage'];
+    entry.time_taken =
+        new DateFormat.yMd().add_jm().parseStrict(map['time_taken']);
     return entry;
   }
 

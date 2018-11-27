@@ -8,6 +8,7 @@ import '../entry_button_generic.dart';
 
 class select_duration extends StatelessWidget {
   final activity_entry entry;
+
   select_duration(this.entry);
 
   DateTime convertToDatetime(String text) {
@@ -24,16 +25,20 @@ class select_duration extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: <Widget>[
-        FittedBox (
+        FittedBox(
           child: entry_text_field(
             title: 'When?',
             keyboard: TextInputType.datetime,
-            saved: (val) {entry.start_time = convertToDatetime(val);},
+            saved: (val) {
+              entry.start_time = convertToDatetime(val);
+            },
           ),
         ),
         entry_text_field(
           title: 'How long?',
-          saved: (val) {entry.duration = val;},
+          saved: (val) {
+            entry.duration = val;
+          },
         ),
       ],
     );

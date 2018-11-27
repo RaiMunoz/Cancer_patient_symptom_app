@@ -6,6 +6,7 @@ import 'symptom_entry.dart';
 class symptom_rating_button extends StatelessWidget {
   final int rating;
   final symptom_entry entry;
+
   symptom_rating_button(this.rating, this.entry);
 
   @override
@@ -17,13 +18,16 @@ class symptom_rating_button extends StatelessWidget {
       ),
       color: ThemeColors.darkGreen,
       shape: CircleBorder(),
-      onPressed: () {entry.severity = rating;},
+      onPressed: () {
+        entry.severity = rating;
+      },
     );
   }
 }
 
 class select_severity extends StatelessWidget {
   final symptom_entry entry;
+
   select_severity(this.entry);
 
   @override

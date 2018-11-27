@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'dart:async';
@@ -14,7 +13,7 @@ import '../entry_button_generic.dart';
 class medication_button extends StatefulWidget {
   final String title;
 
-  const medication_button({Key key, this.title}): super(key: key);
+  const medication_button({Key key, this.title}) : super(key: key);
 
   @override
   _medication_button createState() => new _medication_button();
@@ -30,12 +29,15 @@ class _medication_button extends State<medication_button> {
 
     form.save();
     entry.medication_name = widget.title;
-    if(entry.dosage != null && entry.time_taken != null) {
+    if (entry.dosage != null && entry.time_taken != null) {
       var contactService = new ContactServiceMedication();
       contactService.createMedicationEntry(entry);
-      print('Created entry: \nMedication name: ' + entry.medication_name +
-          '\nDosage: ' + entry.dosage +
-          '\nTime taken: ' + DateFormat.yMd().add_jm().format(entry.time_taken));
+      print('Created entry: \nMedication name: ' +
+          entry.medication_name +
+          '\nDosage: ' +
+          entry.dosage +
+          '\nTime taken: ' +
+          DateFormat.yMd().add_jm().format(entry.time_taken));
     }
   }
 
@@ -51,7 +53,7 @@ class _medication_button extends State<medication_button> {
           ),
         ],
         action: (expanded) {
-          if(!expanded) submitForm();
+          if (!expanded) submitForm();
         },
       ),
     );

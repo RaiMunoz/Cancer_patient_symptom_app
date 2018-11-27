@@ -28,7 +28,8 @@ class ContactServiceActivity {
     Map<String, dynamic> map = json.decode(jsonContact);
     var entry = new activity_entry();
     entry.activity_name = map['activity_name'];
-    entry.start_time = new DateFormat.yMd().add_jm().parseStrict(map['start_time']);
+    entry.start_time =
+        new DateFormat.yMd().add_jm().parseStrict(map['start_time']);
     entry.duration = map['duration'];
     return entry;
   }

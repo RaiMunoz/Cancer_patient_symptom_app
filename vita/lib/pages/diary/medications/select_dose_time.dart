@@ -8,6 +8,7 @@ import '../entry_button_generic.dart';
 
 class select_dose_time extends StatelessWidget {
   final medication_entry entry;
+
   select_dose_time(this.entry);
 
   DateTime convertToDatetime(String text) {
@@ -24,16 +25,20 @@ class select_dose_time extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: <Widget>[
-        FittedBox (
+        FittedBox(
           child: entry_text_field(
             title: 'Time',
             keyboard: TextInputType.datetime,
-            saved: (val) {entry.time_taken = convertToDatetime(val);},
+            saved: (val) {
+              entry.time_taken = convertToDatetime(val);
+            },
           ),
         ),
         entry_text_field(
           title: 'Dosage',
-          saved: (val) {entry.dosage = val;},
+          saved: (val) {
+            entry.dosage = val;
+          },
         ),
       ],
     );

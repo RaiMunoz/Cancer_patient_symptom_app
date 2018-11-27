@@ -7,7 +7,8 @@ class entry_button_generic extends StatefulWidget {
   final List<Widget> children;
   final ValueChanged<bool> action;
 
-  const entry_button_generic({Key key, this.title, this.children, this.action}): super(key: key);
+  const entry_button_generic({Key key, this.title, this.children, this.action})
+      : super(key: key);
 
   @override
   _entry_button_generic createState() => new _entry_button_generic();
@@ -24,7 +25,8 @@ class _entry_button_generic extends State<entry_button_generic> {
       margin: EdgeInsets.symmetric(vertical: 5.0),
       padding: EdgeInsets.all(5.0),
       decoration: ShapeDecoration(
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15.0)),
+        shape:
+        RoundedRectangleBorder(borderRadius: BorderRadius.circular(15.0)),
         color: button_color,
       ),
       child: Theme(
@@ -52,7 +54,9 @@ class entry_text_field extends StatefulWidget {
   final FormFieldSetter<String> saved;
   final TextInputType keyboard;
 
-  const entry_text_field({Key key, this.title, this.saved, this.keyboard = TextInputType.text}): super(key: key);
+  const entry_text_field(
+      {Key key, this.title, this.saved, this.keyboard = TextInputType.text})
+      : super(key: key);
 
   @override
   _entry_text_field createState() => new _entry_text_field();
@@ -67,7 +71,8 @@ class _entry_text_field extends State<entry_text_field> {
       width: width * 0.3,
       margin: EdgeInsets.symmetric(horizontal: width * 0.1),
       decoration: ShapeDecoration(
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15.0)),
+        shape:
+        RoundedRectangleBorder(borderRadius: BorderRadius.circular(15.0)),
         color: ThemeColors.darkGreen,
       ),
       alignment: Alignment(0.0, 0.0),
