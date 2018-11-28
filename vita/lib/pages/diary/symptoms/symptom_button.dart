@@ -12,8 +12,9 @@ import '../entry_button_generic.dart';
 
 class symptom_button extends StatefulWidget {
   final String title;
+  final bool custom;
 
-  const symptom_button({Key key, this.title}): super(key: key);
+  const symptom_button({Key key, this.title, this.custom}): super(key: key);
 
   @override
   _symptom_button createState() => new _symptom_button();
@@ -21,16 +22,17 @@ class symptom_button extends StatefulWidget {
 
 class _symptom_button extends State<symptom_button> {
   final GlobalKey<FormState> formKey = new GlobalKey<FormState>();
-  int severity = null;
+  int severity = 1;
   symptom_entry entry = new symptom_entry();
 
   void submitForm() {
     final FormState form = formKey.currentState;
 
     form.save();
-    entry.symptom_name = widget.title;
+    entry.custom = widget.custom;
+    if(!widget.custom) entry.symptom_name = widget.title;
     entry.time = DateTime.now();
-    if(entry.severity != null) { // no severity was selected
+    if(entry.severity != null) {
       var contactService = new ContactServiceSymptom();
       contactService.createSymptomEntry(entry);
       print('Created entry: \nSymptom name: ' + entry.symptom_name +
@@ -43,6 +45,27 @@ class _symptom_button extends State<symptom_button> {
 
   @override
   Widget build(BuildContext) {
+    var width = MediaQuery.of(context).size.width;
+    Widget title_widget;
+    if(widget.custom) {
+      title_widget = Row(
+        children: <Widget>[
+          entry_title('Other:'),
+          Padding(padding: EdgeInsets.only(left: width / 20)),
+          Expanded(
+            child: TextFormField(
+              onSaved: (val) {entry.symptom_name = val;},
+              textCapitalization: TextCapitalization.words,
+              decoration: InputDecoration(hintText: 'Symptom Name',),
+            ),
+          ),
+        ],
+      );
+    }
+    else {
+      title_widget = entry_title(widget.title);
+    }
+
     return Form(
       key: formKey,
       child: entry_button_generic(
