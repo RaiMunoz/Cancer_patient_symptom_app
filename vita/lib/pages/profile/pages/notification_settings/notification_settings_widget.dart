@@ -102,7 +102,7 @@ class _notifSettings extends State<notifSettings> {
                               ),
                               Padding(padding: new EdgeInsets.all(10.0),
                                 child: Container(
-                                  width:120.0,
+                                  width:100.0,
                                   //height: 120.0,
                                   //padding: const EdgeInsets.only(left: 10.0),
                                   decoration: new BoxDecoration (
@@ -140,7 +140,7 @@ class _notifSettings extends State<notifSettings> {
                               ),
                               Padding(padding: new EdgeInsets.all(10.0),
                                 child: Container(
-                                  width:120.0,
+                                  width:100.0,
                                   //height: 120.0,
                                   //padding: const EdgeInsets.only(left: 10.0),
                                   decoration: new BoxDecoration (
@@ -178,7 +178,7 @@ class _notifSettings extends State<notifSettings> {
                               ),
                               Padding(padding: new EdgeInsets.all(10.0),
                                 child: Container(
-                                  width:120.0,
+                                  width:100.0,
                                   //height: 120.0,
                                   //padding: const EdgeInsets.only(left: 10.0),
                                   decoration: new BoxDecoration (
