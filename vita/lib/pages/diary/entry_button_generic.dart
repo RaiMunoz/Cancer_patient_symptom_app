@@ -48,10 +48,7 @@ class _entry_button_generic extends State<entry_button_generic> {
       child: Theme(
         data: no_borders,
         child: ExpansionTile(
-          title: widget.title, /*Text(
-            widget.title,
-            style: entry_button_title_style(context),
-          ),*/
+          title: widget.title,
           children: widget.children,
           onExpansionChanged: widget.action,
           trailing: Icon(Icons.add_circle),
