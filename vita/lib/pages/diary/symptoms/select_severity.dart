@@ -39,7 +39,7 @@ class _select_severity extends State<select_severity> {
             ),
           ),
           Padding(
-            padding: EdgeInsets.symmetric(vertical: 5),
+            padding: EdgeInsets.symmetric(vertical: 5.0),
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
