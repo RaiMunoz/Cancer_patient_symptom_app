@@ -10,6 +10,8 @@ import 'contact_service_symptom.dart';
 import 'select_severity.dart';
 import '../entry_button_generic.dart';
 
+
+
 class symptom_button extends StatefulWidget {
   final String title;
   final bool custom;
@@ -20,6 +22,10 @@ class symptom_button extends StatefulWidget {
 
   void submitForm() {
     final FormState form = this.formKey.currentState;
+    if(form == null) {
+      print('Null form: ' + this.title);
+      return;
+    }
 
     form.save();
     entry.custom = this.custom;
@@ -29,11 +35,11 @@ class symptom_button extends StatefulWidget {
 
     var contactService = new ContactServiceSymptom();
     contactService.createSymptomEntry(this.entry);
-    print('Created entry: \nSymptom name: ' + this.entry.symptom_name +
+    /*print('Created entry: \nSymptom name: ' + this.entry.symptom_name +
         '\nSeverity: ' + this.entry.severity.toString() +
         '\nTime: ' + DateFormat.yMd().add_jm().format(this.entry.time) +
         '\nCustom: ' + this.entry.custom.toString()
-    );
+    );*/
   }
 
   @override
@@ -69,15 +75,13 @@ class _symptom_button extends State<symptom_button> {
     return Form(
       key: widget.formKey,
       child: entry_button_generic(
-        title: entry_title(widget.title),
+        title: title_widget,
         children: <Widget>[
           FittedBox(
             child: select_severity(entry: widget.entry),
           ),
         ],
-        action: (val){}/*(expanded) {
-          if(!expanded) this.submitForm();
-        },*/
+        action: (val){},
       ),
     );
   }
