@@ -10,24 +10,14 @@ import 'contact_service_symptom.dart';
 import 'select_severity.dart';
 import '../entry_button_generic.dart';
 
-
-
 class symptom_button extends StatefulWidget {
   final String title;
   final bool custom;
-  final GlobalKey<FormState> formKey = new GlobalKey<FormState>();
   final entry = new symptom_entry();
 
   const symptom_button({Key key, this.title, this.custom}): super(key: key);
 
   void submitForm() {
-    final FormState form = this.formKey.currentState;
-    if(form == null) {
-      print('Null form: ' + this.title);
-      return;
-    }
-
-    form.save();
     entry.custom = this.custom;
     if(!this.custom) this.entry.symptom_name = this.title;
     this.entry.time = DateTime.now();
@@ -35,11 +25,11 @@ class symptom_button extends StatefulWidget {
 
     var contactService = new ContactServiceSymptom();
     contactService.createSymptomEntry(this.entry);
-    /*print('Created entry: \nSymptom name: ' + this.entry.symptom_name +
+    print('Created entry: \nSymptom name: ' + this.entry.symptom_name +
         '\nSeverity: ' + this.entry.severity.toString() +
         '\nTime: ' + DateFormat.yMd().add_jm().format(this.entry.time) +
         '\nCustom: ' + this.entry.custom.toString()
-    );*/
+    );
   }
 
   @override
@@ -60,7 +50,7 @@ class _symptom_button extends State<symptom_button> {
           Padding(padding: EdgeInsets.only(left: width / 20)),
           Expanded(
             child: TextFormField(
-              onSaved: (val) {widget.entry.symptom_name = val;},
+              onFieldSubmitted: (val) {widget.entry.symptom_name = val;},
               textCapitalization: TextCapitalization.words,
               decoration: InputDecoration(hintText: 'Symptom Name',),
             ),
@@ -72,17 +62,14 @@ class _symptom_button extends State<symptom_button> {
       title_widget = entry_title(widget.title);
     }
 
-    return Form(
-      key: widget.formKey,
-      child: entry_button_generic(
-        title: title_widget,
-        children: <Widget>[
-          FittedBox(
-            child: select_severity(entry: widget.entry),
-          ),
-        ],
-        action: (val){},
-      ),
+    return entry_button_generic(
+      title: title_widget,
+      children: <Widget>[
+        FittedBox(
+          child: select_severity(entry: widget.entry),
+        ),
+      ],
+      action: (val){},
     );
   }
 }
