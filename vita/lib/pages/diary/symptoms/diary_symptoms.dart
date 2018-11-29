@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 import 'symptom_button.dart';
-//import 'symptom_other_button.dart';
 import '../../../assets/constants/symptoms.dart';
 import '../../../assets/theme/theme.dart';
 
@@ -18,8 +17,7 @@ class _diary_symptoms extends State<diary_symptoms> {
   void submit_all_symptoms() {
     for(int i = 0; i < all_symptoms.length; i++) {
       print(all_symptoms[i].title);
-      all_symptoms[i].submitForm(),
-      //print('here');
+      all_symptoms[i].submitForm();
     }
   }
 
