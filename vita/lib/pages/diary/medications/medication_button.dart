@@ -7,14 +7,16 @@ import 'package:intl/intl.dart';
 import '../../../assets/theme/theme.dart';
 
 import 'medication_entry.dart';
+import 'medication.dart';
 import 'contact_service_medication.dart';
 import 'select_dose_time.dart';
 import '../entry_button_generic.dart';
 
 class medication_button extends StatefulWidget {
   final String title;
+  final medication med;
 
-  const medication_button({Key key, this.title}): super(key: key);
+  const medication_button({Key key, this.title, this.med}): super(key: key);
 
   @override
   _medication_button createState() => new _medication_button();
@@ -44,10 +46,10 @@ class _medication_button extends State<medication_button> {
     return Form(
       key: formKey,
       child: entry_button_generic(
-        title: entry_title(widget.title),
+        title: entry_title(widget.med.name),
         children: <Widget>[
           FittedBox(
-            child: select_dose_time(entry),
+            child: select_dose_time(entry, widget.med),
           ),
         ],
         action: (expanded) {

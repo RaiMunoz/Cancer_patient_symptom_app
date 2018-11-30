@@ -4,11 +4,13 @@ import 'package:intl/intl.dart';
 
 import '../../../assets/theme/theme.dart';
 import 'medication_entry.dart';
+import 'medication.dart';
 import '../entry_button_generic.dart';
 
 class select_dose_time extends StatelessWidget {
   final medication_entry entry;
-  select_dose_time(this.entry);
+  final medication med;
+  select_dose_time(this.entry, this.med);
 
   DateTime convertToDatetime(String text) {
     try {
@@ -32,7 +34,7 @@ class select_dose_time extends StatelessWidget {
           ),
         ),
         entry_text_field(
-          title: 'Dosage',
+          title: this.med.dose,
           saved: (val) {entry.dosage = val;},
         ),
       ],

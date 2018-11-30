@@ -25,11 +25,6 @@ class symptom_button extends StatefulWidget {
 
     var contactService = new ContactServiceSymptom();
     contactService.createSymptomEntry(this.entry);
-    print('Created entry: \nSymptom name: ' + this.entry.symptom_name +
-        '\nSeverity: ' + this.entry.severity.toString() +
-        '\nTime: ' + DateFormat.yMd().add_jm().format(this.entry.time) +
-        '\nCustom: ' + this.entry.custom.toString()
-    );
   }
 
   @override

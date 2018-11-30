@@ -11,15 +11,28 @@ class diary_sleep extends StatefulWidget {
 }
 
 class _diary_sleep extends State<diary_sleep> {
+  void submit_sleep() {
+    print('Sleep submitted');
+  }
+
   @override
   Widget build(BuildContext context) {
+    sleep_button button = new sleep_button();
+
     return new Scaffold(
       appBar: AppBar(
         title: Text('Sleep'),
         centerTitle: true,
+        leading: IconButton(
+          icon: BackButtonIcon(),
+          onPressed: () {
+            submit_sleep(); // button.submit();
+            Navigator.maybePop(context);
+          },
+        ),
       ),
       body: Container(
-        child: sleep_button(),
+        child: button,
         color: ThemeColors.grey2,
         alignment: Alignment(0.0, 0.0),
       ),

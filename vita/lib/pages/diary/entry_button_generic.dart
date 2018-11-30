@@ -34,6 +34,7 @@ class entry_button_generic extends StatefulWidget {
 class _entry_button_generic extends State<entry_button_generic> {
   @override
   Widget build(BuildContext) {
+    bool expanded = false;
     var button_color = ThemeColors.lightGreen;
     var no_borders = Theme.of(context).copyWith(dividerColor: button_color);
 
