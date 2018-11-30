@@ -37,8 +37,6 @@ class symptom_button extends StatefulWidget {
 }
 
 class _symptom_button extends State<symptom_button> {
-  int severity = 1;
-
   @override
   Widget build(BuildContext) {
     var width = MediaQuery.of(context).size.width;
