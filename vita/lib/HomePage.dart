@@ -8,7 +8,8 @@ import 'dart:async';
 import 'pages/profile/account.dart';
 import 'pages/diary/diary_main.dart';
 import 'pages/messaging/inbox_screen.dart';
-import 'pages/analytics/test_viz.dart';
+//import 'pages/analytics/test_viz.dart';
+import 'pages/analytics/AnalyticsStartScreen.dart';
 import 'pages/diary/add_information.dart';
 import 'pages/home/home_widget.dart';
 
@@ -33,7 +34,7 @@ class _HomePageState extends State<HomePage> {
   final List<Widget> _children = [
     new Home(),
     new AddInformation(),
-    new AnimatedPieChartExample(),
+    new AnalyticsStartScreen(),
     new InboxScreen(),
   ];
   final List<String> _children_name = [
