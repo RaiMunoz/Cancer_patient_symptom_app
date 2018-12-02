@@ -26,13 +26,13 @@ class select_duration extends StatelessWidget {
       children: <Widget>[
         FittedBox (
           child: entry_text_field(
-            title: 'When?',
+            label: 'When?',
             keyboard: TextInputType.datetime,
             saved: (val) {entry.start_time = convertToDatetime(val);},
           ),
         ),
         entry_text_field(
-          title: 'How long?',
+          label: 'How long?',
           saved: (val) {entry.duration = val;},
         ),
       ],

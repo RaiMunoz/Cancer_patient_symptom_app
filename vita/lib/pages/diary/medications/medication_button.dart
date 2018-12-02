@@ -32,7 +32,7 @@ class _medication_button extends State<medication_button> {
 
     form.save();
     entry.medication_name = widget.title;
-    if(entry.dosage != null && entry.time_taken != null) {
+    if(entry.dosage != null && entry.dosage != '' && entry.time_taken != null) {
       var contactService = new ContactServiceMedication();
       contactService.createMedicationEntry(entry);
       print('Created entry: \nMedication name: ' + entry.medication_name +
@@ -49,7 +49,7 @@ class _medication_button extends State<medication_button> {
         title: entry_title(widget.med.name),
         children: <Widget>[
           FittedBox(
-            child: select_dose_time(entry, widget.med),
+            child: select_dose_time(entry: entry, med: widget.med),
           ),
         ],
         action: (expanded) {
