@@ -44,6 +44,7 @@ class AnimatedPieChartExample extends StatefulWidget {
       new _AnimatedPieChartExampleState();
 }
 
+
 class _AnimatedPieChartExampleState extends State<AnimatedPieChartExample> {
   final GlobalKey<AnimatedCircularChartState> _chartKey =
   new GlobalKey<AnimatedCircularChartState>();
@@ -60,21 +61,14 @@ class _AnimatedPieChartExampleState extends State<AnimatedPieChartExample> {
 
   @override
   Widget build(BuildContext context) {
-    return new Scaffold(
-      appBar: new AppBar(
-        title: const Text('Activities Done Today'),
-      ),
-      body: new Center(
+    return new Container(
+      child: new Center(
         child: new AnimatedCircularChart(
           key: _chartKey,
           size: _chartSize,
           initialChartData: _quarterlyProfitPieData[0],
           chartType: CircularChartType.Pie,
         ),
-      ),
-      floatingActionButton: new FloatingActionButton(
-        child: new Icon(Icons.refresh),
-        onPressed: _cycleSamples,
       ),
     );
   }

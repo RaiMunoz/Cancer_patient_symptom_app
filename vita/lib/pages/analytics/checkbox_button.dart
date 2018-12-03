@@ -23,10 +23,9 @@ class entry_title extends StatelessWidget {
 class entry_button_generic extends StatefulWidget {
   final String title;
   bool checkValue;
-  //final ValueChanged<bool> action;
+  Function(bool,String) callback;
 
-  //const entry_button_generic({Key key, this.title, this.action}): super(key: key);
-  entry_button_generic({Key key, this.title, this.checkValue}): super(key: key);
+  entry_button_generic({Key key, this.title, this.checkValue, this.callback}): super(key: key);
 
   @override
   _entry_button_generic createState() => new _entry_button_generic();
@@ -51,6 +50,7 @@ class _entry_button_generic extends State<entry_button_generic> {
         onPressed: () {
           setState(() {
             widget.checkValue = !widget.checkValue;
+            widget.callback(widget.checkValue, widget.title);
           });
         },
         child: Container(
@@ -77,6 +77,7 @@ class _entry_button_generic extends State<entry_button_generic> {
                     onChanged: (bool value) {
                       setState(() {
                         widget.checkValue = value;
+                        widget.callback(widget.checkValue, widget.title);
                       });
                     },
                   ),
