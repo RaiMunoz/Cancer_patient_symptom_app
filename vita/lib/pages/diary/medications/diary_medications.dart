@@ -14,7 +14,7 @@ class diary_medications extends StatefulWidget {
 class _diary_medications extends State<diary_medications> {
   List<medication> meds = [
     medication(
-        name: 'hi',
+        name: 'Sample Medication',
         dose: '15mg',
         started: DateTime.now(),
         stopped: null,

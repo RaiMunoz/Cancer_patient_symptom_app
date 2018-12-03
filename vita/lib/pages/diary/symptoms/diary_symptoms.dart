@@ -20,7 +20,6 @@ class _diary_symptoms extends State<diary_symptoms> {
     }
   }
 
-
   @override
   Widget build(BuildContext context) {
     if(all_symptoms.length == 0) {

@@ -33,7 +33,7 @@ class symptom_button extends StatefulWidget {
 
 class _symptom_button extends State<symptom_button> {
   @override
-  Widget build(BuildContext) {
+  Widget build(BuildContext context) {
     var width = MediaQuery.of(context).size.width;
     Widget title_widget;
     if(widget.custom) {

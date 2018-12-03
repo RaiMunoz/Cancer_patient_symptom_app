@@ -10,6 +10,7 @@ import 'medication_entry.dart';
 import 'medication.dart';
 import 'contact_service_medication.dart';
 import 'select_dose_time.dart';
+import 'medication_settings.dart';
 import '../entry_button_generic.dart';
 
 class medication_button extends StatefulWidget {
@@ -42,20 +43,6 @@ class medication_button extends StatefulWidget {
 class _medication_button extends State<medication_button> {
   int severity = null;
 
-  /*void submitForm() {
-    final FormState form = widget.formKey.currentState;
-
-    form.save();
-    entry.medication_name = widget.title;
-    if(entry.dosage != null && entry.dosage != '' && entry.time_taken != null) {
-      var contactService = new ContactServiceMedication();
-      contactService.createMedicationEntry(entry);
-      print('Created entry: \nMedication name: ' + entry.medication_name +
-          '\nDosage: ' + entry.dosage +
-          '\nTime taken: ' + DateFormat.yMd().add_jm().format(entry.time_taken));
-    }
-  }*/
-
   @override
   Widget build(BuildContext) {
     if(widget.entry.dosage == null) {
@@ -70,10 +57,14 @@ class _medication_button extends State<medication_button> {
           FittedBox(
             child: select_dose_time(entry: widget.entry, med: widget.med),
           ),
+          FittedBox(
+            child: IconButton(
+              icon: Icon(Icons.settings),
+              onPressed: () {},
+            ),
+          ),
         ],
-        action: (expanded) {
-          //if(!expanded) this.submitForm();
-        },
+        action: (expanded) {},
       ),
     );
   }
