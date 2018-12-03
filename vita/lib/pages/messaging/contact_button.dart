@@ -75,9 +75,9 @@ class _ContactState extends State<Contact>{
                     ),
                 ),
               // TEXT
-                Container(
-                  width: 195.0,
-                  padding: const EdgeInsets.all(10.0),
+                Expanded(
+                  //width: 195.0,
+                  //padding: const EdgeInsets.all(10.0),
                   child:
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -110,31 +110,17 @@ class _ContactState extends State<Contact>{
                 ),
               ),
 
-
-
-                //IconButton(
-                //  onPressed: () {
-                //    setState(() {
-                      //color_change(button_color);
-                //      pressed = false&(pressed);
-                      //_pressed = false&(_pressed);
-                //    });},
-                //  icon: Icon(pressed ? Icons.cancel : Icons.add_circle),
-                //  color: (pressed ? ThemeColors.darkGreen : ThemeColors.grey1),
-                //  highlightColor: Colors.red[200],
-                //),
-              //),
               ]
           ),
     );
 
   }
   void color_change(Color color){
-    if (color == ThemeColors.darkGreen){
+    if (color == ThemeColors.lightGreen){
       color =  ThemeColors.grey3;
     }
     else{
-      color = ThemeColors.darkGreen;
+      color = ThemeColors.lightGreen;
     }
   }
   bool press(bool pressed) {

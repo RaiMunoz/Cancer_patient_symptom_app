@@ -13,11 +13,11 @@ class _account extends State<account> {
 
     return new Scaffold(
       appBar: AppBar(
+        backgroundColor: ThemeColors.darkGreen,
         leading: new IconButton(
           icon: new Icon(Icons.arrow_back, color: ThemeColors.white),
           onPressed: () => Navigator.pop(context),
         ),
-        backgroundColor: ThemeColors.darkGreen,
         title: Text('Settings'),
       ),
       body: new ListView(

@@ -15,12 +15,14 @@ import './highlight_reminder.dart';
 import 'package:vita/assets/theme/theme.dart';
 import './highlight_reminder.dart';
 //import '../../assets/theme/theme.dart';
+import 'package:vita/pages/profile/profile_info.dart';
 
 
 class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var height = MediaQuery.of(context).size.height;
+    Profile profile = getProfile();
 
     return Scaffold (
       backgroundColor: ThemeColors.grey2,
@@ -35,14 +37,14 @@ class Home extends StatelessWidget {
                 'Vita',
                 style: DefaultTextStyle.of(context).style.apply(
                   fontSizeFactor: 4.0,
-                  color: ThemeColors.darkGreen,
+                  color: ThemeColors.lightGreen,
               ),
             ),
           ),
           Column(
             children: <Widget>[
               Text(
-                'Hi Beth.\nCheck out some highlights.', //TODO replace with actual name
+                'Hi ${profile.firstName}.\nCheck out some highlights.', //TODO replace with actual name
                 textAlign: TextAlign.center,
                 style: DefaultTextStyle.of(context).style.apply(fontSizeFactor: 1.3),
               ),

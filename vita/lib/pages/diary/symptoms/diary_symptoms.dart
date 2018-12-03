@@ -36,7 +36,7 @@ class _diary_symptoms extends State<diary_symptoms> {
     IconButton add_button = IconButton(
       icon: Icon(Icons.add_circle),
       iconSize: MediaQuery.of(context).size.width * 0.1,
-      color: ThemeColors.darkGreen,
+      color: ThemeColors.lightGreen,
       padding: EdgeInsets.only(top: 5.0),
       onPressed: () {
         setState(() {
@@ -59,6 +59,7 @@ class _diary_symptoms extends State<diary_symptoms> {
 
     return new Scaffold(
       appBar: AppBar(
+        backgroundColor: ThemeColors.darkGreen,
         title: Text('Track My Symptoms'),
         centerTitle: true,
         leading: IconButton(

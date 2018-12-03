@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'package:vita/assets/theme/theme.dart';
 import 'medication_button.dart';
 import '../../../assets/constants/medications.dart';
 
@@ -15,6 +15,7 @@ class _diary_medications extends State<diary_medications> {
   Widget build(BuildContext context) {
     return new Scaffold(
       appBar: AppBar(
+        backgroundColor: ThemeColors.darkGreen,
         title: Text('Track My Medications'),
         centerTitle: true,
       ),

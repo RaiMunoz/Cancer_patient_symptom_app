@@ -10,8 +10,6 @@ class ProfileHeader extends StatelessWidget {
 
   ProfileHeader(this.profile);
 
-
-
   @override
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height;

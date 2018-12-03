@@ -15,7 +15,7 @@ class HighlightReminder extends StatelessWidget {
       margin: EdgeInsets.symmetric(horizontal: 5.0),
       decoration: ShapeDecoration(
         shape: RoundedRectangleBorder(borderRadius: new BorderRadius.circular(30.0)),
-        color: ThemeColors.darkGreen,
+        color: ThemeColors.lightGreen,
       ),
       child: Row(
         children: <Widget>[

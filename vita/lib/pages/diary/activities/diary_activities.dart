@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'package:vita/assets/theme/theme.dart';
 import 'activity_button.dart';
 import '../../../assets/constants/activities.dart';
 
@@ -15,6 +15,7 @@ class _diary_activities extends State<diary_activities> {
   Widget build(BuildContext context) {
     return new Scaffold(
       appBar: AppBar(
+        backgroundColor: ThemeColors.darkGreen,
         title: Text('Activity'),
         centerTitle: true,
       ),

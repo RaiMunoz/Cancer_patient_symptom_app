@@ -13,9 +13,9 @@ import '../entry_button_generic.dart';
 class symptom_button extends StatefulWidget {
   final String title;
   final bool custom;
-  final entry = new symptom_entry();
+  var entry = new symptom_entry();
 
-  const symptom_button({Key key, this.title, this.custom}): super(key: key);
+  symptom_button({Key key, this.title, this.custom}): super(key: key);
 
   void submitForm() {
     entry.custom = this.custom;

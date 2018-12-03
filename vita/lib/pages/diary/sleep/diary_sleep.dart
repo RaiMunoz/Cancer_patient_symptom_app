@@ -15,6 +15,7 @@ class _diary_sleep extends State<diary_sleep> {
   Widget build(BuildContext context) {
     return new Scaffold(
       appBar: AppBar(
+        backgroundColor: ThemeColors.darkGreen,
         title: Text('Sleep'),
         centerTitle: true,
       ),

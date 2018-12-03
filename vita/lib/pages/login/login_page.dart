@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:vita/pages/login/login_auth.dart';
+import 'package:vita/assets/theme/theme.dart';
 
 class LoginPage extends StatefulWidget {
   LoginPage({this.auth,this.onSignedIn});
@@ -78,6 +79,7 @@ class _LoginPageState extends State<LoginPage>
   Widget build(BuildContext context) {
     return new Scaffold(
         appBar: new AppBar(
+          backgroundColor: ThemeColors.darkGreen,
           title: new Text('Vita login'),
         ),
         body: new Container(
@@ -194,7 +196,7 @@ class _LoginPageState extends State<LoginPage>
                   child: new MaterialButton(
                     minWidth: 200.0,
                     height: 42.0,
-                    color: Colors.blue,
+                    color: ThemeColors.darkGreen,
                     child: new Text('Login',
                         style:
                         new TextStyle(fontSize: 20.0, color: Colors.white)),

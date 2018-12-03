@@ -79,7 +79,7 @@ class _entry_text_field extends State<entry_text_field> {
       margin: EdgeInsets.symmetric(horizontal: width * 0.1),
       decoration: ShapeDecoration(
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15.0)),
-        color: ThemeColors.darkGreen,
+        color: ThemeColors.lightGreen,
       ),
       alignment: Alignment(0.0, 0.0),
       child: new TextFormField(

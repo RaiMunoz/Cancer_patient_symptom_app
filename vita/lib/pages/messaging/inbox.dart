@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '/inbox_screen.dart'
+import './inbox_screen.dart';
 
 class Inbox extends StatelessWidget {
   @override

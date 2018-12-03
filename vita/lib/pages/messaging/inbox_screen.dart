@@ -49,7 +49,7 @@ class _InboxScreen extends State<InboxScreen> {
           margin: EdgeInsets.symmetric(vertical: 5.0),
           padding: EdgeInsets.all(5.0),
           child: FlatButton(
-            child: Text("My Contacts", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25.0, color: ThemeColors.darkGreen) ),
+            child: Text("My Contacts", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25.0, color: ThemeColors.lightGreen) ),
             //TODO make onPressed go to a screen with a share link
             //onPressed: () {
             //  print(scroll_children_name.toString());

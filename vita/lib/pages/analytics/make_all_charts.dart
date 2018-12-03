@@ -38,6 +38,7 @@ class _make_all_charts extends State<make_all_charts> {
 
     return new Scaffold(
       appBar: AppBar(
+        backgroundColor: ThemeColors.darkGreen,
         title: Text('Charts'),
         centerTitle: true,
         leading: IconButton(

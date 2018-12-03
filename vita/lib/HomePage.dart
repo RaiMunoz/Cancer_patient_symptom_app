@@ -61,7 +61,7 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       appBar: AppBar(
         centerTitle:true,
-        backgroundColor: ThemeColors.lightGreen,
+        backgroundColor: ThemeColors.darkGreen,
         title: Text('Vita'),
         leading: IconButton(
           icon: Icon(Icons.navigate_before),

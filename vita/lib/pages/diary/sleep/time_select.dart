@@ -31,7 +31,7 @@ class time_number extends StatelessWidget {
           color: ThemeColors.white,
         ),
       ),
-      color: ThemeColors.darkGreen,
+      color: ThemeColors.lightGreen,
     );
   }
 }
@@ -62,7 +62,7 @@ class _time_select extends State<time_select> {
           height: MediaQuery.of(context).size.height * 0.2,
           decoration: ShapeDecoration(
             shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15.0)),
-            color: ThemeColors.darkGreen,
+            color: ThemeColors.lightGreen,
           ),
           child: PageView.builder(
             itemBuilder: (context, int i) {
