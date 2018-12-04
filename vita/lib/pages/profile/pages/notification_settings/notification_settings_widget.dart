@@ -5,6 +5,7 @@ import 'dart:async';
 import 'package:datetime_picker_formfield/time_picker_formfield.dart';
 
 //import 'package:vita/placeholder_widget.dart';
+import 'package:vita/pages/profile/profile_info.dart';
 
 // Inspired from https://github.com/tomialagbe/flutter_ui_challenges
 class _notifSettings extends State<notifSettings> {
@@ -14,8 +15,10 @@ class _notifSettings extends State<notifSettings> {
   final textboxTextStyle = new TextStyle(
       color: Colors.black, fontSize: 16.0, fontWeight: FontWeight.w600);
 
-  bool recordSymptomsSwitchValue = false;
-  TimeOfDay recordSymptomsTime = TimeOfDay(hour:14, minute:15);
+  static Profile profile = getProfile();
+
+  bool recordSymptomsSwitchValue = profile.notif_symptoms_on;
+  TimeOfDay recordSymptomsTime = TimeOfDay(hour:profile.notif_symptoms_hour, minute:profile.notif_symptoms_minute);
 
   Future<Null> recordSymptomsSelectTime(BuildContext context) async {
     final TimeOfDay picked = await showTimePicker(
@@ -26,12 +29,14 @@ class _notifSettings extends State<notifSettings> {
     if(picked != null && picked!=recordSymptomsTime) {
       setState((){
         recordSymptomsTime = picked;
+        profile.notif_symptoms_hour = recordSymptomsTime.hour;
+        profile.notif_symptoms_minute = recordSymptomsTime.minute;
       });
     }
   }
 
-  bool recordWeightSwitchValue = false;
-  TimeOfDay recordWeightTime = TimeOfDay(hour:14, minute:15);
+  bool recordWeightSwitchValue = profile.notif_weight_on;
+  TimeOfDay recordWeightTime = TimeOfDay(hour:profile.notif_weight_hour, minute:profile.notif_weight_minute);
 
   Future<Null> recordWeightSelectTime(BuildContext context) async {
     final TimeOfDay picked = await showTimePicker(
@@ -42,12 +47,14 @@ class _notifSettings extends State<notifSettings> {
     if(picked != null && picked!=recordWeightTime) {
       setState((){
         recordWeightTime = picked;
+        profile.notif_weight_hour = recordWeightTime.hour;
+        profile.notif_weight_minute = recordWeightTime.minute;
       });
     }
   }
 
-  bool recordDietSwitchValue = false;
-  TimeOfDay recordDietTime = TimeOfDay(hour:14, minute:15);
+  bool recordDietSwitchValue = profile.notif_diet_on;
+  TimeOfDay recordDietTime = TimeOfDay(hour:profile.notif_diet_hour, minute:profile.notif_diet_minute);
 
   Future<Null> recordDietSelectTime(BuildContext context) async {
     final TimeOfDay picked = await showTimePicker(
@@ -58,6 +65,8 @@ class _notifSettings extends State<notifSettings> {
     if(picked != null && picked!=recordDietTime) {
       setState((){
         recordDietTime = picked;
+        profile.notif_diet_hour = recordDietTime.hour;
+        profile.notif_diet_minute = recordDietTime.minute;
       });
     }
   }
@@ -123,6 +132,7 @@ class _notifSettings extends State<notifSettings> {
                                     onChanged: (bool value) {
                                       setState(() {
                                         recordSymptomsSwitchValue = value;
+                                        profile.notif_symptoms_on = recordSymptomsSwitchValue;
                                       });
                                     },
                                 ),
@@ -161,6 +171,7 @@ class _notifSettings extends State<notifSettings> {
                                   onChanged: (bool value) {
                                     setState(() {
                                       recordWeightSwitchValue = value;
+                                      profile.notif_weight_on = recordWeightSwitchValue;
                                     });
                                   },
                                 ),
@@ -199,6 +210,7 @@ class _notifSettings extends State<notifSettings> {
                                   onChanged: (bool value) {
                                     setState(() {
                                       recordDietSwitchValue = value;
+                                      profile.notif_diet_on = recordDietSwitchValue;
                                     });
                                   },
                                 ),

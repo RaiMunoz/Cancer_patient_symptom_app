@@ -16,6 +16,7 @@ class menu extends StatelessWidget {
           _buildListItem("Personal Settings", Icons.settings, MaterialPageRoute(builder: (context) => new personalSettings()), context),
           _buildListItem("Notification Settings", Icons.notifications, MaterialPageRoute(builder: (context) => new notifSettings()), context),
           _buildListItem("Help", Icons.help, MaterialPageRoute(builder: (context) => new help()), context),
+          _buildListItem("Log Out", Icons.power, MaterialPageRoute(builder: (context) => new help()), context),
         ],
       ),
     );

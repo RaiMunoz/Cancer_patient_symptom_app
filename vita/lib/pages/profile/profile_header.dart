@@ -34,7 +34,7 @@ class ProfileHeader extends StatelessWidget {
                 new Container(
                   height: headerHeight*(1/2),
                   decoration: new BoxDecoration(
-                    image: new DecorationImage(image: AssetImage("assets/images/rai_ted.jpg"), fit: BoxFit.scaleDown),
+                    image: new DecorationImage(image: profile.image, fit: BoxFit.scaleDown),
                   ),
                 ),
                 new Container (
