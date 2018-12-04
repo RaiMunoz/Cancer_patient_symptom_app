@@ -33,7 +33,7 @@ class _meal_eaten extends State<meal_eaten> {
         initialTime: meal_time
     );
 
-    if(picked != null && picked != activity_time) {
+    if(picked != null && picked != meal_eaten) {
       setState((){
         meal_time = picked;
       });
@@ -43,10 +43,10 @@ class _meal_eaten extends State<meal_eaten> {
 
   @override
   Widget build(BuildContext context) {
-    if(widget.entry.meal_time == null) {
-      widget.entry.meal_time = DateTime.now();
+    if(widget.entry.time_eaten == null) {
+      widget.entry.time_eaten = DateTime.now();
     }
-    meal_time = TimeOfDay.fromDateTime(widget.entry.meal_time);
+    meal_time = TimeOfDay.fromDateTime(widget.entry.time_eaten);
 
     return Row(
       children: <Widget>[
