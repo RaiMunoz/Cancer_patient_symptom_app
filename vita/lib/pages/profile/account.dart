@@ -3,6 +3,7 @@ import 'package:vita/pages/profile/profile_info.dart';
 import 'package:vita/pages/profile/profile_header.dart';
 import 'package:vita/pages/profile/menu.dart';
 import 'package:vita/assets/theme/theme.dart';
+import 'package:vita/pages/login/login_auth.dart';
 
 // Inspired from https://github.com/tomialagbe/flutter_ui_challenges
 class _account extends State<account> {
@@ -24,7 +25,7 @@ class _account extends State<account> {
         padding: const EdgeInsets.all(0.0),
         children: <Widget>[
           new ProfileHeader(profile),
-          new menu(),
+          new menu(auth: widget.auth, onSignedOut: widget.onSignedOut,),
         ],
       ),
     );
@@ -32,6 +33,11 @@ class _account extends State<account> {
 
 }
 class account extends StatefulWidget {
+  account({Key key, this.auth, this.onSignedOut}): super(key:key);
+
+  final loginAuthImplement auth;
+  final VoidCallback onSignedOut;
+
   @override
   _account createState() => _account();
 }

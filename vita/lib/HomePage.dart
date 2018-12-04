@@ -44,18 +44,6 @@ class _HomePageState extends State<HomePage> {
     "Messaging",
   ];
 
-  void _signOut() async{
-    try
-    {
-      await widget.auth.signOut();
-      widget.onSignedOut();
-    }
-    catch(e)
-    {
-      print(e);
-    }
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -63,21 +51,10 @@ class _HomePageState extends State<HomePage> {
         centerTitle:true,
         backgroundColor: ThemeColors.darkGreen,
         title: Text('Vita'),
-        leading: IconButton(
-          icon: Icon(Icons.navigate_before),
-          onPressed: () {
-            _signOut();
-            //_appDocumentsDirectory= getApplicationDocumentsDirectory();
-            //path= _appDocumentsDirectory.path;
-            //new_image = _image.copy('$path/image1.png')
-
-            // do something
-          },
-        ),
         actions: <Widget>[
           IconButton(
             icon: Icon(Icons.person),
-            onPressed: () {Navigator.push(context, MaterialPageRoute(builder: (context) => new account()));},
+            onPressed: () {Navigator.push(context, MaterialPageRoute(builder: (context) => new account(auth:widget.auth, onSignedOut:widget.onSignedOut)));},
           ),
         ],
       ),
