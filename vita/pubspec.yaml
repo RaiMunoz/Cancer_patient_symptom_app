@@ -21,12 +21,18 @@ dependencies:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^0.1.2
+  #http: ^0.12.0
+  video_player: "^0.5.1"
+  datetime_picker_formfield: ^0.1.7
   # Need to put in the database!
   firebase_auth: ^0.5.19
   #^0.6.2+1
   firebase_database: 0.4.6
-  http: ^0.12.0 # Please don't delete!
-
+  #http: ^0.12.0 # Please don't delete!
+  charts_flutter: ^0.5.0
+  sensors: ^0.3.5
+  tts: ^1.0.2
+  flutter_tts: ^0.1.1
 
 dev_dependencies:
   flutter_test:
@@ -37,6 +43,7 @@ dev_dependencies:
 
 # For information on the generic Dart part of this file, see the
 # following page: https://www.dartlang.org/tools/pub/pubspec
+
 
 # The following section is specific to Flutter.
 flutter:
@@ -56,7 +63,20 @@ flutter:
     - assets/images/microphone.png
     - assets/images/wallet.png
     - assets/images/joystick.png
+    - assets/videos/intro.mp4
     - assets/images/vita_1.png
+    - assets/images/rai.jpg
+    - assets/images/erin.jpg
+    - assets/images/anurati.jpg
+    - assets/images/devon.jpg
+    - assets/images/vikram.jpg
+    - assets/images/jocelyn.jpg
+    - assets/images/low.jpeg
+    - assets/images/bahary.png
+    - assets/images/lizzy.jpg
+    - assets/images/laura.jpg
+
+
 
 
   fonts:
