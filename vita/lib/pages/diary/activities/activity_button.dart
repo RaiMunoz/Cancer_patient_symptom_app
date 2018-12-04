@@ -13,16 +13,17 @@ import '../entry_button_generic.dart';
 
 class activity_button extends StatefulWidget {
   final String title;
+  final bool custom;
   final activity_entry entry = new activity_entry();
   final GlobalKey<FormState> formKey = new GlobalKey<FormState>();
 
-  activity_button({this.title});
+  activity_button({this.title, this.custom});
 
   void submitForm() {
     final FormState form = formKey.currentState;
     form.save();
 
-    entry.activity_name = title;
+    if(!custom) entry.activity_name = title;
     if(entry.start_time != null && entry.duration != null) {
       var contactService = new ContactServiceActivity();
       contactService.createActivityEntry(entry);
@@ -37,10 +38,29 @@ class activity_button extends StatefulWidget {
 class _activity_button extends State<activity_button> {
   @override
   Widget build(BuildContext) {
+    var width = MediaQuery.of(context).size.width;
+    Widget title_widget;
+    if(widget.custom) {
+      title_widget = Row(
+        children: <Widget>[
+          entry_title('New Activity:'),
+          Padding(padding: EdgeInsets.only(left: width / 20)),
+          Expanded(
+            child: TextFormField(
+              onFieldSubmitted: (val) {widget.entry.activity_name = val;},
+              textCapitalization: TextCapitalization.words,
+              decoration: InputDecoration(hintText: 'Activity Name',),
+            ),
+          ),
+        ],
+      );
+    }
+    else title_widget = entry_title(widget.title);
+
     return Form(
       key: widget.formKey,
       child: entry_button_generic(
-        title: entry_title(widget.title),
+        title: title_widget,
         children: <Widget>[
           FittedBox(
             child: select_duration(widget.entry),
