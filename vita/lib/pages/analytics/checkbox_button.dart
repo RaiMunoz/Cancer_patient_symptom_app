@@ -57,21 +57,22 @@ class _entry_button_generic extends State<entry_button_generic> {
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Container(
-                width: 300.0,
+              Expanded(
+                //width: 250.0,
                 child: Padding(
                   padding: new EdgeInsets.only(left:15.0, right:10.0),
-                  child: Container(
-                    child: entry_title(widget.title),
-                    width: 130.0,
-                  ),
+                  child: entry_title(widget.title),
+                    //child: entry_title(widget.title),
+                    //width: 130.0,
+                  //),
                 ),
               ),
-              Expanded(
+              Container(
                 //height:250.0,
                 //alignment: Alignment.centerRight,
                 child: Container(
                   alignment: Alignment.centerRight,
+                  width: 20.0,
                   child: Checkbox(
                     value: widget.checkValue,
                     onChanged: (bool value) {

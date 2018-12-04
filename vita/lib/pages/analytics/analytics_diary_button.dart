@@ -24,7 +24,7 @@ class DiaryButton extends StatelessWidget {
             ),
           ),
           shape: RoundedRectangleBorder(borderRadius: new BorderRadius.circular(15.0)),
-          color: ThemeColors.darkGreen,
+          color: ThemeColors.lightGreen,
           elevation: button_height / 15,
           onPressed: action,
         )

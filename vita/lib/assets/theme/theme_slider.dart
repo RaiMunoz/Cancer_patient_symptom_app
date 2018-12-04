@@ -5,7 +5,7 @@ class ThemeSlider extends StatelessWidget {
   final Slider slider;
   ThemeSlider(this.slider);
 
-  static Color activeColor = ThemeColors.darkGreen;
+  static Color activeColor = ThemeColors.lightGreen;
   static Color inactiveColor = ThemeColors.white;
 
   @override

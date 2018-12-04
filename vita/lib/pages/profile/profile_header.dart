@@ -10,8 +10,6 @@ class ProfileHeader extends StatelessWidget {
 
   ProfileHeader(this.profile);
 
-
-
   @override
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height;
@@ -36,7 +34,7 @@ class ProfileHeader extends StatelessWidget {
                 new Container(
                   height: headerHeight*(1/2),
                   decoration: new BoxDecoration(
-                    image: new DecorationImage(image: AssetImage("assets/images/rai_ted.jpg"), fit: BoxFit.scaleDown),
+                    image: new DecorationImage(image: profile.image, fit: BoxFit.scaleDown),
                   ),
                 ),
                 new Container (

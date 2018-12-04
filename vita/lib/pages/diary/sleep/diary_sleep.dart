@@ -21,6 +21,7 @@ class _diary_sleep extends State<diary_sleep> {
 
     return new Scaffold(
       appBar: AppBar(
+        backgroundColor: ThemeColors.darkGreen,
         title: Text('Sleep'),
         centerTitle: true,
         leading: IconButton(

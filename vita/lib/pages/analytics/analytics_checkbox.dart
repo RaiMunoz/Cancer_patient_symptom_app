@@ -77,6 +77,7 @@ class _analytics_checkbox extends State<analytics_checkbox> {
       appBar: AppBar(
         title: Text('Chart my Symptoms'),
         centerTitle: true,
+        backgroundColor: ThemeColors.darkGreen,
         leading: IconButton(
           icon: BackButtonIcon(),
           onPressed: () {

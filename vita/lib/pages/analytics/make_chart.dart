@@ -65,7 +65,7 @@ List<charts.Series<TimeSeriesSales, DateTime>> createSampleData() {
   return [
     new charts.Series<TimeSeriesSales, DateTime>(
       id: 'Sales',
-      colorFn: (_, __) => charts.MaterialPalette.blue.shadeDefault,
+      colorFn: (_, __) => charts.MaterialPalette.green.shadeDefault,
       domainFn: (TimeSeriesSales sales, _) => sales.time,
       measureFn: (TimeSeriesSales sales, _) => sales.sales,
       data: data,
