@@ -4,6 +4,7 @@ import 'symptoms/diary_symptoms.dart';
 import 'medications/diary_medications.dart';
 import 'activities/diary_activities.dart';
 import 'sleep/diary_sleep.dart';
+import 'nutrition/diary_nutrition.dart';
 import '../../assets/theme/theme.dart';
 
 
@@ -38,7 +39,12 @@ class AddInformation extends StatelessWidget {
                   );
                 }),
 
-                DiaryButton('Nutrition', () {}),
+                DiaryButton('Nutrition', () {
+                  Navigator.push(
+                    context, MaterialPageRoute(
+                      builder: (context) => diary_nutrition()),
+                  );
+                }),
 
 
                 DiaryButton('Activity', () {
