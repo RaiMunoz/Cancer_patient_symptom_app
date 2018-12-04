@@ -19,6 +19,9 @@ class Profile {
   bool notif_diet_on;
   int notif_diet_hour;
   int notif_diet_minute;
+  List<String> contacts_names;
+  List<String> contacts_emails;
+  List<String> contacts_images;
 
   String get fullName => "$firstName $lastName";
 
@@ -51,6 +54,45 @@ class Profile {
 
 //TODO: Should be replaced with database stuff once it is connected
 Profile getProfile() {
+  final List<String> names = <String>[
+    'Dr. Carissa Low',
+    'Dr. Bahary',
+    'Devon Barry',
+    'Laura Bressler',
+    'Jocelyn Chan',
+    'Erin Fuller',
+    'Vikram Kamath',
+    'Rai Munoz',
+    'Lizzy Thrasher',
+    'Anurati Sodani',
+  ];
+
+  final List<String> emails = <String>[
+    'drlow@upmc.edu',
+    'drbahary@upmc.edu',
+    'devonb@andrew.cmu.edu',
+    'lbressle@andrew.cmu.edu',
+    'jchan@andrew.cmu.edu',
+    'efuller@andrew.cmu.edu',
+    'vkamath@andrew.cmu.edu',
+    'rmunoz@andrew.cmu.edu',
+    'lthrasher@andrew.cmu.edu',
+    'asodani@andrew.cmu.edu',
+  ];
+
+  final List<String> images = <String>[
+    'assets/images/low.jpeg',
+    'assets/images/bahary.png',
+    'assets/images/devon.jpg',
+    'assets/images/laura.jpg',
+    'assets/images/jocelyn.jpg',
+    'assets/images/erin.jpg',
+    'assets/images/vikram.jpg',
+    'assets/images/rai.jpg',
+    'assets/images/lizzy.jpg',
+    'assets/images/anurati.jpg',
+  ];
+
   return new Profile()
     ..firstName = "Rai"
     ..lastName = "Munoz"
@@ -68,5 +110,9 @@ Profile getProfile() {
     ..notif_weight_minute = 17
     ..notif_diet_on = false
     ..notif_diet_hour = 18
-    ..notif_diet_minute = 19;
+    ..notif_diet_minute = 19
+    ..contacts_names = names
+    ..contacts_emails = emails
+    ..contacts_images = images;
 }
+

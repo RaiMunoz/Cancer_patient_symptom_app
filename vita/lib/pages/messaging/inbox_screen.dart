@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:vita/assets/theme/theme.dart';
 import './contact_button.dart';
-import '../../assets/constants/contacts.dart';
+//import '../../assets/constants/contacts.dart';
+import 'package:vita/pages/profile/profile_info.dart';
 
 
 
@@ -17,8 +18,10 @@ class _InboxScreen extends State<InboxScreen> {
   List<bool> all_checks = <bool>[];
   List<String> all_names = <String>[];
 
+  Profile profile = getProfile();
+
   callback(newCheckVal, childTitle) {
-    for(int i = 0; i < names.length; i++) {
+    for(int i = 0; i < profile.contacts_names.length; i++) {
       if (all_names[i] == childTitle) {
         setState(() {
           all_checks[i] = newCheckVal;
@@ -31,10 +34,10 @@ class _InboxScreen extends State<InboxScreen> {
   Widget build(BuildContext context) {
 
     if(all_contacts.length == 0) {
-      for(int i = 0; i < names.length; i++) {
+      for(int i = 0; i < profile.contacts_names.length; i++) {
         all_checks.add(false);
-        all_contacts.add(Contact(name: names[i], email: emails[i], img: images[i], checkValue:all_checks[i], callBack: callback));
-        all_names.add(names[i]);
+        all_contacts.add(Contact(name: profile.contacts_names[i], email: profile.contacts_emails[i], img: profile.contacts_images[i], checkValue:all_checks[i], callBack: callback));
+        all_names.add(profile.contacts_names[i]);
       };
     }
 
@@ -88,7 +91,7 @@ class _InboxScreen extends State<InboxScreen> {
     for(int i = 0; i < 2 ; i++) {
       scroll_children.add(all_contacts[i]);
       scroll_children_checkValue.add(all_checks[i]);
-      scroll_children_name.add(names[i]);
+      scroll_children_name.add(profile.contacts_names[i]);
     }
 
     scroll_children.add(
@@ -115,7 +118,7 @@ class _InboxScreen extends State<InboxScreen> {
     for (int i =2; i < all_contacts.length; i++) {
       scroll_children.add(all_contacts[i]);
       scroll_children_checkValue.add(all_checks[i]);
-      scroll_children_name.add(names[i]);
+      scroll_children_name.add(profile.contacts_names[i]);
     }
 
     scroll_children.add(
