@@ -25,6 +25,7 @@ class symptom_button extends StatefulWidget {
 
     var contactService = new ContactServiceSymptom();
     contactService.createSymptomEntry(this.entry);
+    print('Submitted ' + this.entry.symptom_name);
   }
 
   @override

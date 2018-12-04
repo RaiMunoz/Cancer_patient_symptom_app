@@ -22,7 +22,6 @@ class medication_button extends StatefulWidget {
   const medication_button({Key key, this.title, this.med}): super(key: key);
 
   void submitForm() {
-    print('here');
     final FormState form = formKey.currentState;
 
     form.save();

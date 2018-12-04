@@ -62,7 +62,7 @@ class _HomePageState extends State<HomePage> {
         centerTitle:true,
         backgroundColor: ThemeColors.lightGreen,
         title: Text('Vita'),
-        leading: IconButton(
+        /*leading: IconButton(
           icon: Icon(Icons.navigate_before),
           onPressed: () {
             _signOut();
@@ -72,7 +72,7 @@ class _HomePageState extends State<HomePage> {
 
             // do something
           },
-        ),
+        ),*/
         actions: <Widget>[
           IconButton(
             icon: Icon(Icons.person),
