@@ -32,6 +32,8 @@ class entry_button_generic extends StatefulWidget {
 }
 
 class _entry_button_generic extends State<entry_button_generic> {
+  Icon collapse_expand = Icon(Icons.add_circle);
+
   @override
   Widget build(BuildContext) {
     bool expanded = false;
@@ -51,9 +53,15 @@ class _entry_button_generic extends State<entry_button_generic> {
         child: ExpansionTile(
           title: widget.title,
           children: widget.children,
-          onExpansionChanged: widget.action,
-          trailing: Icon(Icons.add_circle),
-        ),
+          onExpansionChanged: (expanded) {
+            widget.action(expanded);
+            setState((){
+              if(expanded) collapse_expand = Icon(Icons.remove_circle);
+              else collapse_expand = Icon(Icons.add_circle);
+            });
+          },
+    trailing: collapse_expand,
+    ),
       ),
     );
   }

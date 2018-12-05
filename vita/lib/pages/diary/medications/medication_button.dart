@@ -41,6 +41,7 @@ class medication_button extends StatefulWidget {
 
 class _medication_button extends State<medication_button> {
   int severity = null;
+  String display_value = 'Show Settings';
 
   @override
   Widget build(BuildContext) {
@@ -56,10 +57,22 @@ class _medication_button extends State<medication_button> {
           FittedBox(
             child: select_dose_time(entry: widget.entry, med: widget.med),
           ),
-          FittedBox(
-            child: IconButton(
-              icon: Icon(Icons.settings),
-              onPressed: () {},
+          Container(
+            width: MediaQuery.of(context).size.width,
+            child: ExpansionTile(
+              title: Text(
+                display_value,
+                textAlign: TextAlign.right,
+                style: TextStyle(color: Colors.black),
+              ),
+              children: [medication_settings(widget.med)],
+              onExpansionChanged: (expanded) {
+                setState(() {
+                  if(expanded) display_value = 'Hide Settings';
+                  else display_value = 'Show Settings';
+                });
+              },
+              trailing: Icon(Icons.settings),
             ),
           ),
         ],
