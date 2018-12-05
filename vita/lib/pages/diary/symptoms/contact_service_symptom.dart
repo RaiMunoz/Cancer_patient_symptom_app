@@ -4,18 +4,49 @@ import 'dart:convert';
 import 'package:intl/intl.dart';
 
 import 'symptom_entry.dart';
+import 'package:vita/pages/login/login_auth.dart';
+import 'package:firebase_database/firebase_database.dart';
+
 
 class ContactServiceSymptom {
+  ContactServiceSymptom(this.auth): super();
+
   static const _serviceUrl = 'http://mockbin.org/echo';
   static final _headers = {'Content-Type': 'application/json'};
+
+  final loginAuthImplement auth;
 
   Future<symptom_entry> createSymptomEntry(symptom_entry entry) async {
     try {
       String json = _toJson(entry);
-      final response =
-      await http.post(_serviceUrl, headers: _headers, body: json);
-      var c = _fromJson(response.body);
+
+      // Knock knock, who's here? Let me check who?
+      String userid = await auth.getCurrentUser();
+
+      print(userid);
+      // Firebase, who are you?
+      final mref = FirebaseDatabase.instance.reference();
+
+      // Oh welcome, come on in
+      final muser = mref.child("users");
+      final dentry= mref.child(userid);
+
+      // Your room is on the left, go on in
+      DatabaseReference ref = dentry;//dentry.child("symptom");
+
+      // Submit is
+      ref.set(json);
+
+      // Create the needed firebase instance
+      //final response =
+      //await http.post(_serviceUrl, headers: _headers, body: json);
+      var c = _fromJson(json);
+
+      // Should have some kind of handshake here to ensure connection
+      // was made.
+      //return c;
       return c;
+
     } catch (e) {
       print('Server Exception!!!');
       print(e);

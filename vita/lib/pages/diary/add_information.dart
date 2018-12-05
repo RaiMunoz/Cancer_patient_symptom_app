@@ -5,9 +5,14 @@ import 'medications/diary_medications.dart';
 import 'activities/diary_activities.dart';
 import 'sleep/diary_sleep.dart';
 import '../../assets/theme/theme.dart';
-
+import 'package:vita/pages/login/login_auth.dart';
 
 class AddInformation extends StatelessWidget {
+
+  AddInformation({Key key, this.auth}): super(key:key);
+
+  final loginAuthImplement auth;
+
   @override
   Widget build(BuildContext context) {
     var width = MediaQuery.of(context).size.width;
@@ -27,7 +32,7 @@ class AddInformation extends StatelessWidget {
                 DiaryButton('Symptoms', () {
                   Navigator.push(
                     context, MaterialPageRoute(
-                      builder: (context) => diary_symptoms()),
+                      builder: (context) => diary_symptoms(auth: auth)),
                   );
                 },),
 

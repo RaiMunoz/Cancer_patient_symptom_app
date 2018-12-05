@@ -3,9 +3,13 @@ import 'package:flutter/material.dart';
 import 'symptom_button.dart';
 import '../../../assets/constants/symptoms.dart';
 import '../../../assets/theme/theme.dart';
+import 'package:vita/pages/login/login_auth.dart';
 
 class diary_symptoms extends StatefulWidget {
-  diary_symptoms();
+  //diary_symptoms();
+  diary_symptoms({Key key, this.auth}): super(key:key);
+  final loginAuthImplement auth;
+
 
   @override
   _diary_symptoms createState() => new _diary_symptoms();
@@ -29,6 +33,7 @@ class _diary_symptoms extends State<diary_symptoms> {
         all_symptoms.add(symptom_button(
           title: symptoms[i],
           custom: false,
+          auth: widget.auth
         ));
       }
     }

@@ -9,9 +9,13 @@ import 'symptom_entry.dart';
 import 'contact_service_symptom.dart';
 import 'select_severity.dart';
 import '../entry_button_generic.dart';
+import 'package:vita/pages/login/login_auth.dart';
+
 
 class symptom_other_button extends StatefulWidget {
-  const symptom_other_button({Key key}): super(key: key);
+  const symptom_other_button({Key key, this.auth}): super(key: key);
+
+  final loginAuthImplement auth;
 
   @override
   _symptom_other_button createState() => new _symptom_other_button();
@@ -29,7 +33,7 @@ class _symptom_other_button extends State<symptom_other_button> {
     entry.time = DateTime.now();
     entry.custom = true;
     if(entry.symptom_name != null && entry.severity != null) { // no severity was selected
-      var contactService = new ContactServiceSymptom();
+      var contactService = new ContactServiceSymptom(widget.auth);
       contactService.createSymptomEntry(entry);
       print(
           'Created entry: \nSymptom name: ' + entry.symptom_name +

@@ -9,26 +9,29 @@ import 'symptom_entry.dart';
 import 'contact_service_symptom.dart';
 import 'select_severity.dart';
 import '../entry_button_generic.dart';
+import 'package:vita/pages/login/login_auth.dart';
 
 class symptom_button extends StatefulWidget {
   final String title;
   final bool custom;
   var entry = new symptom_entry();
 
-  symptom_button({Key key, this.title, this.custom}): super(key: key);
+  symptom_button({Key key, this.title, this.custom,this.auth}): super(key: key);
+
+  final loginAuthImplement auth;
 
   void submitForm() {
     entry.custom = this.custom;
-    if(!this.custom) this.entry.symptom_name = this.title;
-    this.entry.time = DateTime.now();
-    if(this.entry.severity == null) this.entry.severity = 1; // unset vals get entered as minimum? idk what to do there
+    if(!this.custom) entry.symptom_name = this.title;
+    entry.time = DateTime.now();
+    if(entry.severity == null) entry.severity = 1; // unset vals get entered as minimum? idk what to do there
 
-    var contactService = new ContactServiceSymptom();
-    contactService.createSymptomEntry(this.entry);
-    print('Created entry: \nSymptom name: ' + this.entry.symptom_name +
-        '\nSeverity: ' + this.entry.severity.toString() +
-        '\nTime: ' + DateFormat.yMd().add_jm().format(this.entry.time) +
-        '\nCustom: ' + this.entry.custom.toString()
+    var contactService = new ContactServiceSymptom(auth);
+    contactService.createSymptomEntry(entry);
+    print('Created entry: \nSymptom name: ' + entry.symptom_name +
+        '\nSeverity: ' + entry.severity.toString() +
+        '\nTime: ' + DateFormat.yMd().add_jm().format(entry.time) +
+        '\nCustom: ' + entry.custom.toString()
     );
   }
 

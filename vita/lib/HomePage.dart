@@ -31,21 +31,24 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   int _currentIndex = 0;
-  final List<Widget> _children = [
-    new Home(),
-    new AddInformation(),
-    new AnalyticsStartScreen(),
-    new InboxScreen(),
-  ];
-  final List<String> _children_name = [
-    "Home",
-    "Add",
-    "Analytics",
-    "Messaging",
-  ];
+
 
   @override
   Widget build(BuildContext context) {
+
+    final List<Widget> _children = [
+      new Home(),
+      new AddInformation(auth:widget.auth),
+      new AnalyticsStartScreen(),
+      new InboxScreen(),
+    ];
+    final List<String> _children_name = [
+      "Home",
+      "Add",
+      "Analytics",
+      "Messaging",
+    ];
+
     return Scaffold(
       appBar: AppBar(
         centerTitle:true,
