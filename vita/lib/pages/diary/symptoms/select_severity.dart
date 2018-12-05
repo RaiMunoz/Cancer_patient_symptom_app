@@ -19,6 +19,9 @@ class _select_severity extends State<select_severity> {
 
   @override
   Widget build(BuildContext context) {
+    if(widget.entry.severity != null) severity = widget.entry.severity;
+
+
     return Container(
       width: 300.0,
       child: Column(

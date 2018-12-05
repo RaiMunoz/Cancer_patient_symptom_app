@@ -34,6 +34,7 @@ class entry_button_generic extends StatefulWidget {
 class _entry_button_generic extends State<entry_button_generic> {
   @override
   Widget build(BuildContext) {
+    bool expanded = false;
     var button_color = ThemeColors.lightGreen;
     var no_borders = Theme.of(context).copyWith(dividerColor: button_color);
 
@@ -58,18 +59,10 @@ class _entry_button_generic extends State<entry_button_generic> {
   }
 }
 
-class entry_text_field extends StatefulWidget {
-  final String title;
-  final FormFieldSetter<String> saved;
-  final TextInputType keyboard;
+class sub_entry_container extends StatelessWidget {
+  final Widget child;
+  sub_entry_container({this.child});
 
-  const entry_text_field({Key key, this.title, this.saved, this.keyboard = TextInputType.text}): super(key: key);
-
-  @override
-  _entry_text_field createState() => new _entry_text_field();
-}
-
-class _entry_text_field extends State<entry_text_field> {
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
@@ -79,12 +72,35 @@ class _entry_text_field extends State<entry_text_field> {
       margin: EdgeInsets.symmetric(horizontal: width * 0.1),
       decoration: ShapeDecoration(
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15.0)),
-        color: ThemeColors.lightGreen,
+        color: ThemeColors.darkGreen,
       ),
-      alignment: Alignment(0.0, 0.0),
+      alignment: Alignment.center,
+      child: child,
+    );
+  }
+}
+
+class entry_text_field extends StatefulWidget {
+  final String title;
+  final String label;
+  final FormFieldSetter<String> saved;
+  final TextInputType keyboard;
+
+  const entry_text_field({Key key, this.title = '', this.label = '', this.saved,
+    this.keyboard = TextInputType.text}): super(key: key);
+
+  @override
+  _entry_text_field createState() => new _entry_text_field();
+}
+
+class _entry_text_field extends State<entry_text_field> {
+  @override
+  Widget build(BuildContext context) {
+    return sub_entry_container(
       child: new TextFormField(
+        initialValue: widget.title,
         decoration: InputDecoration(
-          hintText: widget.title,
+          hintText: widget.label,
           hintStyle: TextStyle(
             color: ThemeColors.white,
           ),

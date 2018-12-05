@@ -3,18 +3,18 @@ import 'package:flutter/services.dart';
 import 'package:intl/intl.dart';
 
 import '../../../assets/theme/theme.dart';
-import 'activity_entry.dart';
+import 'nutrition_entry.dart';
 import '../entry_button_generic.dart';
 
-class select_duration extends StatefulWidget {
-  final activity_entry entry;
-  select_duration(this.entry);
+class meal_eaten extends StatefulWidget {
+  final nutrition_entry entry;
+  meal_eaten(this.entry);
 
   @override
-  _select_duration createState() => new _select_duration();
+  _meal_eaten createState() => new _meal_eaten();
 }
 
-class _select_duration extends State<select_duration> {
+class _meal_eaten extends State<meal_eaten> {
   DateTime convertToDatetime(String text) {
     try {
       var dt = new DateFormat.yMd().add_Hm().parseStrict(text);
@@ -25,42 +25,42 @@ class _select_duration extends State<select_duration> {
     }
   }
 
-  TimeOfDay activity_time;
+  TimeOfDay meal_time;
 
   Future<Null> selectTimeTaken(BuildContext context) async {
     final TimeOfDay picked = await showTimePicker(
         context: context,
-        initialTime: activity_time
+        initialTime: meal_time
     );
 
-    if(picked != null && picked != activity_time) {
+    if(picked != null && picked != meal_eaten) {
       setState((){
-        activity_time = picked;
+        meal_time = picked;
       });
-      widget.entry.start_time = DateFormat.jm().parseStrict(activity_time.format(context));
+      widget.entry.time_eaten = DateFormat.jm().parseStrict(meal_time.format(context));
     }
   }
 
   @override
   Widget build(BuildContext context) {
-    if(widget.entry.start_time == null) {
-      widget.entry.start_time = DateTime.now();
+    if(widget.entry.time_eaten == null) {
+      widget.entry.time_eaten = DateTime.now();
     }
-    activity_time = TimeOfDay.fromDateTime(widget.entry.start_time);
+    meal_time = TimeOfDay.fromDateTime(widget.entry.time_eaten);
 
     return Row(
       children: <Widget>[
         FittedBox (
           child: sub_entry_container(
             child: FlatButton(
-                child: entry_title("${activity_time.format(context)}"),
+                child: entry_title("${meal_time.format(context)}"),
                 onPressed: () {selectTimeTaken(context);}
             ),
           ),
         ),
         entry_text_field(
-          label: 'How long?',
-          saved: (val) {widget.entry.duration = val;},
+          label: 'What did you eat?',
+          saved: (val) {widget.entry.food = val;},
         ),
       ],
     );

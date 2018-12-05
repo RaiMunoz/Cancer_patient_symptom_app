@@ -14,7 +14,6 @@ import 'pages/diary/add_information.dart';
 import 'pages/home/home_widget.dart';
 
 import 'placeholder_widget.dart';
-import 'pages/diary/add_diary_entry_widget.dart';
 import 'package:vita/pages/login/login_auth.dart';
 
 class HomePage extends StatefulWidget {
@@ -42,6 +41,7 @@ class _HomePageState extends State<HomePage> {
       new AnalyticsStartScreen(),
       new InboxScreen(),
     ];
+
     final List<String> _children_name = [
       "Home",
       "Add",

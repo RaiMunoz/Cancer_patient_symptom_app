@@ -26,6 +26,7 @@ class symptom_button extends StatefulWidget {
     entry.time = DateTime.now();
     if(entry.severity == null) entry.severity = 1; // unset vals get entered as minimum? idk what to do there
 
+
     var contactService = new ContactServiceSymptom(auth);
     contactService.createSymptomEntry(entry);
     print('Created entry: \nSymptom name: ' + entry.symptom_name +
@@ -33,6 +34,7 @@ class symptom_button extends StatefulWidget {
         '\nTime: ' + DateFormat.yMd().add_jm().format(entry.time) +
         '\nCustom: ' + entry.custom.toString()
     );
+
   }
 
   @override
@@ -40,10 +42,8 @@ class symptom_button extends StatefulWidget {
 }
 
 class _symptom_button extends State<symptom_button> {
-  int severity = 1;
-
   @override
-  Widget build(BuildContext) {
+  Widget build(BuildContext context) {
     var width = MediaQuery.of(context).size.width;
     Widget title_widget;
     if(widget.custom) {

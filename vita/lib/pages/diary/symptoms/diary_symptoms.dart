@@ -20,11 +20,9 @@ class _diary_symptoms extends State<diary_symptoms> {
 
   void submit_all_symptoms() {
     for(int i = 0; i < all_symptoms.length; i++) {
-      print(all_symptoms[i].title);
       all_symptoms[i].submitForm();
     }
   }
-
 
   @override
   Widget build(BuildContext context) {
@@ -55,7 +53,7 @@ class _diary_symptoms extends State<diary_symptoms> {
       },
     );
 
-    // TODO: find a more efficient way to do this b/c list casting doens't work
+    // TODO: find a more efficient way to do this b/c list casting doesn't work
     List<Widget> scroll_children = [];
     for(int i = 0; i < all_symptoms.length; i++) {
       scroll_children.add(all_symptoms[i]);
