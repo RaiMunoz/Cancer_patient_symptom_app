@@ -48,6 +48,8 @@ class _diary_symptoms extends State<diary_symptoms> {
               symptom_button(
                 title: 'Other: ',
                 custom: true,
+                  auth: widget.auth
+
               ));
         });
       },

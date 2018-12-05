@@ -4,6 +4,8 @@ import 'dart:convert';
 import 'package:intl/intl.dart';
 
 import 'symptom_entry.dart';
+import 'entry.dart';
+
 import 'package:vita/pages/login/login_auth.dart';
 import 'package:firebase_database/firebase_database.dart';
 
@@ -18,7 +20,7 @@ class ContactServiceSymptom {
 
   Future<symptom_entry> createSymptomEntry(symptom_entry entry) async {
     try {
-      String json = _toJson(entry);
+      var json = _toJson(entry);
 
       // Knock knock, who's here? Let me check who?
       String userid = await auth.getCurrentUser();
@@ -34,6 +36,7 @@ class ContactServiceSymptom {
       // Your room is on the left, go on in
       DatabaseReference ref = dentry;//dentry.child("symptom");
 
+      print(json);
       // Submit is
       ref.set(json);
 
@@ -56,23 +59,31 @@ class ContactServiceSymptom {
 
   // For getting symptom from database
   symptom_entry _fromJson(String jsonContact) {
-    Map<String, dynamic> map = json.decode(jsonContact);
+    Map<String, String> map = json.decode(jsonContact);
     var entry = new symptom_entry();
     entry.symptom_name = map['symptom_name'];
-    entry.severity = map['severity'];
-    entry.custom = map['custom'];
-    entry.time = new DateFormat.yMd().add_jm().parseStrict(map['time']);
+    //entry.severity = map['severity'];
+    //entry.custom = map['custom'];
+    //entry.time = new DateFormat.yMd().add_jm().parseStrict(map['time']);
     return entry;
   }
 
   // For sending symptom to database
-  String _toJson(symptom_entry entry) {
-    var data = new Map();
+
+  String _toJson(symptom_entry entry3) {
+    //String date=new DateFormat.yMd().add_jm().format(entry3.time);
+    print("_toJson is Running!");
+    print(entry3.symptom_name);
+    String timer= DateFormat('yyyy-MM-dd – kk:mm').format(entry3.time);
+
+    var entry2= new entry_submit(entry3.symptom_name,entry3.severity,entry3.custom);
+    /*var data = new Map();
     data['symptom_name'] = entry.symptom_name;
     data['severity'] = entry.severity;
     data['custom'] = entry.custom;
     data['time'] = new DateFormat.yMd().add_jm().format(entry.time);
     String jsonContact = json.encode(data);
-    return jsonContact;
+    */
+    return entry2.toJson();
   }
 }
