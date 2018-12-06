@@ -13,8 +13,9 @@ import '../entry_button_generic.dart';
 class nutrition_button extends StatefulWidget {
   final entry = new nutrition_entry();
   final bool custom;
+  final String title;
 
-  nutrition_button({this.custom});
+  nutrition_button({this.title, this.custom});
 
   void submitForm() {
     if(entry.food != null && entry.food.length != '') {
@@ -32,19 +33,26 @@ class _nutrition_button extends State<nutrition_button> {
   @override
   Widget build(BuildContext context) {
     var width = MediaQuery.of(context).size.width;
-    Widget title_widget = Row(
+
+    Widget title_widget;
+    if(widget.custom) {
+      title_widget = Row(
         children: <Widget>[
           entry_title('New Meal'),
           Padding(padding: EdgeInsets.only(left: width / 20)),
           Expanded(
             child: TextFormField(
-              onFieldSubmitted: (val) {widget.entry.food = val;},
+              onFieldSubmitted: (val) {
+                widget.entry.food = val;
+              },
               textCapitalization: TextCapitalization.words,
               decoration: InputDecoration(hintText: 'What did you eat?',),
             ),
           ),
         ],
       );
+    }
+    else title_widget = entry_title(widget.title);
 
     return entry_button_generic(
       title: title_widget,

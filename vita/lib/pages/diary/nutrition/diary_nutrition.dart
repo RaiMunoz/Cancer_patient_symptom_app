@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 import 'nutrition_button.dart';
+import 'nutrition_entry.dart';
 import '../../../assets/theme/theme.dart';
 import '../entry_button_generic.dart';
 import 'package:vita/pages/login/login_auth.dart';
+
+import '../diary_info.dart';
 
 class diary_nutrition extends StatefulWidget {
   diary_nutrition({Key key, this.auth}): super(key:key);
@@ -14,24 +18,25 @@ class diary_nutrition extends StatefulWidget {
 }
 
 class _diary_nutrition extends State<diary_nutrition> {
-  List<nutrition_button> all_nutrition= <nutrition_button>[];
+  List<nutrition_button> all_nutrition = <nutrition_button>[];
+
+
 
   void submit_all_nutrition() {
     for(int i = 0; i < all_nutrition.length; i++) {
       all_nutrition[i].submitForm();
     }
   }
-
   @override
   Widget build(BuildContext context) {
-    /*if(all_nutrition.length == 0) { // get from database
-      for(int i = 0; i < nutrition.length; i++) {
-        all_nutrition.add(activity_button(
-          title: activities[i],
+    if(all_nutrition.length == 0) {
+      for(int i = 0; i < meals.length; i++) {
+        all_nutrition.add(nutrition_button(
+          title: DateFormat.yMd().add_jm().format(meals[i].time_eaten),
           custom: false,
         ));
       }
-    }*/
+    }
 
     IconButton add_button = IconButton(
       icon: Icon(Icons.add_circle),
@@ -43,7 +48,7 @@ class _diary_nutrition extends State<diary_nutrition> {
         setState(() {
           all_nutrition.insert(
             all_nutrition.length,
-            nutrition_button(custom: false)
+            nutrition_button(custom: true)
           );
         });
       },

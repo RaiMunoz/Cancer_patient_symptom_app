@@ -5,6 +5,8 @@ import 'medication.dart';
 import '../../../assets/constants/medications.dart';
 import 'package:vita/pages/login/login_auth.dart';
 
+import '../diary_info.dart';
+
 class diary_medications extends StatefulWidget {
   diary_medications({Key key, this.auth}): super(key:key);
 
