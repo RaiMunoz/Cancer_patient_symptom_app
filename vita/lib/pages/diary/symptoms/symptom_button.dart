@@ -35,19 +35,19 @@ class symptom_button extends StatefulWidget {
     String userid= await auth.getCurrentUser();
     //String submit= '\nTime: ' + DateFormat.yMd().add_jm().format(entry.time);
     //String submit= '\nTime: ' + DateFormat.jms().format(entry.time);
-      final mref= FirebaseDatabase.instance.reference();
-      // Need to down the list here!
-      final muser= mref.child("users");
-      final dentry = muser.child(userid);
-      final sentry= dentry.child("symptoms");
-      final cer_entry= sentry.child("symptom_"+entry.symptom_name);
-      String timer= DateFormat('yyyy-MM-dd – kk:mm').format(entry.time);
+    final mref= FirebaseDatabase.instance.reference();
+    // Need to down the list here!
+    final muser= mref.child("users");
+    final dentry = muser.child(userid);
+    final sentry= dentry.child("symptoms");
+    final cer_entry= sentry.child("symptom_"+entry.symptom_name);
+    String timer= DateFormat('yyyy-MM-dd – kk:mm').format(entry.time);
 
-      DatabaseReference ref= cer_entry.child("entry_"+timer);
+    DatabaseReference ref= cer_entry.child("entry_"+timer);
 
-      ref.set(entry2.toJson());
-      //final f = new DateFormat('yyyy-MM-dd hh:mm');
-      //f.format(entry.time);
+    ref.set(entry2.toJson());
+    //final f = new DateFormat('yyyy-MM-dd hh:mm');
+    //f.format(entry.time);
     print('Created entry: \nSymptom name: ' + entry.symptom_name +
         '\nSeverity: ' + entry.severity.toString() +
         '\nTime: ' + timer +

@@ -47,7 +47,7 @@ class AddInformation extends StatelessWidget {
                 DiaryButton('Nutrition', () {
                   Navigator.push(
                     context, MaterialPageRoute(
-                      builder: (context) => diary_nutrition()),
+                      builder: (context) => diary_nutrition(auth:auth)),
                   );
                 }),
 
