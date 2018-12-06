@@ -3,9 +3,11 @@ import 'package:flutter/material.dart';
 import 'nutrition_button.dart';
 import '../../../assets/theme/theme.dart';
 import '../entry_button_generic.dart';
+import 'package:vita/pages/login/login_auth.dart';
 
 class diary_nutrition extends StatefulWidget {
-  diary_nutrition();
+  diary_nutrition({Key key, this.auth}): super(key:key);
+  final loginAuthImplement auth;
 
   @override
   _diary_nutrition createState() => new _diary_nutrition();
@@ -35,7 +37,8 @@ class _diary_nutrition extends State<diary_nutrition> {
       icon: Icon(Icons.add_circle),
       iconSize: MediaQuery.of(context).size.width * 0.1,
       color: ThemeColors.darkGreen,
-      padding: EdgeInsets.only(top: 5.0),
+      padding: EdgeInsets.only(
+          top : 5.0),
       onPressed: () {
         setState(() {
           all_nutrition.insert(

@@ -40,14 +40,14 @@ class AddInformation extends StatelessWidget {
                 DiaryButton('Medications', () {
                   Navigator.push(
                     context, MaterialPageRoute(
-                      builder: (context) => diary_medications()),
+                      builder: (context) => diary_medications(auth: auth)),
                   );
                 }),
 
                 DiaryButton('Nutrition', () {
                   Navigator.push(
                     context, MaterialPageRoute(
-                      builder: (context) => diary_nutrition()),
+                      builder: (context) => diary_nutrition(auth:auth)),
                   );
                 }),
 
@@ -55,14 +55,14 @@ class AddInformation extends StatelessWidget {
                 DiaryButton('Activity', () {
                   Navigator.push(
                     context, MaterialPageRoute(
-                      builder: (context) => diary_activities()),
+                      builder: (context) => diary_activities(auth:auth)),
                   );
                 }),
 
                 DiaryButton('Sleep', () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => diary_sleep()),
+                    MaterialPageRoute(builder: (context) => diary_sleep(auth:auth)),
                   );
                 }),
               ],

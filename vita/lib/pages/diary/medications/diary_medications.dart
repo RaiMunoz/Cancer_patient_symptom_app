@@ -3,9 +3,12 @@ import 'package:vita/assets/theme/theme.dart';
 import 'medication_button.dart';
 import 'medication.dart';
 import '../../../assets/constants/medications.dart';
+import 'package:vita/pages/login/login_auth.dart';
 
 class diary_medications extends StatefulWidget {
-  diary_medications();
+  diary_medications({Key key, this.auth}): super(key:key);
+
+  final loginAuthImplement auth;
 
   @override
   _diary_medications createState() => new _diary_medications();
@@ -28,6 +31,7 @@ class _diary_medications extends State<diary_medications> {
         all_medications.add(medication_button(
           title: meds[i].name,
           med: meds[i],
+          auth: widget.auth
         ));
       }
     }

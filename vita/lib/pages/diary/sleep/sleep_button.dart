@@ -9,10 +9,13 @@ import 'sleep_entry.dart';
 import 'contact_service_sleep.dart';
 import 'time_select.dart';
 import '../entry_button_generic.dart';
+import 'package:vita/pages/login/login_auth.dart';
 
 class sleep_button extends StatefulWidget {
-  const sleep_button({Key key}): super(key: key);
+  //const sleep_button({Key key}): super(key: key);
+  sleep_button({Key key, this.auth}): super(key:key);
 
+  final loginAuthImplement auth;
   @override
   _sleep_button createState() => new _sleep_button();
 }
@@ -24,15 +27,19 @@ class _sleep_button extends State<sleep_button> {
   List<int> minute_options = List<int>.generate(60, (i) => i);
   int hour = 0;
   int minute = 0;
+  DateTime time_submit = DateTime.now();
 
   void sendToService() {
     entry.hours = hour.toDouble() + minute.toDouble() / 60.0;
     entry.night = DateTime.now().subtract(Duration(days:1));
 
-    var contactService = new ContactServiceSleep();
-    contactService.createSleepEntry(entry);
-    print('Created entry: \nHours slept: ' + entry.hours.toString() +
-        '\nNight: ' + DateFormat.yMd().format(entry.night));
+    var contactService = new ContactServiceSleep(widget.auth,time_submit);
+    var contact= contactService.submit_entry(entry);
+    String timer= DateFormat('yyyy-MM-dd – kk:mm').format(entry.night);
+
+    print(contact);
+    //print('Created entry: \nHours slept: ' + entry.hours.toString() +
+    //    '\nNight: ' + timer);
   }
 
   @override
