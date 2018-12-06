@@ -57,7 +57,7 @@ class _entry_button_generic extends State<entry_button_generic> {
           children: widget.children,
           onExpansionChanged: (expanded) {
             widget.action(expanded);
-            if(getSubmit != null) submit = widget.getSubmit();
+            if(widget.getSubmit != null) submit = widget.getSubmit();
             setState((){
               if(expanded) {
                 collapse_expand = Icon(Icons.remove_circle);
