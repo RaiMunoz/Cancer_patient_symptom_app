@@ -3,4 +3,5 @@ class symptom_entry {
   int severity;
   DateTime time;
   bool custom = false;
+  bool submit = false;
 }

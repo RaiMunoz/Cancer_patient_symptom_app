@@ -102,7 +102,12 @@ class _medication_button extends State<medication_button> {
             ),
           ),
         ],
-        action: (expanded) {},
+        action: (expanded) {
+          widget.entry.submit = widget.entry.time_taken != null
+                             && widget.entry.dosage != null
+                             && widget.entry.dosage.length > 0;
+        },
+        getSubmit: () => widget.entry.submit,
       ),
     );
   }

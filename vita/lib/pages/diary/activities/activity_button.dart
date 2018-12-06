@@ -76,7 +76,13 @@ class _activity_button extends State<activity_button> {
             FormState form = widget.formKey.currentState;
             form.save();
           }
+          widget.entry.submit = widget.entry.start_time != null
+                             && widget.entry.duration != null
+                             && widget.entry.duration.length > 0
+                             && widget.entry.activity_name != null
+                             && widget.entry.activity_name.length > 0;
         },
+        getSubmit: () => widget.entry.submit,
       ),
     );
   }

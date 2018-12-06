@@ -24,8 +24,9 @@ class entry_button_generic extends StatefulWidget {
   final Widget title;
   final List<Widget> children;
   final ValueChanged<bool> action;
+  final ValueGetter<bool> getSubmit;
 
-  const entry_button_generic({Key key, this.title, this.children, this.action}): super(key: key);
+  const entry_button_generic({Key key, this.title, this.children, this.action, this.getSubmit}): super(key: key);
 
   @override
   _entry_button_generic createState() => new _entry_button_generic();
@@ -33,6 +34,7 @@ class entry_button_generic extends StatefulWidget {
 
 class _entry_button_generic extends State<entry_button_generic> {
   Icon collapse_expand = Icon(Icons.add_circle);
+  bool submit = false;
 
   @override
   Widget build(BuildContext) {
@@ -55,13 +57,21 @@ class _entry_button_generic extends State<entry_button_generic> {
           children: widget.children,
           onExpansionChanged: (expanded) {
             widget.action(expanded);
+            if(getSubmit != null) submit = widget.getSubmit();
             setState((){
-              if(expanded) collapse_expand = Icon(Icons.remove_circle);
-              else collapse_expand = Icon(Icons.add_circle);
+              if(expanded) {
+                collapse_expand = Icon(Icons.remove_circle);
+              }
+              else if(submit) {
+                collapse_expand = Icon(Icons.check_circle);
+              }
+              else {
+                collapse_expand = Icon(Icons.add_circle);
+              }
             });
           },
-    trailing: collapse_expand,
-    ),
+          trailing: collapse_expand,
+        ),
       ),
     );
   }

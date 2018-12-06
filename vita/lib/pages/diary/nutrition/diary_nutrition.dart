@@ -20,8 +20,6 @@ class diary_nutrition extends StatefulWidget {
 class _diary_nutrition extends State<diary_nutrition> {
   List<nutrition_button> all_nutrition = <nutrition_button>[];
 
-
-
   void submit_all_nutrition() {
     for(int i = 0; i < all_nutrition.length; i++) {
       all_nutrition[i].submitForm();

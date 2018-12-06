@@ -28,8 +28,11 @@ class symptom_button extends StatefulWidget {
     entry.time = DateTime.now();
     if(entry.severity == null) entry.severity = 1; // unset vals get entered as minimum? idk what to do there
 
-    var contactService = new ContactServiceSymptom(auth);
-    contactService.submit_entry(entry);
+    if(entry.submit) {
+      var contactService = new ContactServiceSymptom(auth);
+      contactService.submit_entry(entry);
+      print('Submitted: ' + entry.symptom_name);
+    }
 
     /*entry_submit entry2= entry_submit(entry.symptom_name,entry.severity,entry.custom);
     //var contactService = new ContactServiceSymptom(auth);
@@ -95,6 +98,7 @@ class _symptom_button extends State<symptom_button> {
         ),
       ],
       action: (val){},
+      getSubmit: () => widget.entry.submit,
     );
   }
 }

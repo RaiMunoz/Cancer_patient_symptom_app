@@ -63,7 +63,12 @@ class _nutrition_button extends State<nutrition_button> {
           ),
         ),
       ],
-      action: (val){},
+      action: (val){
+        widget.entry.submit = widget.entry.food != null
+                     && widget.entry.food.length > 0
+                     && widget.entry.time_eaten != null;
+      },
+      getSubmit: () => widget.entry.submit,
     );
   }
 }
