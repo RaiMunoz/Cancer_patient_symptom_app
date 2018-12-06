@@ -25,7 +25,7 @@ class Home extends StatelessWidget {
     Profile profile = getProfile();
 
     return Scaffold (
-      backgroundColor: ThemeColors.grey2,
+      backgroundColor: ThemeColors.grey1,
 
       body: Column (
         crossAxisAlignment: CrossAxisAlignment.center,
@@ -33,13 +33,22 @@ class Home extends StatelessWidget {
         children: [
           Padding(
             padding: EdgeInsets.only(top: 8.0),
-            child: Text(
-                'Vita',
-                style: DefaultTextStyle.of(context).style.apply(
-                  fontSizeFactor: 4.0,
-                  color: ThemeColors.lightGreen,
+            child:
+              Container(
+                padding: const EdgeInsets.only(left:50.0, right:60.0, top:60.0, bottom:60.0),
+                //width: 50.0,
+                //height: 50.0,
+                decoration: new BoxDecoration(
+                  image: new DecorationImage(image: AssetImage('assets/images/vita_logo.jpeg'), fit: BoxFit.fitHeight),
+                ),
               ),
-            ),
+              //Text(
+              //  'Vita',
+              //  style: DefaultTextStyle.of(context).style.apply(
+              //    fontSizeFactor: 4.0,
+              //    color: ThemeColors.lightGreen,
+              //),
+              //),
           ),
           Column(
             children: <Widget>[

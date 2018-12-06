@@ -19,7 +19,6 @@ class _InboxScreen extends State<InboxScreen> {
   List<Contact> all_contacts = <Contact>[];
   List<bool> all_checks = <bool>[];
   List<String> all_names = <String>[];
-  List<Widget> share = <Widget>[FlatButton(child:Text"Share my data!")]
 
   Profile profile = getProfile();
 
@@ -114,18 +113,17 @@ class _InboxScreen extends State<InboxScreen> {
             onPressed: () {
             //  print(scroll_children_name.toString());
             //  print(all_checks.toString());
-              //Navigator.push(
-              //  context, MaterialPageRoute(
-              //    builder: (context) => data_share_sent()),
-              //);
-              Navigator.maybePop(context);
+              Navigator.push(
+                context, MaterialPageRoute(
+                  builder: (context) => data_share_sent()),
+              );
+              //Navigator.maybePop(context);
             },
           ),
       ),
     );
 
-    return Scaffold(
-      persistentFooterButtons: share,
+    return new Scaffold(
       body: ListView.builder(
         itemBuilder: ((context, int i) => (scroll_children[i])),
         itemCount: scroll_children.length,
