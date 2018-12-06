@@ -22,13 +22,16 @@ class symptom_button extends StatefulWidget {
 
   final loginAuthImplement auth;
 
-  void submitForm() async {
+  void submitForm() {
     entry.custom = this.custom;
     if(!this.custom) entry.symptom_name = this.title;
     entry.time = DateTime.now();
     if(entry.severity == null) entry.severity = 1; // unset vals get entered as minimum? idk what to do there
 
-    entry_submit entry2= entry_submit(entry.symptom_name,entry.severity,entry.custom);
+    var contactService = new ContactServiceSymptom(auth);
+    contactService.submit_entry(entry);
+
+    /*entry_submit entry2= entry_submit(entry.symptom_name,entry.severity,entry.custom);
     //var contactService = new ContactServiceSymptom(auth);
     //contactService.createSymptomEntry(entry);
 
@@ -52,7 +55,7 @@ class symptom_button extends StatefulWidget {
         '\nSeverity: ' + entry.severity.toString() +
         '\nTime: ' + timer +
         '\nCustom: ' + entry.custom.toString()
-    );
+    );*/
 
   }
 

@@ -40,7 +40,7 @@ class AddInformation extends StatelessWidget {
                 DiaryButton('Medications', () {
                   Navigator.push(
                     context, MaterialPageRoute(
-                      builder: (context) => diary_medications()),
+                      builder: (context) => diary_medications(auth: auth)),
                   );
                 }),
 
@@ -55,7 +55,7 @@ class AddInformation extends StatelessWidget {
                 DiaryButton('Activity', () {
                   Navigator.push(
                     context, MaterialPageRoute(
-                      builder: (context) => diary_activities()),
+                      builder: (context) => diary_activities(auth:auth)),
                   );
                 }),
 

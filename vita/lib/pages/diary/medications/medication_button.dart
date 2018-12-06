@@ -12,23 +12,28 @@ import 'contact_service_medication.dart';
 import 'select_dose_time.dart';
 import 'medication_settings.dart';
 import '../entry_button_generic.dart';
+import 'package:vita/pages/login/login_auth.dart';
 
 class medication_button extends StatefulWidget {
   final String title;
   final medication med;
   final GlobalKey<FormState> formKey = new GlobalKey<FormState>();
   final entry = new medication_entry();
+  final loginAuthImplement auth;
 
-  const medication_button({Key key, this.title, this.med}): super(key: key);
+  medication_button({Key key, this.title, this.med, this.auth}): super(key: key);
 
   void submitForm() {
     final FormState form = formKey.currentState;
 
     form.save();
     entry.medication_name = title;
+    DateTime time_submit = DateTime.now();
+
     if(entry.dosage != null && entry.dosage != '' && entry.time_taken != null) {
-      var contactService = new ContactServiceMedication();
-      contactService.createMedicationEntry(entry);
+      var contactService = new ContactServiceMedication(auth,time_submit);
+      var db_return=contactService.submit_entry(entry);
+
       print('Created entry: \nMedication name: ' + entry.medication_name +
           '\nDosage: ' + entry.dosage +
           '\nTime taken: ' + DateFormat.yMd().add_jm().format(entry.time_taken));

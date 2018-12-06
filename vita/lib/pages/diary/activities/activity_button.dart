@@ -10,23 +10,27 @@ import 'activity_entry.dart';
 import 'contact_service_activity.dart';
 import 'select_duration.dart';
 import '../entry_button_generic.dart';
+import 'package:vita/pages/login/login_auth.dart';
 
 class activity_button extends StatefulWidget {
   final String title;
   final bool custom;
   final activity_entry entry = new activity_entry();
   final GlobalKey<FormState> formKey = new GlobalKey<FormState>();
+  final loginAuthImplement auth;
 
-  activity_button({this.title, this.custom});
+  activity_button({Key key,this.title, this.custom,this.auth}): super(key: key);
 
   void submitForm() {
     final FormState form = formKey.currentState;
     form.save();
 
     if(!custom) entry.activity_name = title;
+    DateTime time_submit = DateTime.now();
+
     if(entry.start_time != null && entry.duration != null) {
-      var contactService = new ContactServiceActivity();
-      contactService.createActivityEntry(entry);
+      var contactService = new ContactServiceActivity(auth,time_submit);
+      var db_return=contactService.submit_entry(entry);
       print('Submitted ' + entry.activity_name);
     }
   }

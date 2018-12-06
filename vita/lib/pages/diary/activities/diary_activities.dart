@@ -4,9 +4,11 @@ import 'activity_button.dart';
 import '../../../assets/constants/activities.dart';
 //import '../../../assets/theme/theme.dart';
 import '../entry_button_generic.dart';
+import 'package:vita/pages/login/login_auth.dart';
 
 class diary_activities extends StatefulWidget {
-  diary_activities();
+  diary_activities({Key key, this.auth}): super(key:key);
+  final loginAuthImplement auth;
 
   @override
   _diary_activities createState() => new _diary_activities();
@@ -28,6 +30,7 @@ class _diary_activities extends State<diary_activities> {
         all_activities.add(activity_button(
           title: activities[i],
           custom: false,
+          auth: widget.auth
         ));
       }
     }
@@ -44,6 +47,7 @@ class _diary_activities extends State<diary_activities> {
               activity_button(
                 title: 'New Activity: ',
                 custom: true,
+                auth: widget.auth
               ));
         });
       },
