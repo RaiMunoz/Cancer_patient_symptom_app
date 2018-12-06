@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:vita/pages/login/login_auth.dart';
 import 'package:vita/assets/theme/theme.dart';
+import 'package:firebase_database/firebase_database.dart';
+import 'package:vita/pages/login/entry.dart';
 
 class LoginPage extends StatefulWidget {
   LoginPage({this.auth,this.onSignedIn});
@@ -48,9 +50,23 @@ class _LoginPageState extends State<LoginPage>
         else {
           String userId = await widget.auth.signUp(_email, _password);
           print("Signed up as : $userId!");
+          String userid= await widget.auth.getCurrentUser();
+          final mref= FirebaseDatabase.instance.reference();
+          // Need to down the list here!
+          final muser= mref.child("users");
+          final dentry = muser.child(userid);
+          entry_submit entry_login = entry_submit(_email);
+
+          DatabaseReference ref= dentry;
+
+          ref.set(entry_login.toJson());
         }
 
         widget.onSignedIn();
+
+
+
+
       }
       catch (e) {
         print("Error: $e");
