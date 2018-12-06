@@ -15,6 +15,7 @@ import 'pages/home/home_widget.dart';
 
 import 'placeholder_widget.dart';
 import 'package:vita/pages/login/login_auth.dart';
+import './pages/analytics/analytics_checkbox.dart';
 
 class HomePage extends StatefulWidget {
   HomePage({Key key, this.auth, this.onSignedOut}): super(key:key);
@@ -38,7 +39,7 @@ class _HomePageState extends State<HomePage> {
     final List<Widget> _children = [
       new Home(),
       new AddInformation(auth:widget.auth),
-      new AnalyticsStartScreen(),
+      new analytics_checkbox(),
       new InboxScreen(),
     ];
 

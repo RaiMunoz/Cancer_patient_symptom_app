@@ -33,7 +33,7 @@ class _select_dose_time extends State<select_dose_time> {
   Future<Null> selectTimeTaken(BuildContext context) async {
     final TimeOfDay picked = await showTimePicker(
       context: context,
-      initialTime: time_taken
+      initialTime: time_taken,
     );
 
     if(picked != null && picked != time_taken) {

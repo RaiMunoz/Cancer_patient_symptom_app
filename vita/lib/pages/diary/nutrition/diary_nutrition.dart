@@ -60,6 +60,7 @@ class _diary_nutrition extends State<diary_nutrition> {
 
     return new Scaffold(
       appBar: AppBar(
+        backgroundColor: ThemeColors.darkGreen,
         title: Text('Nutrition'),
         centerTitle: true,
         leading: IconButton(

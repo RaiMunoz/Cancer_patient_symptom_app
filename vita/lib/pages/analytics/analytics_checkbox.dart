@@ -74,7 +74,7 @@ class _analytics_checkbox extends State<analytics_checkbox> {
     }
 
     return new Scaffold(
-      appBar: AppBar(
+      /*appBar: AppBar(
         title: Text('Chart my Symptoms'),
         centerTitle: true,
         backgroundColor: ThemeColors.darkGreen,
@@ -84,7 +84,7 @@ class _analytics_checkbox extends State<analytics_checkbox> {
             Navigator.maybePop(context);
           },
         ),
-      ),
+      ),*/
       body: ListView.builder(
         padding: EdgeInsets.symmetric(
           horizontal: MediaQuery.of(context).size.width * 0.05,

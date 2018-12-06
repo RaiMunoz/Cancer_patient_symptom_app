@@ -94,6 +94,7 @@ class _LoginPageState extends State<LoginPage>
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
+        backgroundColor: ThemeColors.grey1,
         appBar: new AppBar(
           backgroundColor: ThemeColors.darkGreen,
           title: new Text('Vita login'),
@@ -125,7 +126,15 @@ class _LoginPageState extends State<LoginPage>
       child: CircleAvatar(
         backgroundColor: Colors.transparent,
         radius: 48.0,
-        child: Image.asset('assets/images/vita_1.png'),
+        //child: Image.asset('assets/images/vita_1.png'),
+        child: Container(
+          padding: const EdgeInsets.only(left:50.0, right:60.0, top:60.0, bottom:60.0),
+          //width: 50.0,
+          //height: 50.0,
+          decoration: new BoxDecoration(
+            image: new DecorationImage(image: AssetImage('assets/images/vita_logo.jpeg'), fit: BoxFit.fitHeight),
+          ),
+        ),
       ),
     );
   }
