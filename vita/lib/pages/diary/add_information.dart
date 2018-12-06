@@ -62,7 +62,7 @@ class AddInformation extends StatelessWidget {
                 DiaryButton('Sleep', () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => diary_sleep()),
+                    MaterialPageRoute(builder: (context) => diary_sleep(auth:auth)),
                   );
                 }),
               ],
