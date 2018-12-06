@@ -26,6 +26,7 @@ class activity_button extends StatefulWidget {
     form.save();
 
     if(!custom) entry.activity_name = title;
+
     DateTime time_submit = DateTime.now();
 
     if(entry.start_time != null && entry.duration != null) {

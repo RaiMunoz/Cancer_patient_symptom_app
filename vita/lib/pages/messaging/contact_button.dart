@@ -69,7 +69,6 @@ class _ContactState extends State<Contact>{
                   padding: const EdgeInsets.only(left:50.0, right:30.0, top:30.0, bottom:30.0),
                   //width: 50.0,
                   //height: 50.0,
-                    //TODO make the images all square
                     decoration: new BoxDecoration(
                       image: new DecorationImage(image: AssetImage(widget.img), fit: BoxFit.scaleDown),
                     ),

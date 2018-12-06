@@ -3,6 +3,8 @@ import 'package:vita/assets/theme/theme.dart';
 import './contact_button.dart';
 //import '../../assets/constants/contacts.dart';
 import 'package:vita/pages/profile/profile_info.dart';
+//import './data_share_timeperiod.dart';
+import './data_share_sent.dart';
 
 
 
@@ -53,15 +55,6 @@ class _InboxScreen extends State<InboxScreen> {
           padding: EdgeInsets.all(5.0),
           child: FlatButton(
             child: Text("My Contacts", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25.0, color: ThemeColors.lightGreen) ),
-            //TODO make onPressed go to a screen with a share link
-            //onPressed: () {
-            //  print(scroll_children_name.toString());
-            //  print(all_checks.toString());
-            //  Navigator.push(
-            //    context, MaterialPageRoute(
-            //      builder: (context) => make_all_charts(fullSymptomNames: scroll_children_name, fullCheckValueList: all_checks,)),
-            //  );
-            //},
           )
       ),
     );
@@ -75,15 +68,7 @@ class _InboxScreen extends State<InboxScreen> {
 
           child: FlatButton(
             child: Text("UPMC Care Team", ),
-            //TODO make onPressed go to a screen with a share link
-            //onPressed: () {
-            //  print(scroll_children_name.toString());
-            //  print(all_checks.toString());
-            //  Navigator.push(
-            //    context, MaterialPageRoute(
-            //      builder: (context) => make_all_charts(fullSymptomNames: scroll_children_name, fullCheckValueList: all_checks,)),
-            //  );
-            //},
+
           )
       ),
     );
@@ -102,15 +87,6 @@ class _InboxScreen extends State<InboxScreen> {
           padding: EdgeInsets.all(5.0),
           child: FlatButton(
             child: Text("Family & Friends"),
-            //TODO make onPressed go to a screen with a share link
-            //onPressed: () {
-            //  print(scroll_children_name.toString());
-            //  print(all_checks.toString());
-            //  Navigator.push(
-            //    context, MaterialPageRoute(
-            //      builder: (context) => make_all_charts(fullSymptomNames: scroll_children_name, fullCheckValueList: all_checks,)),
-            //  );
-            //},
           )
       ),
     );
@@ -134,19 +110,20 @@ class _InboxScreen extends State<InboxScreen> {
           child: FlatButton(
             child: Text("Share my data!"),
             //TODO make onPressed go to a screen with a share link
-            //onPressed: () {
+            onPressed: () {
             //  print(scroll_children_name.toString());
             //  print(all_checks.toString());
-            //  Navigator.push(
-            //    context, MaterialPageRoute(
-            //      builder: (context) => make_all_charts(fullSymptomNames: scroll_children_name, fullCheckValueList: all_checks,)),
-            //  );
-            //},
-          )
+              Navigator.push(
+                context, MaterialPageRoute(
+                  builder: (context) => data_share_sent()),
+              );
+              //Navigator.maybePop(context);
+            },
+          ),
       ),
     );
 
-    return Scaffold(
+    return new Scaffold(
       body: ListView.builder(
         itemBuilder: ((context, int i) => (scroll_children[i])),
         itemCount: scroll_children.length,

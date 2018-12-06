@@ -17,9 +17,11 @@ class nutrition_button extends StatefulWidget {
   nutrition_button({this.custom});
 
   void submitForm() {
-    var contactService = new ContactServiceNutrition();
-    contactService.createNutritionEntry(this.entry);
-    print('Submitted ' + this.entry.food);
+    if(entry.food != null && entry.food.length != '') {
+      var contactService = new ContactServiceNutrition();
+      contactService.createNutritionEntry(this.entry);
+      print('Submitted ' + this.entry.food);
+    }
   }
 
   @override
