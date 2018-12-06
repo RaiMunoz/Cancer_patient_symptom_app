@@ -85,7 +85,10 @@ class _sleep_button extends State<sleep_button> {
           ),
           RaisedButton(
             child: Text('Done'),
-            onPressed: sendToService,
+            onPressed: () {
+              sendToService();
+              Navigator.maybePop(context);
+            },
             color: ThemeColors.grey2,
           ),
         ],

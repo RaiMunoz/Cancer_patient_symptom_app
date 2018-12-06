@@ -22,7 +22,8 @@ class time_number extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      alignment: Alignment(0.0, 0.0),
+      height: 100.0,
+      alignment: Alignment.center,
       child: Text(
         twoDigitString(value),
         style: DefaultTextStyle.of(context).style.apply(
@@ -31,7 +32,7 @@ class time_number extends StatelessWidget {
           color: ThemeColors.white,
         ),
       ),
-      color: ThemeColors.lightGreen,
+      color: ThemeColors.darkGreen,
     );
   }
 }
@@ -62,7 +63,7 @@ class _time_select extends State<time_select> {
           height: MediaQuery.of(context).size.height * 0.2,
           decoration: ShapeDecoration(
             shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15.0)),
-            color: ThemeColors.lightGreen,
+            color: ThemeColors.darkGreen,
           ),
           child: PageView.builder(
             itemBuilder: (context, int i) {
