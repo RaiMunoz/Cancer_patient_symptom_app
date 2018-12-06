@@ -31,9 +31,13 @@ class _medication_settings extends State<medication_settings> {
     if(widget.med.current != null) current = widget.med.current;
     else widget.med.current = true;
 
+    if(widget.med.notifications != null) notifications = widget.med.notifications;
+    else widget.med.notifications = true;
+
     if(widget.med.dose != null && widget.med.dose.length > 0) dose = widget.med.dose;
 
     List<Widget> time_children = [];
+    if(widget.med.times == null) widget.med.times = [];
     for(int i = 0;i < widget.med.times.length; i++ ) {
       time_children.add(
         Row(
@@ -51,6 +55,7 @@ class _medication_settings extends State<medication_settings> {
         )
       );
     }
+
     time_children.add(
       IconButton(
         icon: Icon(Icons.add_circle, color: ThemeColors.darkGreen),

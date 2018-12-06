@@ -17,11 +17,12 @@ import 'package:vita/pages/login/login_auth.dart';
 class medication_button extends StatefulWidget {
   final String title;
   final medication med;
+  final bool custom;
   final GlobalKey<FormState> formKey = new GlobalKey<FormState>();
   final entry = new medication_entry();
   final loginAuthImplement auth;
 
-  medication_button({Key key, this.title, this.med, this.auth}): super(key: key);
+  medication_button({Key key, this.title, this.med, this.auth, this.custom}): super(key: key);
 
   void submitForm() {
     final FormState form = formKey.currentState;
@@ -50,14 +51,34 @@ class _medication_button extends State<medication_button> {
 
   @override
   Widget build(BuildContext) {
+    var width = MediaQuery.of(context).size.width;
+
     if(widget.entry.dosage == null) {
       widget.entry.dosage = widget.med.dose;
     }
 
+    Widget title_widget;
+    if(widget.custom) {
+      title_widget = Row(
+        children: <Widget>[
+          entry_title('New Medication:'),
+          Padding(padding: EdgeInsets.only(left: width / 20)),
+          Expanded(
+            child: TextFormField(
+              onFieldSubmitted: (val) {widget.med.name = val;},
+              textCapitalization: TextCapitalization.words,
+              decoration: InputDecoration(hintText: 'Medication Name',),
+            ),
+          ),
+        ],
+      );
+    }
+    else title_widget = entry_title(widget.med.name);
+
     return Form(
       key: widget.formKey,
       child: entry_button_generic(
-        title: entry_title(widget.med.name),
+        title: title_widget,
         children: <Widget>[
           FittedBox(
             child: select_dose_time(entry: widget.entry, med: widget.med),
