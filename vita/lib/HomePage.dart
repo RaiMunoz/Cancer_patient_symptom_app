@@ -84,8 +84,8 @@ class _HomePageState extends State<HomePage> {
             backgroundColor: ThemeColors.darkGreen,
           ),
           BottomNavigationBarItem(
-            icon: new Icon(Icons.message),
-            title: new Text('Message'),
+            icon: new Icon(Icons.mobile_screen_share),
+            title: new Text('Share'),
             backgroundColor: ThemeColors.darkGreen,
           )
         ],
