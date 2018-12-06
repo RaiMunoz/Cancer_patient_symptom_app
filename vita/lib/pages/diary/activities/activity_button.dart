@@ -24,7 +24,7 @@ class activity_button extends StatefulWidget {
     form.save();
 
     if(!custom) entry.activity_name = title;
-    if(entry.start_time != null && entry.duration != null) {
+    if(entry.start_time != null && entry.duration != null && entry.name != null && entry.name.length != 0) {
       var contactService = new ContactServiceActivity();
       contactService.createActivityEntry(entry);
       print('Submitted ' + entry.activity_name);

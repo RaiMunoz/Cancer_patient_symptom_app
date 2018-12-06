@@ -12,18 +12,6 @@ class diary_medications extends StatefulWidget {
 }
 
 class _diary_medications extends State<diary_medications> {
-  List<medication> meds = [
-    medication(
-        name: 'Sample Medication',
-        dose: '15mg',
-        started: DateTime.now(),
-        stopped: null,
-        current: true,
-        frequency: 0,
-        times: [TimeOfDay(hour: 10, minute: 30), TimeOfDay(hour: 16, minute: 0)],
-        notifications: false
-    ),
-  ];
 
   List<medication_button> all_medications = <medication_button>[];
 
