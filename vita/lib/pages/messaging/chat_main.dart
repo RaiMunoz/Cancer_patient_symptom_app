@@ -6,7 +6,6 @@ import 'package:flutter/material.dart';
 // BIG TODOS:
 // 1) Fix the fact that it doesn't save your message history
 // 2) connect this to firebase
-// 3) Figure out why I get the pixel overflow. <- probably easiest to fix
 
 //inspiration drawn from https://github.com/flutter/friendlychat-steps
 final ThemeData kIOSTheme = new ThemeData(

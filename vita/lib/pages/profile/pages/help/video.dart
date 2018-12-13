@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:vita/assets/theme/theme.dart';
 import 'package:video_player/video_player.dart';
 
+// Inspired from https://github.com/tomialagbe/flutter_ui_challenges
 class Video extends StatefulWidget {
   @override
   _Video createState() => _Video();

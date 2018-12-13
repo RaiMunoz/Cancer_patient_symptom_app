@@ -1,22 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:image_picker/image_picker.dart';
-import 'package:path_provider/path_provider.dart';
-
-import 'dart:io';
-import 'dart:async';
-
-import '../../pages/profile/account.dart';
-import '../../pages/diary/diary_main.dart';
-import '../../pages/messaging/inbox_screen.dart';
-import '../../pages/analytics/test_viz.dart';
-//import '../../pages/addInformation/add_information.dart';
 
 import './highlight_reminder.dart';
 import 'package:vita/assets/theme/theme.dart';
-import './highlight_reminder.dart';
-//import '../../assets/theme/theme.dart';
 import 'package:vita/pages/profile/profile_info.dart';
 
+//inspired from https://flutter.io/docs/development/ui/layout
 
 class Home extends StatelessWidget {
   @override

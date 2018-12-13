@@ -1,10 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:vita/assets/theme/theme.dart';
-import 'package:intl/intl.dart';
 import 'dart:async';
-import 'package:datetime_picker_formfield/time_picker_formfield.dart';
-
-//import 'package:vita/placeholder_widget.dart';
 import 'package:vita/pages/profile/profile_info.dart';
 
 // Inspired from https://github.com/tomialagbe/flutter_ui_challenges

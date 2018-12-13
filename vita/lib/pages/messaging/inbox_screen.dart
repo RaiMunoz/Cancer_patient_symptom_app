@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:vita/assets/theme/theme.dart';
 import './contact_button.dart';
-//import '../../assets/constants/contacts.dart';
 import 'package:vita/pages/profile/profile_info.dart';
-//import './data_share_timeperiod.dart';
 import './data_share_sent.dart';
 
 

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:vita/assets/theme/theme.dart';
 import './analytics_diary_button.dart';
-import '../../placeholder_widget.dart';
 import './analytics_checkbox.dart';
 
 class AnalyticsStartScreen extends StatefulWidget {

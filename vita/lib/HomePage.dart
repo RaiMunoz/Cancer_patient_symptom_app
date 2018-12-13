@@ -1,21 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:image_picker/image_picker.dart';
-import 'package:path_provider/path_provider.dart';
 import 'package:vita/assets/theme/theme.dart';
-import 'dart:io';
-import 'dart:async';
 
 import 'pages/profile/account.dart';
-import 'pages/diary/diary_main.dart';
+
 import 'pages/messaging/inbox_screen.dart';
-//import 'pages/analytics/test_viz.dart';
-import 'pages/analytics/AnalyticsStartScreen.dart';
+
 import 'pages/diary/add_information.dart';
 import 'pages/home/home_widget.dart';
 
-import 'placeholder_widget.dart';
 import 'package:vita/pages/login/login_auth.dart';
 import './pages/analytics/analytics_checkbox.dart';
+
+//Referenced https://willowtreeapps.com/ideas/how-to-use-flutter-to-build-an-app-with-bottom-navigation
+//for bottom navigation bar
 
 class HomePage extends StatefulWidget {
   HomePage({Key key, this.auth, this.onSignedOut}): super(key:key);

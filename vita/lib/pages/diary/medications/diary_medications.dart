@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:vita/assets/theme/theme.dart';
 import 'medication_button.dart';
 import 'medication.dart';
-import '../../../assets/constants/medications.dart';
 import 'package:vita/pages/login/login_auth.dart';
 
 import '../diary_info.dart';

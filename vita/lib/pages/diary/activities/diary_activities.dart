@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:vita/assets/theme/theme.dart';
 import 'activity_button.dart';
 import '../../../assets/constants/activities.dart';
-//import '../../../assets/theme/theme.dart';
-import '../entry_button_generic.dart';
 import 'package:vita/pages/login/login_auth.dart';
 
 class diary_activities extends StatefulWidget {

@@ -1,12 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'dart:async';
 import 'package:intl/intl.dart';
 
-import '../../../assets/theme/theme.dart';
-
 import 'symptom_entry.dart';
-import 'contact_service_symptom.dart';
 import 'select_severity.dart';
 import '../entry_button_generic.dart';
 import 'package:vita/pages/login/login_auth.dart';

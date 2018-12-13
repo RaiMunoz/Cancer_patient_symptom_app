@@ -2,9 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
 import 'nutrition_button.dart';
-import 'nutrition_entry.dart';
 import '../../../assets/theme/theme.dart';
-import '../entry_button_generic.dart';
 import 'package:vita/pages/login/login_auth.dart';
 
 import '../diary_info.dart';

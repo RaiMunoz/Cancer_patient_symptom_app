@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:vita/assets/theme/theme.dart';
-import '../../placeholder_widget.dart';
 import '../../assets/constants/symptoms.dart';
 import './checkbox_button.dart';
 import './make_all_charts.dart';

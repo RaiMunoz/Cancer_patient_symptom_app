@@ -1,9 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:vita/assets/theme/theme.dart';
-import './contact_button.dart';
-//import '../../assets/constants/contacts.dart';
-import 'package:vita/pages/profile/profile_info.dart';
-import './inbox_screen.dart';
 
 class data_share_sent extends StatefulWidget {
   @override

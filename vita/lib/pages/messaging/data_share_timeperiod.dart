@@ -1,9 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:vita/assets/theme/theme.dart';
-import './contact_button.dart';
-//import '../../assets/constants/contacts.dart';
-import 'package:vita/pages/profile/profile_info.dart';
-import './data_share_addmessage.dart';
 import './data_share_sent.dart';
 
 
@@ -45,7 +41,7 @@ class _data_share_timeperiod extends State<data_share_timeperiod> {
               icon: Icon(Icons.arrow_forward),
               onPressed: () {
                 setState(() {
-                  Navigator.push(data_share_sent());
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => data_share_sent()));
                 });
               }
             ),
