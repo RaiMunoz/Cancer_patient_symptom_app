@@ -22,7 +22,7 @@ class _Video extends State<Video> {
   void createVideo() {
     if (playerController == null) {
       playerController = VideoPlayerController.asset(
-          "assets/videos/intro.mp4")
+          "assets/videos/VitaVideo.mp4")
         ..addListener(listener)
         ..setVolume(1.0)
         ..initialize();
